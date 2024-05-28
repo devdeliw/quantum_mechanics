@@ -37,8 +37,8 @@ me study and to encourage me studying QM topics *outside* lecture to give me an
 overall better understanding of the subject. Also I like the idea of having
 textbooks I have written on a shelf of mine someday. 
 
-The main .pdf of the textbook is `my_book/main.pdf`.  `/main.nb`
-is the mathematica file for generating the figures. The rest of the `.tex`
+The main .pdf of the textbook is `my_book/main.pdf`.  The Wolfram Mathematica `/main.nb`
+file is for generating the figures in the textbook. The rest of the `/.tex`
 files are for organizing the chapters before compilation. 
 
 ---
