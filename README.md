@@ -18,7 +18,7 @@ Covers roughly the first half of Griffiths with a bit extra:
   Function) 
 - Three-Dimensional QM & The Hydrogen Atom
 - Angular Momenta -- Spin, Isospin, Coupling, Wigner-Eckart, Larmor Precession
-- Rotation -- Spherical Tensors, Zeeman Effect, First Order Perturbation Theory, 
+- Rotation -- Spherical Tensors, Zeeman Effect, First Order Perturbation Theory
 - Fermions & Bosons -- Symmetry
 - Helium Atom
 
