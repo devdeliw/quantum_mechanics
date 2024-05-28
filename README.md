@@ -43,6 +43,9 @@ files are for organizing the chapters before compilation.
 
 ---
 
+Apologies if the notes are hard to read ...my handwriting is a bit
+*exuberant*. See the textbook! ...which is still in progress. 
+
 
 
 
