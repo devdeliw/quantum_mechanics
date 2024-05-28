@@ -1,0 +1,129 @@
+\documentclass[10pt,letterpaper, twocolumn]{report}
+\usepackage{mwe}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage{pagecolor}
+\tikzset{>=latex} % for LaTeX arrow head
+\usepackage{pgfplots} % for the axis environment
+\usepackage[subrefformat=parens]{subcaption}
+\usepackage{comment}
+\pgfplotsset{
+  compat=1.13, % TikZ coordinates <-> axes coordinates
+  /pgf/number format/1000 sep={},
+  legend image code/.code={
+    \draw[mark repeat=2,mark phase=2]
+    plot coordinates {(0cm,0cm) (0.22cm,0cm) (0.44cm,0cm)};%
+  }
+}
+\makeatletter \newcommand{\pgfplotsdrawaxis}{\pgfplots@draw@axis} \makeatother
+\pgfplotsset{axis line on top/.style={after end axis/.append code={\pgfplotsdrawaxis}}
+}
+
+\usepackage[most]{tcolorbox}
+
+\tcbset {
+  base/.style={
+    arc=0mm,
+    bottomtitle=0.5mm,
+    boxrule=0mm,
+    colbacktitle=black!10!white,
+    coltitle=black,
+    fonttitle=\bfseries,
+    left=2.5mm,
+    leftrule=1mm,
+    right=3.5mm,
+    title={#1},
+    toptitle=0.75mm,
+  }
+}
+
+\definecolor{brandblue}{rgb}{0.34, 0.7, 1}
+\newtcolorbox{mainbox}[1]{
+  colframe=brandblue,
+  base={#1}
+}
+
+\newtcolorbox{subbox}[1]{
+  colframe=black!30!white,
+  base={#1}
+}
+
+% CUSTOM COLORS
+% See https://tikz.net/blackbody_color/
+\definecolor{5000K}{rgb}{0,0,0}
+\pgfdeclareverticalshading{rainbow}{100bp}{
+  color(0bp)=(red); color(25bp)=(red); color(35bp)=(yellow);
+  color(45bp)=(green); color(55bp)=(cyan); color(65bp)=(blue);
+  color(75bp)=(violet); color(100bp)=(violet)
+}
+\colorlet{myred}{red!70!black}
+\colorlet{mygreen}{green!70!black}
+\colorlet{mydarkgreen}{green!55!black}
+\pgfmathdeclarefunction{planck}{2}{%
+  \pgfmathparse{1.191042972e26/(#1^5)/(exp(0.01439e9/(#1*#2))-1)}%
+}
+\pgfmathdeclarefunction{rayleighjeans}{2}{%
+  \pgfmathparse{8.278160269e18*#2/(#1^4)}%
+}
+\pgfmathdeclarefunction{wien}{2}{%
+  \pgfmathparse{1.191042972e26/(#1^5)*exp(-0.01439e9/(#1*#2))}%
+}
+\pgfmathdeclarefunction{lampeak}{1}{% % Wien's displacement law
+  \pgfmathparse{2.898e6/#1}%
+}
+\usepackage{siunitx}
+\usepackage{amsmath}
+\usepackage[most]{tcolorbox}
+
+\usepackage{circuitikz}
+
+%% Specifications
+\ctikzset{bipoles/thickness=1.2}
+\usetikzlibrary{angles,quotes}
+
+% Define Color
+\definecolor{bleudefrance}{rgb}{0.19, 0.55, 0.91}
+\graphicspath{{/Users/devaldeliwala/screenshots/}}
+
+\begin{document}
+%\pagecolor{gray!20!white}
+\begin{titlepage}
+	\centering
+	\includegraphics[width=0.18\textwidth]{ucberkseal.svg}\par\vspace{1cm}
+	{\LARGE \textsc{University of California, Berkeley}\par}
+	\vspace{1cm}
+	{\Large \textsc{Physics 137A-B}\par}
+	\vspace{1.5cm}
+	{\huge\bfseries Quantum Mechanics \par}
+	\vspace{2cm}
+	{\Large\itshape Deval Deliwala\par}
+	\vfill
+	\vfill
+% Bottom of the page
+	{\large \today\par}
+\end{titlepage}
+
+\newpage\
+\newpage\
+\tableofcontents
+\newpage\
+
+\chapter{The Quantum Regime}
+\input{chapter1}
+\chapter{Early QM -- Quantization \& Wave-Particle Duality}
+\input{chapter2}
+\chapter{Derivation of Schr\"odinger's Equation, Correspondence, Superposition,
+\& Wave Packets}
+\input{chapter3}
+\chapter{Properties of the Wave Function}
+\input{chapter4}
+\chapter{Stationary States \& the ``Prime Directive"}
+\input{chapter5}
+\chapter{Solving the Time-Independent Schr\"odinger Equation}
+\input{chapter6}
+
+
+
+
+\end{document}
