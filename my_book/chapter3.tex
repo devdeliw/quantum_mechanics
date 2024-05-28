@@ -1,0 +1,418 @@
+\section{The Classical Wave Equation}
+
+\begin{figure}[H]
+\begin{subfigure}[b]{.59\linewidth}
+\centering
+\includegraphics[width=\linewidth]{damped_wave.pdf}
+\caption{$A_0 \frac{\sin r}{r}$}\label{fig1a}
+\end{subfigure}\hfill
+\begin{subfigure}[b]{.39\linewidth}
+\centering
+\includegraphics[width=\linewidth]{damped_wave_1d.pdf}
+\caption{1D cut}\label{fig1b}
+\end{subfigure}%
+\caption{Example of a very intuitive wave phenomena, but mathematically
+a slightly complicated one. The one-dimensional cut of this wave shows the
+oscillation is damped.}
+\end{figure}
+
+Since the propagation of the wave is radial and the amplitude decreases as the
+radius increases, the simplest stationary wave function reads: 
+
+\[
+  A(r) = A_0 \frac{\sin r}{r}
+\] \vspace{3px}
+
+where $A(r)$ is the displacement of the water at position $r$ and $A_0$
+indicates the amplitude at $r=0$. A mathematically much simpler wave equation
+is the sine wave displayed below: 
+
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width = 10cm]{wave.pdf}
+\end{figure}
+
+The wave function of the sinusoidal wave above is given by
+
+\begin{align} \label{eq:1}
+A(x, t) = A_0 \sin (kx - \omega t)
+\end{align}
+\vspace{3px}
+
+where $A_0 = 1$ and $k = 1$, $\omega t = 0$. Here $k$ is the wave number and
+$\omega$ is the angular frequency. Note that the two parameters together
+describe the \textit{phase velocity} of the wave: 
+
+\begin{align} \label{eq:2}
+  v = \frac{\omega}{k}
+\end{align}\vspace{3px}
+
+By taking the second derivative of Equation \ref{eq:1} with respect to $x$ and
+i$t$ and using Equation \ref{eq:2}: 
+
+\begin{align*}
+  \frac{\partial^2 A(x, t)}{\partial x^2} &= -k^2 A_0 \sin(kx - \omega t)\\
+  \frac{\partial^2 A(x, t)}{\partial t^2} &= -\omega^2 A_0 \sin(kx - \omega t)
+\end{align*}
+
+Therefore, 
+
+\begin{align} \label{eq:3}
+  \frac{\partial^2 A(x, t)}{\partial t^2} = \frac{\omega^2}{k^2}
+  \frac{\partial^2 A(x, t)}{\partial x^2} = v^2 \frac{\partial^2
+  A(x,t)}{\partial x^2} 
+\end{align} \vspace{5px}
+
+Equation \ref{eq:3} is the wave differential equation in classical mechanics.
+All parameters in the equation are real and physical. For the three dimensional
+problem this equation is given in the form of the Laplacian Operator
+$\nabla^2$ :
+
+\begin{align} \label{eq:4}
+  \frac{\partial^2 A(\vec{r}, t)}{\partial t^2} = v^2\nabla^2 A(\vec{r}, t)
+\end{align}
+Note that, since the cosine function can also describe this wave, it is
+possible to generalize this function via Euler's formula: 
+
+\begin{align} \label{eq:5}
+  A(x, t) = A_0 e^{i(kx - \omega t)}
+\end{align} \vspace{5px}
+
+\section{Schr\"odinger's Equation}
+
+Now that we are equipped with the classical definition of a wave, we can imbue
+Equation \ref{eq:5} with our knowledge of Energy and de Broglie's wavelength.
+\\
+
+We now know the energy of electromagnetic waves is carried out by quanta
+(packets of energy) known as photons. Each photon carries with it an energy
+given by Equation \ref{eq:energy}: 
+
+\begin{align} \label{eq:photonenergy}
+  E = h\nu = \hbar \omega \qquad \hbar = h / 2\pi
+\end{align} 
+
+We also know each photon is characterized by its de Broglie wavelength given by
+Equation \ref{eq:deBroglie}
+
+\begin{align} \label{eq:de Broglie wavelength}
+  \lambda = \frac{h}{p}
+\end{align}
+
+
+By using Equation \ref{eq:de Broglie wavelength}, and the relation between the
+wave number and wavelength $k = \frac{2\pi}{\lambda}$, we obtain 
+
+\[
+k = 2\pi \frac{p}{h} = \frac{p}{\hbar}
+\] \vspace{3px}
+
+And with the help of Equation \ref{eq:photonenergy}, we can recast the original
+classical wave Equation \ref{eq:5} into the form 
+
+\begin{align}\label{eq:psi}
+  \Psi(x, t) = \Psi_0 e^{i(px - Et)/\hbar}
+\end{align}
+
+where we have replaced the displacement $A(x,t)$ with $\Psi(x, t)$ along with
+the amplitude to indicate it is a quantum wave function. \\
+
+Now, since we are talking about a non-relativistic free particle described by
+a plane wave, the total energy of the particle is just its kinetic energy, $E
+= p^2 / 2m$. By using this fact and taking the first derivative of Equation
+\ref{eq:psi} with respect to $t$, as well as the second derivative with respect
+to $x$, we obtain 
+
+\begin{align} \label{eq:derivatives}
+  i\hbar \frac{\partial \Psi(x, t)}{\partial t}  = -\frac{\hbar^2}{2m}
+  \frac{\partial^2 \Psi(x, t)}{\partial x^2} 
+\end{align}
+
+which is the wave equation for a free particle of mass $m$. Since the right
+hand side of Equation \ref{eq:derivatives} corresponds to the kinetic energy
+$KE$, we may generalize this equation to describe a particle moving under the
+influence of a potential energy $V$. In the three dimensional coordinate system
+we get
+
+\begin{align} \label{eq: 3D Schrodinger Equation}
+  i\hbar = -\frac{\hbar^2}{2m} \nabla^2 \Psi(\vec{r}, t)
+  + V(\vec{r})\Psi(\vec{r}, t)
+\end{align}
+
+where we have used the fact that the total energy $E = KE + V$. Equation
+\ref{eq: 3D Schrodinger Equation} is the Schr\"odinger Equation in its general
+form. In one dimension, Schr\"odinger's Equation takes the form 
+
+\begin{align} \label{eq: 1D Schrodinger Equation}
+  i\hbar \frac{\partial \Psi(x, t)}{\partial t} = \left[ -\frac{\hbar^2}{2m}
+  \frac{\partial^2 }{\partial x^2} + V(x) \right] \Psi(x, t). 
+\end{align}
+
+This completes the derivation of the Schr\"odinger Equation. It is not rigorous
+by any means, however I feel it provides an intuition behind Schr\"odinger's
+Equation that many Quantum Mechanics textbooks/courses skim over.
+
+\twocolumn
+\section{The Correspondence Principle}
+
+The first chapter stressed that conceptional progress in physics is usually
+a process where an existing theory is not replaced by, but is instead subsumed
+into a more general theory that extends the scope and range of validity of the
+original theory. That is, Quantum Mechanics should not \textit{replace}
+classical mechanics, but instead should include it within its wider scope.
+
+This concept is incorporated in quantum mechanics via the
+\textit{correspondence principle}. It states that classical mechanics emerges
+as a limit of quantum mechanics for large quantum numbers. 
+For example, the bound states of a hydrogen atom have energies
+of -13.6 $\text{eV} /n^2$. Thus $n$ can be increased without limit, and this
+process ultimately produces bound orbits with binding energies that approach
+zero, and with radii that steadily increase, scaling as $n^2$. Hydrogen (and
+other atoms) in such highly excited bound states are called $Rydberg atoms$
+. Their electron orbits approach the classical limit -- the electron moves in
+a Keplerian orbit. This can be shown explicitly. 
+
+Another aspect of the correspondence principle is that the classical limit can
+also be obtained by altering quantum mechanics by taking the limit $\hbar
+\rightarrow  0$. In classical mechanics when one throws a ball from point $x$
+at time $t_x$ that is caught by a receiver at point $y$ at time $t_y$, the ball
+follows a precise path which we can calculate from Newton's laws. The path
+minimizes the action -- the difference between the kinetic energy and potential
+energy, integrated along the time coordinate of the classical path, 
+
+\[
+  S = \oint_{t_x}^{t_y} [KE - V]\, dt.
+\] \vspace{3px}
+
+If you sample any path other than the one given by Newton's Laws, the action
+along the path will be higher. Note that the action carries the same units as
+Planck's constant $h$ -- energy $\times$ time. 
+
+There is formulation of quantum mechanics, equivalent to the one we will use in this class, in
+terms of paths. It provides a very intuitive picture of the relationship of quantum mechanics and
+classical mechanics. In quantum mechanics you are allowed to propagate from $x$
+to $y$ by many paths -- but the further a path deviates from the classical path, the less probable it is. 
+One pays a ``penalty" for increasing the action via a path other than the
+classical path -- the bigger the increase in the action, the stiffer the
+penalty. Now to convert action to a number -- something that could
+possibly lead to a probability -- one needs a unit. $h$ is that unit. The classical path remains the
+best path, but there are many many others that, though each may be somewhat less probable than
+the classical path, will contribute. The larger the deviation of the action from its classical path,
+the bigger the penalty one pays in units of $h$, and thus the less probable the path. So the difference
+between classical mechanics and quantum mechanics is that the former has a single defined path,
+while in the latter many, many paths are allowed, `fuzzying' (that’s probably not a word!) out
+the classical path -- but not too much because of the heavy penalty one pays for taking a distant
+path. Classical mechanics is recovered by taking $h \rightarrow 0$. All
+penalties become infinite, so only the classical path is allowed.  This is
+a beautiful way to think about Planck's constant, though is a little
+`hand-wavy.'
+
+The penalty one pays actually arises from the \textit{interference} among
+paths. If we represent the action by $S$, the weighting of a path is 
+
+\[
+  e^{iS/\hbar}
+\] \vspace{3px}
+so that a large excess in the action causes rapid fluctuations with respect to the classical path and
+its nearest neighbors, leading to destructive interference among paths. In
+contrast, paths near the classical path have slowly varying relative phases, and thus tend to cohere. 
+If one drives $\hbar \rightarrow 0$ constructive interference among paths only
+occurs for paths increasingly near the classical one. At $\hbar = 0$ one converges to the classical path.
+I think this gives one a much deeper feel for the physics of Planck’s constant
+-- how it governs the deviations from classical mechanics – and helps one
+visualize how the classical limit is achieved as $\hbar \rightarrow 0$. In
+summary, 
+
+\begin{mainbox}{Correspondence Principle}
+  Quantum Mechanics becomes Classical as
+  \[ n \rightarrow \infty \quad \text{or as} \quad \hbar \rightarrow 0 .\]
+\end{mainbox}
+
+
+\section{The Principle of Superposition \& Wave Packets}
+
+Any theory that would generalize classical mechanics should be required the
+reproduce classical mechanics in appropriate limits. The accumulation of
+phenomena in the early years of the 20th century indicating that light could
+behave as a particle and that particles could behave as waves, led us to a path
+where particles with definite positions and momenta gave way to a description
+in terms of waves and wave packets. Therefore, before we introduce the wave
+equation, we should remind ourselves of some of the properties achievable
+through waves. 
+
+Familiar wave equations are those for sound in air or waves in water, which in
+1D take the form 
+
+\[
+\frac{\partial^2 \psi}{\partial x^2} = \frac{1}{c^2} \frac{\partial^2
+\psi}{\partial t^2} 
+\] \vspace{3px}
+
+We can look for solutions of this equation in the form of an oscillation wave. 
+
+\[
+  \psi(x, t) = \phi(x)e^{i\omega t} \quad \Rightarrow \quad \frac{\partial^2
+  \phi(x)}{\partial x^2} = -\frac{\omega^2}{c^2}\phi(x)
+\] \vspace{3px}
+
+and we find 
+
+\[
+\phi(x) = e^{ikx} \quad \text{where} \quad c ^2k^2 = \omega^2 \] so
+  that \[ \qquad \psi(x,t) = e^{i(kx - \omega t)} \quad \text{with} \quad  k(\omega)
+    = \pm \frac{w}{c}
+  \] \vspace{3px}
+
+This is the solution we found for Equation \ref{eq:5}. These plane wave
+solutions are extended, covering the entire range of $x$. An important property
+of this equation is that it is linear in $\psi$. This leads to the principle of
+superposition: 
+
+\begin{subbox}{Principle of Superposition}
+  If $\psi_1(\vec{x}, t)$ and $\psi_2(\vec{x}, t)$ satisfy the wave equation,
+  so does $\psi_1(\vec{x}, t) + \psi_2(\vec{x}, t), t).$
+\end{subbox}
+
+This property allows one to build \textit{wave packets}, as you would get by
+throwing a stone into the middle of a quiet pond. Such a localized wave can be
+made from superpositions of the extended plan waves derived above. An example
+is given below. 
+
+It would be very difficult to envision a successful theory of Quantum Mechanics
+that lacked this property. The correspondence principle requires us to be able
+to create localized particles, and we know how to build localized wave packets
+from waves via Fourier Analysis: 
+
+\[
+  \psi(x, t=0) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty} \phi(k)e^{ikx}\,
+dk \] \[ \quad \phi(k) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty} \psi(x,
+t=0)e^{-ikx}\, dx\] \vspace{3px}
+
+For example, let
+
+\[
+\psi(x, t=0) = e^{-x^2 / a^2} \] Then, \[ \psi(x, t=0)
+  = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty} e^{-a^2k^2/4}e^{ikx} \, dk
+\] \vspace{3px}
+
+We can easily build a Gaussian wave packet out of plane waves, but the
+equivalent infinite sum of plane waves would not be a solution of our quantum mechanical
+wave equation unless the superposition principle holds. 
+
+\subsection{Wave Packets \& Uncertainty Relationships}
+
+The simple Gaussian example shown above illustrates another important property
+of wave packets. There is a size scale associated with our coordinate-space
+wave packet, with $\Delta x \sim a$. But we see the smaller $a$ -- the more
+localized in $x$ -- the broader the range of contributing momentum-space ($k$)
+waves. That is, 
+
+\[
+  e^{-a^2k^2/4} = e^{-k^2 / (2/a)^2} \quad \Rightarrow \quad \Delta k = \frac{2}{a}
+\] \vspace{3px}
+
+Consequently $\Delta x \Delta k \sim 1$. A property of wave packets is the more
+they are \textit{localized} in coordinate ($x$) space, the more they
+\textit{delocalize} in momentum space. Thus as a wave  theory, we would expect
+quantum mechanics to have an \textit{uncertainty principle} that prevents us
+from simultaneously having particle locations and momenta. As the de Broglie
+relation (Equation \ref{eq:deBroglie}) gives us $p = \frac{h}{\lambda}
+= \frac{h}{2\pi}k$ so that $\Delta k = \Delta p / \hbar$, it is not surprising
+that Quantum Mechanics has an uncertainty principle relating the product of
+coordinate and momentum uncertainties to $\hbar$. Its precise form is 
+
+\[
+\Delta x \Delta p \geq \frac{\hbar}{2}
+\] \vspace{3px}
+
+We will do a more precise and rigorous derivation of \textit{Heisenberg's Uncertainty
+Principle} utilizing the Cauchy-Schwarz Inequality in the near future. 
+
+\section{Back to Schr\"odinger} 
+
+In 1D, Schr\"odinger's Equation takes the form 
+
+\[
+  \left[ -\frac{\hbar^2}{2m} \frac{\partial^2 }{\partial x^2} + V(x)\right]
+  \Psi(x, t) = i\hbar \frac{\partial }{\partial t} \Psi(x, t)
+\] \vspace{3px}
+
+with the external potential $V(x)$ unspecified. As we saw, this equation is
+a fairly gentle variation of the sound/water wave equation we discussed, with
+a couple interesting differences. 
+
+So what does this equation mean? Staring at the LHS, the potential is clear,
+while the derivative term can be rewritten in a way that clarifies units
+
+\[
+-\frac{\hbar^2}{2m} \frac{\partial^2 }{\partial x^2}
+= -\frac{\hbar^2c^2}{2mc^2} \frac{\partial^2 }{\partial x^2} 
+\] \vspace{3px}
+
+As  $(\hbar c)^2$ has units of (Energy-Distance)$^2$,  $mc^2$ is an energy, and
+$ \frac{\partial^2 }{\partial x^2} $ has units of (distance)$^{-2}$, the first
+term on the LHS is an energy, and by the ``what else can it be" argument, must
+be the kinetic energy. Classically this is $p^2 / 2m$. But $p^2/2m + V = E$, so
+on the RHS, the differential operator must be generating $E$. The requirement
+that Schr\"odinger's Equation with its differential operator corresponds with
+energy conservation allows us to identify the equations differential operators
+with a classical view. 
+
+We define the momentum operator $\hat{p}$ 
+
+\begin{align}\label{eq:momentum}
+  \hat{p} \equiv \frac{\hbar}{i} \frac{\partial }{\partial x} = -i\hbar
+  \frac{\partial }{\partial x} 
+\end{align}\vspace{3px}
+
+And the energy operator $\hat{E}$
+
+\begin{align}
+  \hat{E} \equiv i\hbar \frac{\partial }{\partial t} 
+\end{align} \vspace{3px}
+
+Therefore, we can rewrite Schr\"odinger's Equation using these operators as
+follows: 
+
+\begin{align*}
+  \left[ -\frac{\hbar^2}{2m} \frac{\partial^2 }{\partial x^2} +V(x)\right]
+  \Psi(x, t) &= i\hbar \frac{\partial }{\partial t} \Psi(x, t) \\ 
+  \left[ \frac{\hat{p}^2}{2m} +V(x)\right] \Psi(x, t) &= \hat{E}\Psi(x, t)
+\end{align*}
+
+We indicate that $\hat{p}$ and $\hat{E}$ are Quantum Mechanical operators by
+giving them ``hats." They are differential operators that act on the wave
+function. 
+
+One of the most important differences between the QM wave equation and the wave
+equation for sound/water, is that the latter is quadratic in its space and time
+differential operators, while the Schr\"odinger Equation is quadratic in space
+but \textit{linear in time}. The time-linearity of the Schr\"odinger Equation
+is a reflection of the non-relativistic relationship between a particles
+momentum and its energy -- a consequence of building theory beyond classical
+mechanics that extends to our reach and beyond the atomic scale, but shares
+with the nonrelativistic restrictions associated with classical mechanics. The
+linear-in-time nature of the Schr\"odinger Equation naturally leads to complex
+wave functions. As measurements involve \textit{real} quantities, the
+connection between wave functions and observables requires discussion -- the
+topic of next chapter. 
+
+I will quickly also note that our plane-wave solution of the Schr\"odinger
+Equation has a characteristic wavelength. The length of a wave corresponds to
+the distance required to change the phase by $2\pi$, at a fixed time $t$. That
+is, 
+
+\[
+2\pi = \frac{p\Delta x}{\hbar} \equiv \frac{p\lambda}{\hbar} 
+\] \vspace{3px}
+Thus, 
+
+\[
+\lambda = \frac{2\pi\hbar}{p} = \frac{h}{p}
+\] \vspace{3px}
+
+That is precisely de Broglie's wavelength! 
+
+\onecolumn
+

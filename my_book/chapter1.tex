@@ -1,0 +1,257 @@
+\section{The Limits of Theories} 
+
+As physical theories are constructed to account for patterns that emerge from
+observation and experiment, it is not surprising that such theories are limited
+by the data that inspired them, and thus are subject to failure when extended
+into new regimes. We are familiar with historical examples. Newton observed
+a world that was Galilean invariant -- velocities added, observers in different
+Galilean frames agree on their measurements of space and time separations of
+events, thus $x_1 - x_2 = x_1' - x_2'$ and $t_1-t_2 = t_1' - t_2'$, so that
+events simultaneous in one observer's frame are also simultaneous in
+another's. Yet these properties were aspects of a theory constructed to account
+for measurements for which the dynamics were governed by the condition 
+
+\[
+\frac{v^2}{c^2} \ll 1
+\] \vspace{3px}
+
+Einstein's special theory of relativity did not replace classical mechanics,
+but rather incorporated it -- the invariant separation among events changed to
+$c^2 (t_1 - t_2)^2 - (x_1 - x_2)^2 = $ constant, but in the limit where
+velocities small, the classical results are all recovered and valid apart from
+corrections of order $v^2 / c^2$. Classical mechanics is an \textit{effective
+theory}, fully consistent with special relativity provided measurements are
+restricted to the effective theory's range of validity, $v \ll c$. If this
+condition is fulfilled, one can use the simpler classical theory, with
+confidence that the predictions made will be valid with small errors controlled
+by $v^2/c^2$. This is our first encounter with the \textit{correspondence
+principle}. 
+
+In physics, one expects to discover the simplest theories -- the most
+``effective" theories -- first. We discovered classical mechanics first because
+it is the theory of falling apples, planetary motion, and sailing ships. Only
+when we started probing higher velocities were the limitations of the theory
+recognized -- motivating the creation of an extended theory, special
+relativity. 
+
+Effective theory is one of the most powerful and pervasive concepts in modern
+physics. Physics can often be viewed as a tower of effective theories, with
+each successive layer more complete and more predictive, valid over a wider
+range of parameters. When we analyze an experiment, we use the effective theory
+lowest in this tower that is adequate for our needs. The theory will be simpler
+when the physics we study is accurately encoded in a smaller set of parameters.
+If you are dealing with a non-relativistic mechanics problem, you can of course
+choose to use special relativity in your analysis -- but you will need to work
+\textit{much} harder and you will learn no new information. 
+
+Once you have completed your analysis, the information you obtain can be
+``ported up" to the more general effective theories that reside above: this is
+the process of ``matching" one effective theory to another. 
+
+In subatomic physics today the last experimentally validated member of this
+tower is the Standard Model (SM) -- decades of experiments have established its
+validity, in some cases to precisions exceeding a part in a billion. But we
+also know there is something more -- massive neutrinos, dark matter, and dark
+energy provided rather direct evidence of this. There is enormous effort
+underway to learn more about such phenomena, so that we will have a bit more
+guidance from experiments about the next effective theory in the tower. This
+theory will not replace SM, but rather incorporate it in a generalization that
+accounts for the new phenomena discovered.  
+
+Just as special relativity emerged when experiments began to probe higher
+velocities, \textit{quantum mechanics} emerged when experiments started to
+probe atomic scales. The classical mechanics in use was not only
+nonrelativistic, but also deterministic. Knowledge of the initial conditions
+(e.g. positions and velocities) and interactions among objects
+allow one to compute the future evolution of the system. In principle this can
+be done to arbitrary accuracy, as the theory places no limits on the precision
+with which those initial conditions can be determined, or the classical
+equations solved. 
+
+This aspect of classical mechanics again reflects the limited range of the data
+informing the theory. A second scale that further restricts the applicability
+of classical physics and thus the boundary beyond which a more general, quantum
+description must be used, is defined in terms of Planck's reduced constant
+$\hbar$. 
+
+\begin{align}
+  \begin{split}
+    \Delta E \Delta t \gg \hbar &= 6.58 \times 10^{-16} \text{eV s} \\
+    \Delta E \Delta x \gg \hbar c &= 197.3 \text{ eV nm} 
+  \end{split}
+\end{align}
+
+If one were to ask, is quantum mechanics relevant to a squash ball confined to
+a squash court, the second expression in Equation 1.1 above tells us it is only if
+we are interested in changes of the squash ball's energy of about one part in
+$10^{70}$. We are welcome to calculate the future trajectory of a squash ball
+using quantum mechanics, but we'll need about $10^{70}$ states in our
+calculations. The mistakes we make in treating squash ball dynamics using
+deterministic classical mechanics are \textit{extraordinarily} small. Newton
+gave us the right effective theory for this purpose.  
+
+
+But $\hbar$ tells us where the determinism of the classical theory will fail
+us, and from the numbers above, the failures will begin with atomic physics,
+and continue as we probe the nuclear and particle scales. The hydrogen atom has
+the size (Bohr radius) $a_0$ of about an angstrom, or $\sim 0.053$ nm -- and
+its electron is bound by $E_b \sim 13.6$ eV. How these parameters relate to the
+expressions above we will determine later, but we observe $E_b a_0 \sim 1$. The
+product is certainly not large on the $\Delta E \Delta x$ scale defined above.
+
+\subsection{Why did Quantum Mechanics emerge when it did?}
+
+It is the usual answer: 
+Because experiment started telling us our prevailing theories were not up to
+the task of understanding the emerging subatomic world. It is helpful to look 
+back to those early times to recognize what an interesting but confusing time
+it was. 
+
+\subsubsection{Photoabsorption lines}
+
+In the early 1800s photoabsorption lines in the solar spectrum -- a signature
+of the discrete transitions between atomic levels -- were observed, but there
+was no theory context for their interpretation. By the middle of the century,
+specific spectral lines were understood to be associated with specific
+elements, and lines seen in the laboratory were correlated with some seen in
+the solar spectrum. Late in the century, the work of Balmer and Rydberg
+revealed the regularity of the hydrogen spectrum, with $1/\lambda$, where
+$\lambda$ is the wavelength, related to integer differences in quantities
+$1/n_i^2$, where $n_i$ is an integer.
+
+Why were the spectral lines unexpected? Classically accelerating charges
+radiate, but their spectra produced are continuous. Even if someone brilliant
+in the 19th century had managed to come up with a quasi-modern description of
+atoms, she would have been hard-pressed to explain why electrons are confined
+to orbits of definite energy, the origin of the discrete spectral lines. 
+
+\subsubsection{The Electron's Discovery} 
+
+The first necessary steps in understanding spectra came with J.J. Thompson's
+discovery of the electron in 1897, followed by Rutherford's discovery through
+alpha-particle scattering of a dense nuclear core within atoms. Rutherford
+correctly concluded that the nuclear mass was a multiple of the hydrogen
+(proton) mass. In 1911, Rutherford proposed that the atom consisted of
+a central positive charge surrounded by orbiting negatively charged electrons.
+As discussed below, the conceptual difficulties presented by the instability of
+such a system in classical physics led to Bohr's early quantum mechanical
+theory of the atom. About a decade later -- 1926 -- a much more complete and
+self-consistent theory of wave mechanics emerged when Schroedinger introduced
+his equation, the focus of much of this book. 
+
+\subsubsection{Radioactivities} 
+
+Concurrent with these discoveries, radioactivities associated with nuclear
+decays were studied by Roentgen, Becquerel, and Marie and Pierre Curie. These
+included  $x$-rays,  $\beta$ rays (energetic electrons produced in the weak
+process of  $\beta$ decay), and nuclear fission via  $\alpha$ (the He nucleus)
+emission.
+
+\subsubsection{The Neutron} 
+
+A correct theoretical interpretation of either the structure of atoms or the
+radiation coming from atoms would have been nearly impossible at the turn of
+the last century, as some particles participating in these reactions had not
+even been discovered. In 1916 Chadwick studied the continuous spectrum of
+electrons omitted in $\beta$ decay. Rather than being pleased that a spectrum
+(not lines) was observed, he realized a continuous spectra contradicts energy
+conservation if the radioactive decay released definite energy. To avoid this,
+Chadwick speculated that some unobserved radiation was also coming out
+(preserving energy conservation). In 1930, Pauli proposed this radiation was
+a new, spin-1/2, light elementary particle he called the neutron, which we now
+call the neutrino. In 1932 Chadwick discovered the ``real" neutron, of nearly
+the same mass as the proton, which quickly resolved enormous confusion over the
+varying masses, charges, and angular momentum/statistics of nuclei. It is
+remarkable we have had a basic understanding of the constituents of the atom --
+the neutron, proton, and electron -- for less than a century. 
+
+Quantum mechanics is the theory that grew out of our need to understand atoms
+-- their structure, stability, and radiation, as well as other phenomena we
+will discuss later. Along with special relativity, these two revolutions rocked
+physics early in the last century. 
+
+Further, the need to reconcile special relativity and quantum mechanics was
+also recognized in the 1920s. Heisenberg, Born, and Jordan took the first step
+in developing a conceptually autonomous and logically consistent formulation of
+quantum mechanics via \textit{matrix mechanics}. One year later, Schroedinger
+introduced his \textit{wave mechanics}, and another year later, Dirac proposed
+a relativistic equation for the electron, the Dirac equation. In 1933, in an
+extraordinary step, Fermi combined the new particles into a remarkably modern
+theory of $\beta$ decay
+
+\[
+  n \rightarrow p + e^- + \bar{\nu}_e
+\] \vspace{3px}
+
+His paper was actually rejected from the Physical Review for being too
+speculative. His theory involved the spontaneous production of new particles --
+the electron and neutrino are not constituents of a nucleus, but instead are
+produced spontaneously from the vacuum. Fermi’s guess for the form of the
+interaction mediating beta decay was based on analogies with the Coulomb
+interaction of electromagnetism, though Fermi somehow recognized that there
+should be no electric field -- the interaction occurred between all four
+particles at a point. He later incorporated into his theory aspects of special
+relativity -- charges viewed in a moving frame produce currents. Four years
+later Gamow and Teller argued that a second interaction contributed to beta
+decay, involving the spins of the particles, and to account for experiment this
+second interaction must be of comparable strength to Fermi’s interaction.
+Remarkably, by this point an effective theory equivalent at low energies to the
+SM with its vector and axial interactions was being formulated -- including the
+capacity to account for phenomena like parity violation that would not be
+discovered for another 20 years. This quantum mechanics, relativity, and
+particle production by fields were being cobbled together in these early times.
+The SM, a field theory, was formulated in the 1960s, treating electromagnetism
+and the weak interaction as aspects of one theory, with the final step in
+validating the basic structure of the SM coming with the recent discovery of
+the Higgs Boson in 2012.
+
+\begin{figure}[htp]
+  \centering
+    \includegraphics[width = 8cm]{bitmap.pdf}
+    \caption{Summary of the developments leading up to and beyond wave
+    mechanics and the Schroedinger equation}
+\end{figure}
+
+\subsection{The Utility of Quantum Mechanics}
+
+Quantum Mechanics (QM) emerged from studies of physics at the atomic and
+nuclear scales, and remains the effective theory of choice for an enormous
+range of phenomena in materials and condensed matter, atomic physics, and
+nuclear physics. Such systems are typically nonrelativistic. In an atom, while
+the interior 1$s$ orbital does become increasingly relativistic with increasing
+nuclear charge (scaling as $Z^2$ ), still the Coulomb 1$s$ energy is less than
+a tenth of the electron rest mass, provided $Z < 60$. The quasi-particles of
+nuclear physics -- bound states of quarks and gluons which we call nucleons --
+typically have $\frac{v^2}{c^2} \sim \frac{1}{100}$ throughout the table of
+nuclei. (The lack of variation is because, unlike the Coulomb interaction, the
+strong interaction is actually repulsive at short range, so nucleons keep their
+distance from one another, whether they are in deuterium or in uranium.) Yet
+these systems are far, far from the classical deterministic limit: a wave
+description and all the associated interference effects are essential to the
+physics. Consequently, QM is the effective theory of choice. 
+
+Second, there is a huge ``buzz" surrounding QM today, sometimes termed the
+\textit{second quantum revolution}. The first quantum revolution was
+acknowledged through a series of Nobel Prizes over the last thirty years
+recognizing the development of tools for \textit{manipulating atoms} and other
+quantum matter, including the laser, the maser, quantum electronics, atom
+traps, optical tweezers, laser cooling, ultra-fast laser pulses, optical
+frequency combs, and atom interferometers. I recently had the luck of being
+able to attend a lecture on non-local quantum entanglement given by John
+Clauser, who won the Nobel Prize in 2022 for his work on entanglement. The
+first revolution allowed physicists and others to build computers and other
+devices based on classical concepts like a bit -- information stored as
+a series of 0s or 1s -- while achieving new milestones in speed and storage
+because devices could be packed ever more densely on silicon chips. 
+
+The second revolution -- quantum information and computation -- envisions new
+devices that employ quantum mechanics directly in the manipulation and
+processing of information. If one envisions the two possibilities encoded in
+a bit as a point either at the north or south poles of a unit sphere, what's
+known as the \textit{Bloch Sphere}, its quantum mechanical analog -- a qubit
+consisting of two interfering states carrying arbitrary phases -- covers the
+entire surface of that sphere, vastly increasing the information that is stored
+and potentially read out on interrogation. Quantum mechanics is fun because it
+stretches your mind -- the rules of the subatomic world contradict so many of
+those of our macroscopic one -- but also prepares us for future steps, should
+we encounter the quantum information/computing bug. 
