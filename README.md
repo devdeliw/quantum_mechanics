@@ -1,4 +1,4 @@
-### Work on Quantum Mechanics
+# Work on Quantum Mechanics
 
 Contains Notes & Homework from studying QM @ UC Berkeley. 
 
