@@ -29,6 +29,20 @@ Covers roughly the first half of Griffiths with a bit extra:
 
 --- 
 
+My Textbook
+---
+
+I am currently writing a textbook on Quantum Mechanics. This is mainly to help
+me study and to encourage me studying QM topics *outside* lecture to give me an
+overall better understanding of the subject. Also I like the idea of having
+textbooks I have written on a shelf of mine someday. 
+
+The main .pdf of the textbook is `my_book/main.pdf`.  `/main.nb`
+is the mathematica file for generating the figures. The rest of the `.tex`
+files are for organizing the chapters before compilation. 
+
+---
+
 
 
 
