@@ -37,15 +37,9 @@ me study and to encourage me studying QM topics *outside* lecture to give me an
 overall better understanding of the subject. Also I like the idea of having
 textbooks I have written on a shelf of mine someday. 
 
-The main .pdf of the textbook is `my_book/main.pdf`.  The Wolfram Mathematica `/main.nb`
-file is for generating the figures in the textbook. The rest of the `/.tex`
-files are for organizing the chapters before compilation. 
+**I see that the PDF's are not displaying for some reason** 
 
----
-
-Apologies if the notes are hard to read ...my handwriting is a bit
-*exuberant*. See the textbook! ...which is still in progress. 
-
-
+If you wish to see the in-progress textbook, visit my personal website [book
+link](https://dev-undergrad.dev/book/main.pdf). 
 
 
