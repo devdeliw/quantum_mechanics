@@ -807,7 +807,7 @@ Equation \ref{laddersolution}. I plot the solutions $\psi_n(x)$ in Figure
 
 \begin{figure}[!ht]
   \centering
-    \includegraphics[width = 11cm, height = 8cm]{harmonicoscillatorsoln.pdf}
+    \includegraphics[width = 8cm]{harmonicoscillatorsoln.pdf}
     \caption{Stationary State Wave Functions for 1D Harmonic Oscillator}
     \label{graphsoln}
 \end{figure}
@@ -816,7 +816,7 @@ Note the energies are evenly spaced as $E_n = \left( n + \frac{1}{2} \right)
 \hbar\omega $. We can afterwards determine $\Psi(x, t)$ via the prime
 directive using Equation \ref{primedirec}. 
 
-\subsection{The Free Particle}
+\section{The Free Particle}
 
 We have previously (in studying the infinite square well) considered a particle
 that could propagate freely in the region $-a/2 < x < a/2$, but was confined at
@@ -1016,7 +1016,7 @@ where $\psi(k, x) \equiv \sqrt{\frac{1}{2\pi}} e^{ikx}$ and $E(k)
 \end{mainbox}
 
 
-\subsubsection{Worked Example} 
+\subsection{Worked Example} 
 
 We start with a normalized wave packet that has been confined to a region of
 width $2a$, 
@@ -1050,16 +1050,6 @@ a later time $t = ma^2 / \hbar$ (the curve) in Figure \ref{freegraph}. As you
 can see, the probability density function and the wave function itself begin
 to delocalize over time.
 
-\begin{comment}
-\begin{figure}[!ht]
-  \centering
-    \includegraphics[width = 12cm]{wavepacket.pdf}
-    \caption{Plot of $|\Psi(x, 0)|^2$ and $|\Psi(x, ma^2 / \hbar)|^2$ for the
-      wave function defined in Equation \ref{solutionfree} derived from the
-      initial wave function in Equation \ref{problemfree}.}
-\end{figure}
-\end{comment}
-
 \begin{figure}[H]
   \centering
     \includegraphics[width = 16cm]{wavepacket.pdf}
@@ -1067,11 +1057,1020 @@ to delocalize over time.
     \label{freegraph}
 \end{figure}
 
+\section{The Finite Square Well} 
+
+We have previously solved problems involving \textit{bound} stationary states
+(Infinite Square Well, Harmonic Oscillator) and where the basis consists
+entirely of plane waves (Free Particle). Here we tackle the first problem where
+free and bound states coexist. The \textit{Finite Square Well} depicted in
+Figure \ref{finitewell} below. 
+
+\begin{figure}[H] 
+  \centering
+    \includegraphics[width = 13cm]{finitewell.pdf}
+    \caption{Finite Well Potential}
+    \label{finitewell}
+\end{figure}
+
+
+
+\subsection{Bound States} We seek solutions where $E < 0$. In region
+I the  Schr\"odinger equation is 
+
+\[
+-\frac{\hbar^2}{2m} \frac{d^2 \psi(x)}{d x^2} = E \psi(x) = -|E|\psi(x) \quad
+\Rightarrow \frac{d^2 \psi(x)}{d x^2} = \kappa^2 \psi(x); \qquad \kappa
+\equiv \frac{\sqrt{2m|E|}}{\hbar} > 0
+\] \vspace{3px}
+
+The general solution is 
+
+\[
+  \psi(x) = Ae^{-\kappa x} + Be^{\kappa x} 
+\] \vspace{3px}
+
+However, the first term diverges as $x \rightarrow -\infty$. Therefore the
+solution in region I is 
+
+ \[
+   \text{Region I: } \psi_I(x) = Be^{\kappa x}, \quad x < -\frac{a}{2}
+\] \vspace{3px}
+
+The same arguments lead to 
+
+\[
+  \text{Region III: }  \psi_{III}(x) = Ae^{-\kappa x}, \quad x > \frac{a}{2}
+\] \vspace{3px}
+
+
+In region II we have
+
+\[
+-\frac{\hbar^2}{2m} \frac{d^2 \psi(x)}{d x^2} - V_0 \psi(x) = -|E|\psi(x) \quad
+\Rightarrow \quad \frac{d^2 \psi(x)}{d x^2} = -k^2\psi(x); \qquad k \equiv
+\frac{\sqrt{2m(V_0 - |E|}}{\hbar}
+\] \vspace{3px}
+
+We require $V_0 > |E|$ -- the eigenvalue above the floor of the potential -- as
+is the case classically. The general solution is 
+
+\[
+  \text{Region II: } \psi_{II}(x) = C\cos kx + D \sin ks, \qquad -\frac{a}{2}
+  < x < \frac{a}{2}
+\] \vspace{3px}
+
+As the potential is mirror-symmetric, we can label the wave function by parity
+-- whether even or odd around zero. In this way we can construct solutions
+corresponding to either the even or odd terms in region II. 
+
+\paragraph{\textit{Even Solution:}} Choosing the even-parity solution of region
+II, 
+
+\[
+  \text{Region II: } \psi_{II}(x) = C\cos kx, \qquad -\frac{a}{2}
+  < x < \frac{a}{2} 
+\] \vspace{3px}
+
+Second order differential equations require two constraints as initial
+conditions to solve. We can use the required continuity of the wave function
+across regions for both. The value and first derivative of the wave function at
+the boundary between regions must match to guarantee continuity. Thus at the
+boundary of II and III, 
+
+\begin{align} \label{}
+  C\cos kx = Ae^{-\kappa x}\Big|_{x = a/2} \quad &\Rightarrow  \quad C\cos
+  \frac{ka}{2} = Ae^{-\frac{\kappa a }{2}} \\ -Ck\sin kx = -\kappa Ae^{-\kappa
+x}\Big|_{x = a/2} \quad &\Rightarrow \quad -Ck\sin \frac{ka}{2} = -A\kappa
+e^{-\frac{\kappa a}{2}}
+\end{align}\vspace{3px}
+
+These yield two constraints: 
+
+\[
+  A = Ce^{\frac{\kappa a}{2}} \cos \left( \frac{ka}{2} \right) \qquad k\tan
+  \left( \frac{ka}{2} \right) = \kappa,   
+\] \vspace{3px}
+
+the second of which, the eigenvalue condition, is obtained by taking the ratio
+of the two equations. \\
+The same matching at the boundary of I and II yields
+
+\begin{align} \label{}
+  C\cos \left( -\frac{ka}{2} \right)  = Be^{-\frac{ka}{2}} \quad &\text{ and
+  }  \quad -Ck\sin \left( -\frac{ka}{2} \right) = B\kappa e^{-\frac{-\kappa
+  a}{2}} \\ C\cos \left( \frac{ka}{2} \right) = Be^{-\frac{ka}{2}} \quad
+  &\text{ and } \quad Ck\sin\left( \frac{ka}{2} \right) = B\kappa
+e^{-\frac{\kappa a}{2}}  
+\end{align}\vspace{3px}
+
+These yield the same eigenvalue constraints as above with an additional
+condition, 
+
+\[
+  B = Ce^{\frac{\kappa a}{2}} \cos \left( \frac{ka}{2} \right)  
+\] \vspace{3px}
+
+The matching at the second boundary was unnecessary -- we could have just used
+the fact that the wave function is even under parity to get the same
+constraint. We finally obtain
+
+\begin{subbox}{Even Solution}
+  \[
+  \psi(x) = \begin{cases}
+    Ce^{\frac{\kappa a}{2}} \cos \left( \frac{ka}{2} \right) e^{\kappa x}
+    \qquad &x < -\frac{a}{2} \\ C \cos kx \qquad &-\frac{a}{2}
+    < x < \frac{a}{2} \\ Ce^{\frac{\kappa a }{2}} \cos \left( \frac{ka}{2}
+  \right) e^{-\kappa x} \qquad &x > \frac{a}{2}  
+  \end{cases} 
+\] 
+
+\[ \text{eigenvalue condition: } k \tan \left( \frac{ka}{2} \right) = \kappa \]  
+\end{subbox}
+
+
+The remaining work is to solve for the allowed eigenvalues, and find $C$ by
+requiring the solution to be normalized. This will be shown after deriving the
+odd-parity solution.
+
+\paragraph{\textit{Odd Solution:}} Choosing the odd-parity solution of region
+II, 
+
+\[
+  \text{Region II: } \psi_{II}(x) = D\sin kx, \qquad -\frac{a}{2}
+  < x < \frac{a}{2} 
+\] \vspace{3px}
+
+We match the solutions at the boundary of II and III, 
+
+\begin{align} \label{}
+  D\sin kx = Ae^{-\kappa x}\Big|_{x = a/2} \quad &\Rightarrow \quad D \sin
+  \frac{ka}{2} = Ae^{-\frac{\kappa a}{2}} \\ Dk\cos kx = -\kappa Ae^{-\kappa
+x}\Big|_{x = a/2} \quad &\Rightarrow \quad Dk\cos \frac{ka}{2} = -A\kappa
+e^{-\frac{\kappa a}{2}}
+\end{align}\vspace{3px}
+
+These yield two constraints, 
+
+\[
+  A = De^{\frac{\kappa a}{2}} \sin \left( \frac{ka}{2} \right) \qquad k\cot
+  \left( \frac{ka}{2} \right) = -\kappa.
+\] \vspace{3px}
+
+The same matching at the boundary of I and II yields 
+
+\begin{align}
+  D\sin \left( -\frac{ka}{2} \right) = Be^{-\frac{ka}{2}} \quad &\text{ and
+  } \quad Dk \cos \left( -\frac{ka}{2} \right) = B\kappa e^{-\frac{\kappa
+  a}{2}} \quad \Rightarrow \\ -D \sin \left( \frac{ka}{2} \right)
+  = Be^{-\frac{ka}{2}} \quad &\text{ and } \quad Dk\cos \left( \frac{ka}{2}
+  \right) = B\kappa e^{-\frac{\kappa a}{2}}     
+\end{align} \vspace{3px}
+
+These yield the same eigenvalue constraints as above with the additional
+condition
+
+\[
+  -B = A = De^{\frac{\kappa a}{2}}\cos \left( \frac{ka}{2} \right)  
+\] \vspace{3px}
+
+which makes sense as the solution in region I is the odd-mirror of the solution
+in region II. Therefore we obtain
+
+\begin{mainbox}{Odd Solution}
+  \[
+  \psi(x) = \begin{cases}
+    -De^{\frac{\kappa a}{2}} \sin \left( \frac{ka}{2} \right) e^{\kappa x}
+    \qquad &x < -\frac{a}{2} \\ D\sin ks \qquad &-\frac{a}{2} < x < \frac{a}{2}
+    \\ De^{\frac{\kappa a}{2}} \sin \left( \frac{ka}{2} \right) e^{-\kappa x}
+    \qquad & x>\frac{a}{2} 
+  \end{cases} 
+  \] 
+  \[ \text{eigenvalue condition: } k \cot \left( \frac{ka}{2} \right) = -\kappa
+  \]
+\end{mainbox}
+
+\begin{subbox}{Even Solution}
+\[
+  \psi(x) = \begin{cases}
+    Ce^{\frac{\kappa a}{2}} \cos (\frac{ka}{2}) e^{\kappa x}
+      &x < -\frac{a}{2} \\ C \cos kx   &-\frac{a}{2}
+    < x < \frac{a}{2} \\ Ce^{\frac{\kappa a }{2}} \cos (\frac{ka}{2})
+    e^{-\kappa x}   &x > \frac{a}{2}
+  \end{cases}
+\]
+\[ \text{eigenvalue condition: } k \tan \left( \frac{ka}{2} \right) = \kappa \]
+\end{subbox}
+
+
+
+The kinematic variables are 
+
+\[
+k = \frac{\sqrt{2m(V_0 - |E|}}{\hbar} \qquad \kappa = \frac{\sqrt{2m|E|}}{\hbar}
+\] \vspace{3px}
+
+Now all that is left is to calculate the eigenvalues of the bound states, then
+normalize. 
+
+\subsection{Counting Eigenvalues}
+
+The allowed bound-state energies are
+obtained by solving the eigenvalue conditions 
+
+\[
+k\tan\left( \frac{ka}{2} \right) = \kappa \quad \text{ and } \quad k \cot
+\left( \frac{ka}{2} \right) = -\kappa   
+\] \vspace{3px}
+
+for the even and odd cases, respectively, subject to the constraint 
+
+\[
+k^2 + \kappa^2 = \frac{2mV_0}{\hbar^2} \quad \Rightarrow \quad \kappa^2
+= \frac{2mV_0}{\hbar^2} - k^2
+\] \vspace{3px}
+
+Multiplying the top equations by $a/2$ and the bottom equations by $ (a/2)^2$,
+we can re-express them in a simpler form: 
+
+\begin{mainbox}{}
+  \[z \equiv \frac{ka}{2} = \frac{a\sqrt{2m(V_0 - |E|)}}{2\hbar} \qquad z_0
+  \equiv \frac{a}{2\hbar}\sqrt{2mV_0} \quad \text{ so } \frac{\kappa a}{2}
+= \sqrt{z_0^2 - z^2}\]
+\[ \text{even eigenvalues: }  \tan z = \frac{1}{z} \sqrt{z_0^2 - z^2}
+  = \sqrt{\frac{z_0^2}{z^2} - 1}\] \[ \text{odd eigenvalues: } \cot
+z = -\frac{1}{z} \sqrt{z_0^2 - z^2} = -\sqrt{\frac{z_0^2}{z^2} - 1}\]  
+\end{mainbox}
+
+
+$z_0$ is a unit-less number derived by the potential we are given -- the
+parameters $V_0$ and $a$. \\
+Before we draw graphs to visualize this in Figure \ref{z0evenodd}, consider the process of gradually
+increasing $V_0$, which allows more and more states to be captured in the
+potential well. When does a new state enter? When $|E| \sim 0 \Rightarrow
+\kappa = 0 \Rightarrow z \sim z_0$. This means  
+
+\[
+\text{even: } \tan z \sim \tan z_0 = 0 \quad \Rightarrow \quad z_0
+= n\frac{\pi}{2}, n = 0, 2, 4, \hdots \quad \Rightarrow \quad a^2V_0 = n^2\pi^2
+\frac{\hbar^2}{2m}, n = 0, 2, 4, \hdots
+\] \vspace{3px}
+
+Therefore if 
+
+\[
+  (n+2)^2\pi^2 \frac{\hbar^2}{2m} > a^2V_0 > n^2\pi^2 \frac{\hbar^2}{2m}, \;
+  n = 0, 2, 4, \hdots \quad \text{ there are } \frac{n}{2} + 1 \text{ even
+  bound states} 
+\] \vspace{3px}
+
+Note that there is always at least one bound state that persists even as $V_0
+\to 0$. \\
+For the odd-parity states, 
+
+\[
+\text{odd: } \cot z \sim \cot z_0 = 0 \quad \Rightarrow \quad z_0
+= n\frac{\pi}{2}, n = 1, 3, 5, \hdots \quad \Rightarrow \quad a^2V_0 = n^2\pi^2
+\frac{\hbar^2}{2m}, n = 1, 3, 5, \hdots
+\] \vspace{3px}
+
+Therefore if 
+
+\[
+  (n+2)^2 \pi^2 \frac{\hbar^2}{2m} > a^2V_0 > n^2\pi^2 \frac{\hbar^2}{2m},
+  n = 1,3, 5, \cdots \quad \text{ there are } \frac{n+1}{2} \text{ odd bound
+  states} 
+\] \vspace{3px}
+
+Putting these two results together: 
+
+\begin{subbox}{Number of Energy Eigenstates}
+  For a finite well of width $a$ and depth $V_0$, if
+
+  \[
+  (n+1)^2 \pi^2 \frac{\hbar^2}{2m} > a^2V_0 > n^2\pi^2
+  \frac{\hbar^2}{2m}, n = 0, 1, 2, \hdots
+  \] \vspace{3px}
+  
+  there are $n+1$ bound states. The equivalent condition on $z_0$ is 
+
+  \begin{align} \label{finite_condition}
+    (n+1)\frac{\pi}{2} > z_0 > n\frac{\pi}{2}
+  \end{align} \vspace{3px}
+\end{subbox}
+
+\subsection{Finding Eigenvalues} Our eigenvalue equations are 
+
+\[
+\tan z = \sqrt{\frac{z_0^2}{z^2} - 1} \qquad \cot z = -\sqrt{\frac{z_0^2}{z^2}
+- 1}
+\] \vspace{3px}
+
+
+which we must solve as a function of $z_0$. We do so by plotting the left and
+right-handed sides, for a series of $z_0^2$ and finding the intersections. This
+is shown in Figure \ref{z0evenodd} for the cases of $z_0 = \pi /4$ and $z_0
+= 3\pi / 4$. The
+pattern of solutions follows the discussion above. One can also use Mathematica
+or MATLAB to get accurate results. 
+
+\paragraph{\textit{Consistency with the Infinite Square Well:}}  In our calculation we can take $V_0 \rightarrow \infty$ or equivalently $z_0
+\rightarrow \infty$. Then our even eigenvalue equation becomes
+
+\[
+\tan z = \tan \frac{ka}{2} = \frac{1}{z} \sqrt{z_0^2 - z^2} \rightarrow \infty
+\quad \Rightarrow \quad \frac{k_n a}{2} = \frac{n\pi}{2}, \quad n = 1, 3, 5,
+\hdots
+\] \vspace{3px}
+
+
+and our odd equation becomes 
+
+\[
+-\cot z = -\cot \frac{ka}{2} = \frac{1}{z} \sqrt{z_0^2 - z^2} \rightarrow
+\infty \quad \Rightarrow \quad \frac{k_n a}{2} = \frac{n\pi}{2}, \quad n = 2,
+4, 6,\hdots
+\] \vspace{3px}
+
+Thus
+
+\[
+k_n a = n\pi, \quad n = 1,2,3,\hdots \quad \Rightarrow \quad E_n
+= \frac{\hbar^2k_n^2}{2m} = \frac{n^2\pi^2\hbar^2}{2ma^2}, \quad
+n = 1,2,3,\hdots
+\] \vspace{3px}
+
+which is the same result as before. 
 
 
 
 
+\subsection{Finding Bound Stationary States Example}
+
+We consider a specific case where 
+
+\[
+z_0 = \frac{\pi}{20}
+\] \vspace{3px}
+
+Let's first determine how many bound states this potential can hold. Referring
+to our eigenvalue condition on $z_0$ from Equation \ref{finite_condition},  
+
+\[
+  (n+1)\frac{\pi}{2} > \frac{\pi}{20} > n\frac{\pi}{2} 
+\] \vspace{3px}
+
+The only $n$ that satisfies this equation is $n = 0$. Therefore this potential
+will have only a single, even-parity bound state. This choice leads to
+
+ \[
+z_0 \equiv \frac{a}{2\hbar} \sqrt{2mV_0} \quad \Rightarrow \quad V_0 = \left(
+\frac{\pi}{20} \right) ^2 \frac{2\hbar^2}{ma^2} 
+\] \vspace{3px}
+
+This is a very weak potential, one that supports a barely-bound state. We can
+compute the wave number and wavelength of the wave function inside the well, 
+
+\[
+k = \frac{\sqrt{2m(V_0 - |E|)}}{\hbar} < \frac{\sqrt{2mV_0}}{\hbar}
+= \frac{\pi}{10}\frac{1}{a} \quad \Rightarrow \lambda = \frac{2\pi}{k} > 20a
+\] \vspace{3px}
+
+The wave length is \textit{much} longer than the width of the well. We will
+return to this fact soon when we study \textit{quantum tunneling}. Solving our
+even eigenvalue equation yields 
+
+\[
+z \equiv \frac{ka}{2} = 0.1551918
+\] \vspace{3px}
+
+But from our earlier formulae, 
+
+\[
+\frac{\kappa a}{2} = \sqrt{z_0^2 - \left( \frac{ka}{2} \right) ^2 } = 0.02428
+\quad \text{ and } \quad |E| = \left( \frac{\kappa a}{2} \right) ^2
+\frac{2\hbar^2}{ma^2} = \left( \frac{\kappa a}{2} \right) ^2 V_0 \left(
+\frac{20}{\pi} \right) 2 = 0.02245V_0   
+\] \vspace{3px}
+
+This state is very near the top of the well -- 98\% of the well is below. The
+wave function is almost free! Only about 5\% of the probability density is
+within the well -- the rest is spread out in the classically forbidden region.
+We could make this solution less and less bound, forcing it to approach
+arbitrarily close to a free particle wave of the form 
+
+\[
+  \frac{1}{2}\left[ e^{ikx} + e^{-ikx} \right]
+\] \vspace{3px}
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width = 16cm]{z0evenodd.pdf}
+    \caption{Finite Well even (left) and odd (right) parity plots to identify
+    eigenvalues. For $z_0 = \pi /4$, one even solution is found. For $z_0 = 3\pi
+  / 4$, one even and one odd solution is found.}
+    \label{z0evenodd}
+\end{figure}
+
+\section{The Delta Function Potential} 
+
+Here we define the delta function $\delta(x)$ as the limit 
+
+\[
+  \delta(x - 0) = \delta(x) \equiv \lim_{b\to 0}
+  \frac{1}{|b|\sqrt{\pi}}e^{-(x/b)^2}
+\] \vspace{3px}
+
+If we integrate the Gaussian over all $x$, 
+
+\[
+  \int_{-\infty}^{\infty} e^{-(x/b)^2} \, dx = \sqrt{\pi}|b| \quad \text{ so
+  } \quad \int_{-\infty}^{\infty} \delta(x) \, dx = 1
+\] \vspace{3px}
+
+\begin{mainbox}{Delta Function Definition and Properties}
+  \[
+    \delta(x) \equiv \lim_{b\to 0} \frac{1}{|b|\sqrt{\pi}}e^{-(x/b)^2} \qquad
+    \int_{-\infty}^{\infty} f(x)\delta(x-\beta) \, dx = f(\beta) \qquad
+    \delta(\beta x) = \frac{1}{|\beta|}\delta(x)
+  \] \vspace{3px}  
+\end{mainbox}
+
+\paragraph{\textit{Delta Function Potential:}} Consider the case of a square
+well potential and a weakly bound state, where $\lambda \gg a$. Were we to
+consider the expectation value of $V(x)$ for this low-momentum state, we could
+approximate
+
+\begin{align}
+  \int_{-\infty}^{\infty} &\psi^*(x) V(x) \psi(x) \, dx \sim
+  \int_{-\infty}^{\infty} [\psi*(0) + x\psi'^*(0) + \cdots] V(x) [\psi(0)
+  + x\psi'(0) + \cdots] \, dx \\
+                          &= \psi^*(0)\psi(0) \int_{-\infty}^{\infty} V(x) \,
+                          dx + (\psi'^*(0)\psi(0) + \psi^*(0)\psi'(0))
+                          \int_{-\infty}^{\infty} xV(x) \, dx + \cdots 
+\end{align}
+
+For the limits of the well we get,  
+
+\begin{align} 
+  \psi^*(0) & \psi(0) \int_{-a/2}^{a/2} (-V_0) \, dx + (\psi'^*(0)\psi(0)
+  + \psi^*(0)\psi'(0)) \int_{-a/2}^{a/2} x(-V_0) \, dx + \cdots \\
+  &= -\psi^*(0)V_0 a\psi(0) + 0(\psi'^*(0)\psi(0)
+  + \psi^*(0)\psi'(0)) + \cdots \\ 
+  &= -V_0a \int \psi^*(x) \delta(x) \psi(x) \, dx 
+\end{align} \vspace{3px}
+
+where the second term vanishes because our potential is even. Therefore, our
+work above identifies 
+
+\[
+\int_{-\infty}^{\infty} \psi^*(x) V(x) \psi(x) \, dx \sim -a V_0 \int \psi^*(x)
+\delta(x) \psi(x) \, dx
+\] \vspace{3px}
+
+These two potentials -- $V(x)$ and $-aV_0 \delta(x)$ would give us equivalent
+answers if we restrict our attention to low energies. For such low-momentum,
+long-wavelength states, this derivation suggests we can replace our square well
+interaction $V(x)$ with a simpler one: 
+
+\[
+V(x) \rightarrow V_\delta(x) \equiv -aV_0\delta(x)
+\] \vspace{3px}
 
 
+This derivation showed that the delta function `strength' in general is given
+by the integral 
+
+\[
+\int_{-a/2}^{a/2} V(x) \, dx
+\] \vspace{3px}
+
+where $V(x)$ is the potential and $a$ defines the region over which the
+unspecified potential is nonzero. We define $\alpha = aV_0$ to be the strength
+of the attractive finite well potential. The finite square well potential
+$V(x)$ and $V_\delta = \alpha\delta(x)$ should yield equivalent solutions of
+the Schr\"odinger equation that have wavelength $\lambda \gg a$. 
+
+But this
+also guarantees that we can take a similar limit of the square well potential
+itself, shrinking $a$ and proportionally increasing $V_0$, since the proper
+delta function strength depends on the product $\alpha = aV_0$. This is nice
+because we have solved the square well, and can use those results for any $a$.
+
+When counting the number of possible eigenstates in Equation
+\ref{finite_condition}, we found 
+
+\[ \text{If } \pi^2 \frac{\hbar^2}{2m} > a^2V_0 > 0, \text{ we have one even
+bound state} \]
+\[ \text{If } 4\pi^2\frac{\hbar^2}{2m} > a^2V_0 > \pi^2\frac{\hbar^2}{2m},
+  \text{ we have one even and one odd bound state} \] \vspace{3px}
+
+In taking the delta function limit, we keep the product $aV_0$ constant. But
+the factor appearing above is $a^2V_0 = a\alpha$. Thus as we make $a$ smaller,
+clearly at some point the second equation is unsatisfied. But the first states 
+
+\[
+a^2V_0 = \alpha a > 0
+\] \vspace{3px}
+
+No matter how small we make $a$, keeping $aV_0$ fixed, this condition remains
+satisfied. We conclude 
+
+\begin{subbox}{}
+  An attractive delta function potential $V_\delta = -\alpha V_0 \delta(x),
+  \alpha > 0$, has exactly one even bound state, independent of the potential's
+  strength $\alpha$. 
+\end{subbox}
+
+What is the strength of this bound state? The finite square well eigenvalue
+condition is 
+
+\[
+  \frac{ka}{2}\tan \left( \frac{ka}{2} \right) = \frac{\kappa a}{2} \qquad
+  k = \frac{\sqrt{2m(V_0 - |E|)}}{\hbar} \qquad \kappa
+  = \frac{\sqrt{2m|E|}}{\hbar} 
+\] \vspace{3px}
+
+But as $a\rightarrow 0$, 
+
+\[
+\frac{ka}{2} = \sqrt{a}\frac{\sqrt{2ma(V_0 - |E|)}}{2\hbar}
+= \sqrt{a}\frac{\sqrt{2maV_0(1 - \frac{|E|}{V_0})}}{2\hbar} \rightarrow 0 \quad
+\text{ so } \quad \frac{ka}{2}\tan \left( \frac{ka}{2} \right) \rightarrow
+\left( \frac{ka}{2} \right) ^2  
+\] \vspace{3px}
+
+So our eigenvalue equation becomes 
+
+\begin{align} \label{}
+  \frac{ka}{2}\tan\left( \frac{ka}{2} \right) = \frac{\kappa a}{2} \quad
+&\Rightarrow \quad \left( \frac{ka}{2} \right) ^2 = \frac{\kappa a }{2} \quad
+\text{ exact as } a \rightarrow 0 \quad \Rightarrow \\
+  \frac{a}{4\hbar^2}2maV_0 \left( 1 - \frac{|E|}{V_0} \right)
+  = \frac{a}{2\hbar}\sqrt{2m|E|} \quad &\Rightarrow \quad
+  \frac{m(aV_0)}{\hbar}\left( 1- \frac{|E|}{V_0} \right)  = \sqrt{2m|E|} \\
+                                       &\Rightarrow \quad \frac{m(aV_0)}{\hbar}
+  = \sqrt{2m|E|} \quad \text{ exact as
+                                       } a \rightarrow 0
+\end{align}\vspace{3px}
+
+Solving for $|E|$, 
+
+\[
+|E| = \frac{m(aV_0)^2}{2\hbar^2} = \frac{m\alpha^2}{2\hbar^2}
+\] \vspace{3px}
+
+This result is also valid (for long wavelength $\psi$ ) for our finite well
+potential and a weakly bound state, but as noted, becomes \textit{exact} when
+we take the delta function limit, keeping $\alpha = aV_0$ fixed. This makes
+sense, as in the limit \textit{every} wave function is long compared to the
+delta function potential. In summary 
 
 
+\begin{mainbox}{}
+  The bound state of a delta function potential $V_\delta = -\alpha \delta(x)$
+  has a binding energy of 
+  \[ |E| = \frac{m\alpha^2}{2\hbar^2} \]
+\end{mainbox}
+
+The other result we can derive concerns the derivative of the wave function at
+the delta function potential,
+or more correctly, the discontinuity of the derivative across the delta function. We saw in the case
+of the infinite square well that the derivative could be discontinuous at the
+interface with an infinite wall. (In all other cases, where there is no
+infinite potential, the wave function derivative must be
+continuous). Here the situation is not so clear, because the potential is going to infinity, but its
+width is going to zero...
+
+Our finite square well solution left of the potential well is 
+
+\[
+  \psi_L (x) = Ce^{\frac{\kappa a}{2}} \cos \frac{ka}{2} e^{\kappa x}
+  \rightarrow Ce^{\kappa\left( x + \frac{a}{2} \right) } 
+\] \vspace{3px}
+
+
+And because we just showed in the delta function limit that $ka \sim \sqrt{a}
+\rightarrow 0$, 
+
+\[
+  \psi'_L(x) = C\kappa e^{\kappa \left( x + \frac{a}{2} \right)} \rightarrow
+  C\kappa \text{ as } x \rightarrow -\frac{a}{2}
+\] \vspace{3px}
+
+And similarly on the right side, 
+
+\[
+  \psi_R(x) \rightarrow Ce^{-\kappa \left( x - \frac{a}{2} \right) } \qquad
+  \psi'_R(x) = -C\kappa e^{-\kappa \left( x - \frac{a}{2} \right) } \rightarrow
+  -C\kappa \text{ as } x \rightarrow \frac{a}{2}
+\] \vspace{3px}
+
+and as $\psi(x = 0) = C$, one concludes
+
+\begin{subbox}{}
+  The discontinuity of the derivative across $V_\delta = -\alpha \delta(x),
+  \alpha > 0$ is 
+
+  \begin{align} \label{delta_discon} 
+    \psi'_R(0) - \psi'_L(0) = -2\kappa \psi(0) = -2
+    \frac{\sqrt{2m|E|}}{\hbar}\psi(0)
+  = -\frac{2m\alpha}{\hbar^2}\psi(0).
+  \end{align}
+
+  The wave functions are continuous and $ \frac{d \psi}{d x} $ is continuous
+  except at points where the potential is infinite. 
+\end{subbox}
+
+
+\subsection{Wave Function Solution} 
+
+Now 
+
+\[
+\kappa = \frac{\sqrt{2m|E|}}{\hbar} = \frac{m\alpha}{\hbar^2}
+\] \vspace{3px}
+
+Our wave function normalization condition is 
+
+\[
+  \int_{-\infty}^{0} |C|^2e^{2\kappa x} \, dx + \int_{0}^{\infty} |C|^2
+  e^{-2\kappa x} \, dx = \frac{|C|^2}{\kappa} \quad \Rightarrow \quad
+  C = \sqrt{\kappa} = \frac{\sqrt{m\alpha}}{\hbar}
+\] \vspace{3px}
+
+Putting everything together, we have a universal bound state solution for an
+attractive delta function potential:
+
+\begin{mainbox}{Delta Function Potential Solution}
+  \[ V_\delta (x) = -\alpha \delta(x), \alpha > 0 \] 
+  \[ |E| = \frac{m\alpha^2}{2\hbar^2} \quad \kappa = \frac{m\alpha}{\hbar^2} \]
+  \[ \psi(x) = \begin{cases}
+    \sqrt{\kappa}e^{\kappa x}, &\quad x < 0 \\ \sqrt{\kappa} e^{-\kappa x},
+                               &\quad x > 0
+  \end{cases} \qquad  \psi'(x) = \begin{cases}
+    \kappa^{3/2} e^{\kappa x}, &\quad x < 0 \\ -\kappa^{3/2} e^{-\kappa x},
+                               &\quad x > 0
+  \end{cases} \]
+\end{mainbox}
+
+\section{Review and Outlook} 
+
+Let's review what we have done so far 
+
+\begin{itemize}
+  \item[1.] We have studied bound states of the infinite square well, the
+    harmonic oscillator, and the finite square well. In the last, the bound
+    states were the states defined by $E<0$. 
+  \item[2.] In these problems we sought the stationary states, the solutions of
+    the time-independent Schr\"odinger equation. This required us to solve
+    eigenvalue equations -- finding solutions only at certain energies.
+    Consequently the energies were discrete. The eigenvalue conditions were
+    somewhat different in detail, but conceptually similar: 
+    \begin{itemize}
+      \item[-] For the infinite square well, the wave functions were required
+        to vanish at the infinite potential wall. 
+      \item[-] For the bound states of the finite square well, we required
+        continuity of the wave function and its derivative at the finite wall
+        boundary. The eigenvalue equation came from this formula 
+        \[ \frac{\psi'(x)}{\psi(x)}\Bigg|_{x = -\frac{a}{2} - \epsilon}
+          \leftrightarrow \frac{\psi'(x)}{\psi(x)}\Bigg|_{x = -\frac{a}{2}
+        + \epsilon} \] 
+      \item[-] For the harmonic oscillator, the eigenvalue equation comes from
+        demanding that the wave function not increase at large $r$ to maintain
+        normalize ability. At certain energies this proved possible, yielding
+        wave functions that die off as a Gaussian $e^{-\xi^2/2}$, times finite
+        Hermite polynomials in $\xi$. 
+    \end{itemize}
+  \item[3.] The resulting stationary states are normalizable and labeled by
+    a discrete index $n$. Thus the stationary states are physical states we can
+    prepare in a laboratory. 
+  \item[4.] We also introduced free-particle states. These stationary states
+    were labeled by a continuous index $k$, extended over all space, and were
+    not normalizable. These states are still useful as a basis, but a single
+    stationary state is not a candidate for a real physical state. We can not
+    envision ever preparing such a state. 
+  \item[5.] Our finite square well gave us another example of free but
+    distorted states -- states with $E>0$ that extend over all space. These
+    wave functions near the well get distorted by the well. 
+  \item[6.] In all cases, the (complete set) stationary states can be used to
+    expand any wave packet presented to us -- a physical state. Under
+    subsequent time evolution, the expansion coefficients remain, but each
+    accumulates a distinct phase governed by the stationary state energy. Thus
+    we obtain general solutions of the time-dependent Schr\"odinger equation.
+    This is the prescription we call the \textit{prime directive}. Note that
+    for the finite well the complete basis requires both bound and continuum
+    states. 
+\end{itemize}
+
+This is amazing progress. However, there are a number of phenomena we know
+about classically which we can examine in quantum mechanics, as well as some
+phenomena with no classical analog. Phenomena without any classical analog
+often involve free ($E>0$ ) but interacting states that encounter potential
+wells or hills, generating phenomena like reflection and transmission, or
+particle \textit{spin} -- which we will get to later. The next chapter deals
+with understanding reflection and transmission, the main concepts behind
+\textit{quantum tunneling}. Afterwards we begin studying QM less tightly
+connected to wave functions. 
+
+
+\section{Transmission and Reflection}
+
+\subsection{Scattering off $V_\delta$} 
+
+We can utilize a simple delta
+function potential -- either a well or a barrier -- to scatter. As we have
+learned, this will give us a very accurate representation of scattering of much
+more complicated potentials, provided the deBroglie wavelength of the incident particle
+is significantly larger than the width of the barrier. 
+
+Consider scattering for a delta function potential at $x=0$. $E > 0$ and the
+time-independent Schr\"odinger equation for $x < 0$ is 
+
+\[
+\frac{d^2 \psi(x)}{d x^2}  = -k^2 \psi(x) \qquad k = \frac{\sqrt{2mE}}{\hbar}
+\quad \Rightarrow \quad \psi(x) = Ae^{ikx} + Be^{-ikx}
+\] \vspace{3px}
+
+Likewise for $x>0$, 
+
+\[
+  \psi(x) = Fe^{ikx} + Ge^{-ikx} 
+\] \vspace{3px}
+
+Continuity at $x =0$ requires 
+
+\[
+A+B = F+G
+\] \vspace{3px}
+
+And we can compute the derivative on either side of the delta function, 
+
+\begin{align} \label{}
+  \frac{d \psi}{d x} \Big|_R &= ik(F-G) \\ \frac{d \psi}{d x} \Big|_L &=
+  ik(A-B)
+\end{align}\vspace{3px}
+
+So for an attractive well, combining both continuity conditions and our
+calculated derivative discontinuity across the delta potential from Equation
+\ref{delta_discon}, 
+
+\begin{align} \label{}
+  V_\delta &= -\alpha \delta(x) \quad \Rightarrow \quad ik(F-G-A+B)
+  = -\frac{2m\alpha}{\hbar^2}\psi(0) = -\frac{2m\alpha}{\hbar^2}(A+B) \\ 
+  \Rightarrow \; F - G &= A(1+2i\beta) - B(1-2i\beta) \qquad \beta \equiv
+  \frac{m\alpha}{\hbar^2 k} = \frac{\alpha}{\hbar}\sqrt{\frac{m}{2E}} \quad
+  \beta^2 = \frac{m\alpha^2}{2\hbar^2 E}
+\end{align}\vspace{3px}
+
+There are two constraints and four unknowns -- $A, B, F, G$, so to get
+a solution we need more information. Normalization is of no help, as these are
+free-particle non-normalizable states.
+
+Recall that when we convert to time-dependent solutions, per the prime
+directive, a phase  $e^{-iEt / \hbar}$ is added. When that is done, one sees 
+
+\begin{itemize}
+  \item[1.] $e^{ikx}$ generates a wave traveling with positive velocity
+    (traveling to the right): it would be associated with a wave packet
+    component $e^{i(kx - \omega t)}$ that travels to the right. 
+  \item[2.] $e^{-ikx}$ generates a wave with negative velocity (travels to the
+    left). 
+\end{itemize}
+
+So suppose we wish to describe the scattering of a wave packet coming in from
+the left, off our potential. Part of the wave will be reflected, moving back to
+the left. Some of it will be transmitted, going to the right, through the
+potential. But there is no wave to generate at positive $x$ that is moving to
+the left. So if we set our initial conditions to reflect the experiment just
+described, we should require 
+
+ \[
+G=0
+\] \vspace{3px}
+
+The experiment described is depicted in Figure \ref{reftrans} below. 
+
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width = 16cm]{reftrans.pdf}
+    \caption{Scattering by a beam incident on a delta function potential from
+    the left} 
+    \label{reftrans}
+\end{figure}
+
+
+$A$ then corresponds to the amplitude of the incident wave coming in from the
+left. We can then solve our two equations to find 
+
+\begin{align} \label{}
+  B = \frac{i\beta}{1 - i\beta}A \qquad F = \frac{1}{1-i\beta}A
+\end{align}\vspace{3px}
+
+which should be interpreted as the amplitude of the reflected and transmitted
+wave, respectively. The probability of reflection is then 
+
+\begin{align} \label{}
+  R = \frac{|B|^2}{|A|^2} \equiv
+  \frac{|\text{Amplitude}_\text{reflected}|^2}{|\text{Amplitude}_\text{incoming}
+  |^2} = \frac{\beta^2}{1 + \beta^2}
+\end{align}\vspace{3px}
+
+Similarly, the probability of transmission is 
+
+\begin{align} \label{}
+  T = \frac{|F|^2}{|A|^2} \equiv \frac{|\text{Amplitude}_\text{transmitted}
+  |^2}{|\text{Amplitude}_\text{incoming}|^2} = \frac{1}{1 + \beta^2}
+\end{align}\vspace{3px}
+
+You can check that $R + T = 1$. Plugging in our expression for $\beta$, 
+
+\begin{subbox}{Transmission and Reflection Coefficients -- Delta Potential}
+  \begin{align} \label{reftranscoeff}
+    V_\delta = \pm \alpha \delta(x) \quad \Rightarrow \quad T = \frac{1}{1
+    + \beta^2} \quad R = \frac{\beta^2}{1 + \beta^2} \quad \beta^2
+    = \frac{m\alpha^2}{2\hbar^2 E}
+  \end{align}\vspace{3px}
+\end{subbox}
+
+Note that we allowed for the scattering to be off a well or a \textit{barrier},
+as we found that the answer does not depend on the sign of $\alpha$. We see 
+
+\begin{itemize}
+  \item[1.] As $E \rightarrow 0$, $T \rightarrow 0$, $R \rightarrow 1$. The
+    wave is fully reflected. 
+  \item[2.] As $E\rightarrow \infty, \; T \rightarrow 1, \; R \rightarrow 0$. The
+    wave is fully transmitted. 
+  \item[3.] As $\alpha \rightarrow \infty, \; T \rightarrow 0,\;  R \rightarrow 1$.
+    The wave is fully reflected. 
+  \item[4.] As  $\alpha \rightarrow 0,\;  T \rightarrow 1,\;  R \rightarrow 0$. The
+    wave is fully transmitted.
+\end{itemize}
+
+All of this is as expected classically. However, our barrier is infinitely high
+for any finite $\alpha$, and yet there is always some transmission for any
+nonzero $E$. This is quantum mechanical tunneling. 
+
+
+\subsection{Scattering off a Square Well} 
+
+There are additional unique phenomena that are not captured in the
+delta-potential well calculation just outlined, but do emerge from scattering
+off a realistic well of equivalent strength $\alpha = aV_0$. The situation is
+depicted in Figure \ref{reftranswell} below. 
+
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width = 13cm]{reftranswell.pdf}
+    \caption{Scattering by a beam incident from the left on a well of depth
+    $V_0$ and width $a$.}
+    \label{reftranswell}
+\end{figure}
+
+
+We will now repeat our previous calculations to see what new aspects arise from
+details of the well, beyond its net strength $\alpha \equiv aV_0$. 
+
+This is a slightly new problem for us as we are solving a problem involving the
+free states \textit{above} the well, not bound states within. We define our
+kinematic variables in the usual way, remembering by assumption that $E > 0$, 
+
+\[
+k \equiv \frac{\sqrt{2mE}}{\hbar} \quad l = \frac{\sqrt{2m(E+V_0)}}{\hbar}
+\] \vspace{3px}
+
+Because of our experience above, we can speed things along by setting $G = 0$
+as before. Only a transmitted wave is allowed in Region III. 
+
+I have previously stressed in earlier problems how much efficiency is gained by
+utilizing reflection symmetry. However now we require an asymmetric solution by
+setting $G = 0$. Consequently we have to deal with all three regions. The
+solutions in each region are
+
+\[
+\psi(x) = \begin{cases}
+  \qquad F e^{ikx} &\quad \quad x > \frac{a}{2} \\ Ce^{ilx} + D^{-ilx} &\quad -\frac{a}{2}
+  < x< \frac{a}{2} \\ Ae^{ikx} + Be^{-ilx} &\quad \quad x < -\frac{a}{2}
+\end{cases} 
+\] \vspace{3px}
+
+We match solutions and their derivatives at the boundary of regions II and III
+($x = \frac{a}{2}$ ). We yield 
+
+\begin{align*}
+  Fe^{ika/2} &= Ce^{ila/2} + De^{-ila/2} \\ ikFe^{ika/2} &= il\left( Ce^{ila/2}
+  - D^{-ila/2}\right)  
+\end{align*}
+
+As there are two constraints, $F$ determines $C$ and $D$. Doing (a lot of) the
+algebra, 
+
+\begin{align} \label{}
+  C = F\left( \frac{l + k}{2l} \right) e^{i(k - l) \frac{a}{2}} \qquad
+  D = F\left( \frac{l-k}{2l} \right) e^{i(k+l) \frac{a}{2}}  
+\end{align}\vspace{3px}
+
+
+Now we need to match the boundary of regions I and II ($x = -\frac{a}{2})$.
+Let's first use the information above to write out the solutions in the two
+regions. 
+
+\[
+\psi(x) = \begin{cases}
+  F \left( \frac{l+k}{2l}\right) e^{ika / 2} e^{il(x - a/2)} + F \left(
+  \frac{l-k}{2l}\right) e^{ika/2} e^{-il(x - a/2)} &\quad -\frac{a}{2}
+  < x < \frac{a}{2} \\ \qquad \qquad \qquad \qquad Ae^{ikx} + Be^{-ikx}
+                                                   &\quad \quad x < -\frac{a}{2}  
+\end{cases} 
+\] \vspace{3px}
+
+The continuity of the wave function and its derivative yields 
+
+\begin{align*}
+  F \left( \frac{l+k}{2l} \right) e^{ika/2}e^{-ila} + F \left( \frac{l-k}{2l}
+  \right) e^{ika /2 }e^{ila} &= Ae^{-ika/2} + Be^{ika/2}  \\
+  il\left[ F \left( \frac{l+k}{2l} \right) e^{ika/2}e^{-ila} - F \left(
+\frac{l-k}{2l} \right) e^{ika/2}e^{ila} \right] &= ik\left[ Ae^{-ika/2}
+  - Be^{ika/2} \right]  
+\end{align*}
+
+These two constraints can be used to eliminate $A$ and $B$. Doing (again a lot
+of) algebra, 
+
+\begin{align} \label{}
+  A &= F\frac{e^{ika}}{4lk} \left[ (l+k)^2 e^{-ila} - (l-k)^2 e^{ila} \right] \\
+  B &= F \frac{(l+k)(l-k)}{4lk} \left[ e^{ila} - e^{-ila}\right]
+\end{align}\vspace{3px}
+
+When all the dust clears, we have a solution in which only one unknown constant
+$F$ remains. This is no problem since  $F$ will cancel when calculating the
+transmission and reflection ratios. 
+
+\begin{align}
+  \psi(x) = \begin{cases}
+    \qquad \qquad \qquad \qquad \qquad \qquad \qquad  Fe^{ikx} &\quad \quad x > \frac{a}{2}, \\ 
+    \qquad \qquad   F\frac{e^{ika/2}}{2l} \left[ (l+k)e^{il(x - a/2)} + (l-k)e^{-il(x
+    - a/2)}\right] &\quad -\frac{a}{2} < x < \frac{a}{2}, \\ 
+    Fe^{ikx}\frac{1}{4lk} \left[(l+k)^2 e^{i(k-l)a} + (l-k)^2e^{i(k+l)a}\right]
+    + Fe^{-ikx} \frac{(l^2 - k^2)}{4lk} 2i\sin la &\quad \quad x < -\frac{a}{2}.
+\end{cases} 
+\end{align} \vspace{3px}
+
+
+From this we identify
+
+\begin{align}
+  \text{transmitted} &\text{ wave : } &&\quad Fe^{ikx} &&& \quad x > \frac{a}{2} \\
+  \text{incoming} &\text{ wave : } &&\quad Fe^{ikx} \frac{1}{4lk} \left[ (l
+  + k)^2 e^{i(k-l)a} - (l-k)^2 e^{i(k+l)a} \right] &&&\quad x < -\frac{a}{2} \\
+  \text{reflected} &\text{ wave : } &&\quad Fe^{-ikx} \frac{(l^2 - k^2)}{4lk}
+  2i\sin la &&&\quad x < -\frac{a}{2}
+\end{align}
+
+We can now calculate the ratios of reflection and transmission. 
+
+\begin{mainbox}{Transmission and Reflection Coefficients -- Finite Well}
+  \begin{align} 
+    R = \text{ Prob. of reflection } = \frac{|A_\text{reflect}
+    |^2}{|A_\text{incoming} |^2} &= \frac{4(l^2 - k^2)\sin^2 la}{(4lk)^2 + 4(l^2
+    -k^2)^2 \sin^2 la} \\ &= \frac{(l^2 - k^2) \sin^2 la}{(2lk)^2 + (l^2 - k^2)^2
+    \sin^2 la}
+  \end{align}
+
+  \begin{align} \label{}
+    T = \text{ Prob. of transm } = \frac{|A_\text{transmission}
+    |^2}{|A_\text{incoming} |^2} &= \frac{(4lk)^2}{(4lk)^2 + 4(l^2 - k^2)^2
+    \sin^2 la} \\ &= \frac{(2lk)^2}{(2lk)^2 + (l^2 - k^2)^2 \sin^2 la}
+  \end{align}\vspace{3px}
+\end{mainbox}
+
+Below in Figure \ref{reftransplots} I plot graphs of the transmission and
+reflection coefficients for square wells and delta potential wells of the same
+strength $aV_0$, for two different $V_0$. 
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width = 14cm]{reftransplots.pdf}
+    \caption{Transmission and Reflection Comparison between Square Well and
+    Delta Potential.}
+    \label{reftransplots}
+\end{figure}
+
+Try plotting the coefficients for $V_0 = \frac{128\hbar^2}{ma^2}$. See how
+unique the graphs become. \\ 
+
+
+This concludes our introduction to the fundamental problems in Quantum
+Mechanics. By now, you should have a strong grasp of the methods used to solve
+the time-independent Schrödinger equation for basic potentials, providing
+a solid foundation for the material to come. It's not necessary to memorize
+every algebraic step or derivation for each potential discussed. Instead, focus
+on developing an intuitive sense of how these problems are approached and
+solved. What matters most is understanding the general procedure for solving
+these problems and truly comprehending the underlying principles of each
+derivation. 
+
+Next chapter presents ways of thinking of
+Quantum Mechanics less tightly connected to wave functions. We are diving
+directly into Quantum theory. 
