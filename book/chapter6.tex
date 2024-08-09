@@ -2045,27 +2045,141 @@ We can now calculate the ratios of reflection and transmission.
   \end{align}\vspace{3px}
 \end{mainbox}
 
-Below in Figure \ref{reftransplots} I plot graphs of the transmission and
-reflection coefficients for square wells and delta potential wells of the same
-strength $aV_0$, for two different $V_0$. 
+
+\subsection{Perfect Transmission} 
+
+Physically we argued that $V_\delta = -\alpha\delta(x)$ should be effectively
+equivalent to a square well solution if the scattered particle's 
+wavelength is very large relative to $a$. For the finite well our kinematic variable $ l$
+
+\[
+l = \frac{\sqrt{2m(E+V_0)}}{\hbar}
+\] \vspace{3px}
+
+Thus, for a particle's wavelength $\lambda_l$ to be much larger than $a$, 
+
+\[
+\lambda_l = \frac{2\pi}{l} \gg a \quad \Rightarrow \quad l \ll \frac{2\pi}{a}
+\] \vspace{3px}
+
+Consequently, $V_\delta$ fails to capture an interesting aspect of real wells
+-- the fact that $T \rightarrow 1$ when $\sin^3 la = 0$. This occurs at 
+
+\[
+la = n\pi, \; n = 1,2,3 \hdots
+\] \vspace{3px}
+
+The physics of this effect is shown below in Figure \ref{perftrans}, drawn for
+$la = 2\pi$. 
+
 
 \begin{figure}[H]
   \centering
-    \includegraphics[width = 14cm]{reftransplots.pdf}
-    \caption{Transmission and Reflection Comparison between Square Well and
-    Delta Potential.}
-    \label{reftransplots}
+    \includegraphics[width = 10cm]{perftrans.pdf}
+    \caption{Perfect transmission, $la = 2\pi$ } 
+    \label{perftrans}
 \end{figure}
 
-Try plotting the coefficients for $V_0 = \frac{128\hbar^2}{ma^2}$. See how
-unique the graphs become. \\ 
+One sees that the wave function while in the well executes exactly
+a   $2\pi$  phase change and consequently, since our wave functions and their
+derivatives are continuous, one could “cut out" the well from  $-a/2$  to  $a/
+2$ and patch the two exterior pieces together with no change in the wave function
+phase from scattering.
 
+
+
+\subsection{Comparing  $V_\delta$ and the Square Well} 
+
+A bit of algebra and the identification $\alpha = aV_0$ yields the following
+relations
+
+\[
+ka = \frac{a\sqrt{2mE}}{\hbar}
+= \frac{a\sqrt{2mV_0}}{\hbar}\sqrt{\frac{E}{V_0}} \quad la
+= \frac{a\sqrt{2mV_0}}{\hbar} \sqrt{1+\frac{E}{V_0}} \quad \beta^2
+= \frac{m\alpha^2}{2\hbar^2 E} = \frac{m\alpha^2V_0}{2\hbar^2}\frac{V_0}{E}
+\] \vspace{3px}
+
+We will consider the scattering off three wells of different strengths in the
+ratio of $\frac{1}{16}: \; 1: \; 16: \; 256$, 
+
+\[
+V_0 = \frac{\hbar^2}{32ma^2} \qquad V_0 = \frac{\hbar^2}{2ma^2} \qquad V_0
+= \frac{8\hbar^2}{ma^2} \qquad V_0 = \frac{128\hbar^2}{ma^2}
+\] \vspace{3px}
+
+which then yields
+
+\begin{align} \label{}
+  &V_0 = \frac{\hbar^2}{32ma^2} &&\quad \Rightarrow \quad ka = \frac{1}{4}\sqrt{\frac{E}{V_0}}
+  &&&\quad la = \frac{1}{4}\sqrt{1 + \frac{E}{V_0}} &&&&\quad \beta^2
+  = \frac{1}{64}\frac{V_0}{E} \\ 
+  &V_0 = \frac{\hbar^2}{2ma^2} &&\quad \Rightarrow \quad ka
+  = \sqrt{\frac{E}{V_0}} &&&\quad la = \sqrt{1 + \frac{E}{V_0}} &&&&\quad
+  \beta^2 = \frac{1}{4}\frac{V_0}{E} \\ 
+  &V_0 = \frac{8\hbar^2}{mas^2} &&\quad \Rightarrow \quad ka
+  = 4\sqrt{\frac{E}{V_0}} &&&\quad la = 4\sqrt{1 + \frac{E}{V_0}} &&&&\quad
+  \beta^2 = 4\frac{V_0}{E} \\
+                          &V_0 = \frac{128\hbar^2}{ma^2} &&\quad \Rightarrow
+  \quad ka = 16\sqrt{\frac{E}{V_0}} &&&\quad la = 16\sqrt{1+ \frac{E}{V_0}}
+                                    &&&&\quad \beta^2 = 64\frac{V_0}{E}
+\end{align}\vspace{3px}
+
+
+The progression increases the depth of the well while keeping fixed width. This
+identifies $E/V_0$ as the ``control parameter" for the scattering. 
+
+Let's analyze the $\lambda / a$ ratios for particles at the top of the well ($E
+= V_0$ ) each of the four cases. 
+
+\begin{subbox}{}
+  First Case: $V_0 = \frac{\hbar^2}{32ma^2}$ 
+  \[ \text{at } E = V_0, \quad \frac{\lambda_k}{a} = 8\pi \quad
+  \frac{\lambda_l}{a} = 4\sqrt{2}\pi \quad \beta^2 = \frac{1}{64} \] 
+  
+  Second Case: $V_0 = \frac{\hbar^2}{2ma^2}$ 
+  \[ \text{at } E = V_0, \quad \frac{\lambda_k}{a} = 2\pi \quad
+    \frac{\lambda_l}{a} = \sqrt{2}\pi \quad \beta^2 = \frac{1}{4} \]
+
+  Third Case: $V_0 = \frac{8\hbar^2}{ma^2}$
+  \[ \text{at } E = V_0, \quad \frac{\lambda_k}{a} = \frac{\pi}{2} \quad
+  \frac{\lambda_l}{a} = \frac{\pi}{2\sqrt{2}} \quad \beta^2 = 4 \] 
+
+  Fourth Case: $V_0 = \frac{128\hbar^2}{ma^2}$ 
+  \[ \text{at } E = V_0, \quad \frac{\lambda_k}{a} = \frac{\pi}{8} \quad
+  \frac{\lambda_l}{a} = \frac{\pi}{8\sqrt{2}} \quad \beta^2 = 64\]
+\end{subbox}
+
+
+In the first case, the wavelengths are very long compared to the well both in
+the exterior and interior. The potential is weak, and the delta function
+representation might work well up to fairly high energies. In the second case,
+wavelengths are on the order $2\pi a$ -- the well's shape should start to play
+a role at incident energies comparable to the well depth. And in the third
+case, the well can definitely be detected, and one suspects that the delta
+function representation will certainly have failed as $E$ is increased toward
+$V_0$. 
+
+We can plot our transmission and reflection coefficients as a function of $ka$
+parameterized by $V_0 / E$. Results are shown in Figure \ref{reftransplots} as
+a function of $E / V_0$. We should expect that as $E / V_0 \rightarrow 1$, for
+higher $V_0$, the delta function and square well results to spread apart. The
+delta function results (orange) and square well results (blue) only agree at
+small $ka$ (and $la$). 
+\begin{figure}[H]
+  \centering
+    \includegraphics[width = 11cm]{reftransplots.pdf}
+    \caption{Transmission and Reflection Coefficients plotted for increasing
+      $V_0$. Blue represents the square well potential and orange represents
+    delta function potential of equivalent strength.}
+    \label{reftransplots}
+\end{figure}
 
 This concludes our introduction to the fundamental problems in Quantum
 Mechanics. By now, you should have a strong grasp of the methods used to solve
 the time-independent Schrödinger equation for basic potentials, providing
 a solid foundation for the material to come. It's not necessary to memorize
-every algebraic step or derivation for each potential discussed. Instead, focus
+ievery algebraic step or derivation for each potential discussed. Instead, focus
 on developing an intuitive sense of how these problems are approached and
 solved. What matters most is understanding the general procedure for solving
 these problems and truly comprehending the underlying principles of each
