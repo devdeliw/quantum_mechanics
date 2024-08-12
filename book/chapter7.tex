@@ -1002,7 +1002,7 @@ measurement will again collapse the wave function,
 but the projection will generally not be to a single stationary state.
 
 
-\subsection{Generalized statistical interpretation of measurements} 
+\subsection{Generalized Statistical Interpretation of Measurements} 
 
 
 We can generalize early discussions about operators and measurements to include
@@ -1089,15 +1089,186 @@ the region $\delta z$, \[ \text{outcome between } Q(z_0 + \delta z / 2) \text{
 
 
 
+\subsection{Simultaneous Measurements \& Commuting Operators} 
 
 
 
 
+Now we come to a key point that will influence much of the rest of this book,
+as we move onto problems in 3D with more degrees of freedom. 
+
+Suppose we have two Hermitian operators $\hat{A}$ and $\hat{B}$ with a common,
+complete set of eigenvectors. That is, 
+
+\[
+  \hat{A} \psi_{A_i, B_i} = A_i \psi_{A_i \, B_i} \qquad \hat{B}\psi_{A_i \,
+  B_i} = B_i \psi_{A_i \, B_i}
+\] \vspace{3px}
+
+Let's first pause here to explain the notation. I've assumed a basis exists
+that can be enumerated by $i$, with each basis state carrying to quantum
+numbers $A_i$ and $B_i$ that are the eigenvalues obtained when the operators
+$\hat{A} $ and $\hat{B}$ act on the basis state. One can view $(A_i, B_i)$ as
+the index of the various basis states -- one has to specify two basis state
+eigenvalues to identify the basis state. Our basis states are simultaneously
+eigenvectors of both  $\hat{A}$ and $\hat{B}$. 
 
 
+It follows that 
+
+\begin{align} \label{}
+  \hat{A}[\hat{B}\psi_{A_i \, B_i}] &= \hat{A}[B_i \psi_{A_i \, B_i}] = A_i B_i
+  \psi_{A_i\, B_i} \\ \hat{B}[\hat{A} \psi_{A_i \, B_i} ] &= \hat{B} [ A_i
+  \psi_{A_i \, B_i } ] = A_i B_i \psi_{A_i \, B_i }
+\end{align}\vspace{3px}
+
+Thus $(\hat{A}\hat{B} - \hat{B}\hat{A}) \psi_{A_i \, B_i} = 0$ for every state
+in the Hilbert space. We conclude 
+
+\begin{mainbox}{}
+  If two observables are simultaneously measurable, 
+  \[
+    [\hat{A}, \hat{B}] = 0
+  \] \vspace{3px}
+  Conversely one can show if $[\hat{A}, \hat{B}] = 0$, a common set of
+  eigenfunctions for the operators can be found. 
+\end{mainbox}
+
+\subsection{Generalized Uncertainty Principle} 
+
+Most Hermitian do not commute ($[\hat{A} , \hat{B}] = 0 \rightarrow
+\hat{A}\hat{B} = \hat{B}\hat{A}$). If $\hat{A} = \hat{p}$ and $\hat{B}
+= \hat{x}$, then working in position space, 
+
+\[
+  [\hat{A}, \hat{B}]\psi(x) = \left[ \frac{\hbar}{i} \frac{d }{d x}
+  x - x \frac{\hbar}{i} \frac{d }{d x} \right] \psi(x) = \frac{\hbar}{i}
+  \psi(x) \quad [\hat{A}, \hat{B}] = \frac{\hbar}{i}
+\] \vspace{3px}
+
+So one can not label states simultaneously by their position and momentum. 
+
+If $\hat{A}$ and $\hat{B}$ are Hermitian, then their product can be written as
+the sum of two Hermitian operators, 
+
+\[
+ \hat{A}\hat{B} = \frac{1}{2} \left[ (\hat{A}\hat{B} +  \hat{B}\hat{A})
++ i \left( \frac{1}{i} [\hat{A}, \hat{B}]\right) \right] \equiv \frac{1}{2}
+\left[ \hat{H}_1 + i \hat{H}_2\right]
+\] \vspace{3px}
+
+as 
+\[
+  \hat{H}_1^\dagger \equiv \left( \hat{A}\hat{B}
+  + \hat{B}\hat{A}\right)^\dagger = \hat{B}\hat{A} + \hat{A}\hat{B}
+= \hat{H}_1 
+\]
+\[ \hat{H}_2^\dagger \equiv \left( \frac{1}{i} [\hat{A},
+  \hat{B}]\right)^\dagger = -\frac{1}{i} (\hat{A}\hat{B}
+  - \hat{B}\hat{A})^\dagger = -\frac{1}{i}(\hat{B}\hat{A} - \hat{A}\hat{B})
+  = \hat{H}_2
+\]
 
 
+We have previously defined uncertainty for a (Hermitian) operator $\hat{A}$ in
+terms of the variance 
 
+\[
+ \langle (\Delta \hat{A})^2 \rangle \equiv \langle \psi | (\hat{A} - \langle
+ \hat{A} \rangle )^2 | \psi\rangle = \langle \Delta \hat{A} \psi\rangle \equiv
+ \langle f | f \rangle 
+\] \vspace{3px}
+
+so also 
+
+\[
+\langle ( \Delta \hat{B} )^2 \rangle \equiv \langle \Delta \hat{B}\psi | \Delta
+\hat{B} \psi \rangle \equiv \langle g | g \rangle
+\] \vspace{3px}
+
+Previously we have used various forms of the Schwarz inequality, which comes
+from 
+
+\begin{align} \label{}
+  &\int (\langle g |g\rangle f(x) - \langle g | f \rangle g(x))^* (\langle
+  g | g \rangle f(x) - \langle g | f \rangle g(x) ) \, dx \geq 0 \\
+  &\Rightarrow [\langle g | g \rangle^2 \langle f | f \rangle - \langle
+  g | g \rangle \langle f | g \rangle \langle g | f \rangle - \langle
+  g | g \rangle \langle g | f \rangle^* \langle g | f \rangle + \langle
+  g | f\rangle^* \langle g | f\rangle \langle g | g \rangle ] \geq 0 \\
+  &\Rightarrow \langle g | g \rangle \langle f | f \rangle \geq | \langle
+  f | g \rangle |^2
+\end{align}\vspace{3px}
+
+So applying this to the $f$ and $g$ defined above, 
+
+\begin{align} \label{}
+  \langle \Delta \hat{A} \psi | \Delta \hat{A} \psi \rangle \langle \Delta
+  \hat{B} \psi | \Delta \hat{B} \psi \rangle &\geq \Bigg| \langle \Delta
+  \hat{A} \psi | \Delta \hat{B} \psi \rangle \Bigg|^2 \\
+  \Rightarrow \langle \psi | (\Delta \hat{A})^2 |\psi\rangle \langle \psi
+  | (\Delta \hat{B})^2 | \psi \rangle &\geq \textcolor{red}{\Bigg| \langle \psi
+  | \Delta \hat{A} \Delta \hat{B} |\psi\rangle \Bigg|^2}
+\end{align}\vspace{3px}
+
+Now we utilize our theorem above, 
+
+\[
+\Delta \hat{A} \Delta \hat{B} = \frac{1}{2} \left[ (\Delta \hat{A} \Delta
+  \hat{B} + \Delta \hat{B} \Delta \hat{A}) + i\left( \frac{1}{i} [\Delta
+\hat{A}, \Delta \hat{B}] \right) \right] \equiv \frac{1}{2}
+\left[\hat{H}_1 + i \hat{H}_2 \right]
+\] \vspace{3px}
+
+
+So applying this to the RHS above and remembering expectation values of
+Hermitian operators are real numbers (observables), 
+
+\[
+  \textcolor{red}{\Bigg| \langle \psi | \Delta \hat{A} \Delta \hat{B} | \psi
+  \rangle \Bigg|^2 } = \Bigg| \langle \psi | \frac{1}{2} \left[ \hat{H}_1
+  + i \hat{H}_2 \right] |\psi\rangle \Bigg|^2 = \langle \psi | \frac{1}{2}
+  \hat{H}_1 | \psi \rangle^2 + \langle \psi | \frac{1}{2} \hat{H}_2
+  |\psi\rangle ^2 \geq \langle \psi | \frac{1}{2} \hat{H}_2 |\psi\rangle^2
+\] \vspace{3px}
+
+Thus we obtain the generalized uncertainty principle: 
+
+\begin{subbox}{Generalized Uncertainty Principle}
+  \[ \textcolor{red}{\langle (\Delta \hat{A})^2 \rangle \langle (\Delta
+    \hat{B})^2 \rangle}\; \geq\;
+    \langle \frac{1}{2i} \left[ \Delta \hat{A}, \Delta \hat{B}\right] \rangle^2
+    = \textcolor{red}{\langle \frac{1}{2i} \left[\hat{A}, \hat{B}\right]
+  \rangle^2} \]
+    \[ \text{or } \quad \sigma_A\sigma_B \; \geq\; \Bigg| \langle \frac{1}{2i} \left[ \hat{A},
+    \hat{B} \right] \rangle \Bigg| \] 
+\end{subbox}
+
+
+Consequently if $\left[ \hat{A}, \hat{B}\right]$ commute, then it is possible
+that $\sigma_A^2 \sigma_B^2 = 0$, in which case we could find a basis in which
+the state has \textit{definite} eigenvalues $A$ and $B$. But if $\left[\hat{A},
+\hat{B}\right] \neq 0 $, like position and momentum, we can not label wave
+functions by the eigenvalues of both operators. These observables are
+incompatible in this sense, and we can not construct a complete set of common
+eigenfunctions. It follows 
+
+\begin{mainbox}{}
+  There is an uncertainty principle for every pair of observables whose
+  operators do not commute.
+\end{mainbox}
+
+
+It is enormously helpful to identify \textit{maximal sets of commuting
+operators} such as $\hat{H}, \hat{P}, \hat{\vec{L}}^2, \hat{L_z}, \hdots$. Once
+identified, they provide instructions for identifying complete orthonormal
+bases that simply our mechanics. Such bases break up the Hilbert space
+into blocks that can often be treated separately. 
+
+But we also learn that uncertainties are inherent in Quantum Mechanics when we
+ask multiple questions of systems. It is not just $\hat{x}$ and $\hat{p}$ that
+can not be determined simultaneously with unlimited precision, but most
+observables. 
 
 
 
