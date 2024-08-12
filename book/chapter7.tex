@@ -1,0 +1,1123 @@
+We have so far focused on wave functions and their properties, developing some
+intuition about wave mechanics. A few curiosities may have struck you however.
+For example, we found in the harmonic oscillator that we could express the
+Hamiltonian (once we chose the right variables) in terms of a dimensionless
+operator 
+
+\[
+\frac{\hbar\omega}{2} \left( \hat{p}_\xi^2 + \hat{\xi}^2\right)  \quad
+\rightarrow \frac{\hbar\omega}{2}\left( \hat{p}_\xi^2 + \xi^2\right)  
+\] \vspace{3px}
+
+Most textbooks, notably Griffiths, have the habit of indicating $\hat{p}$ is an
+operator, but dropping the ``hat" on $\hat{x} \rightarrow x$. Why is this? At
+an even more basic level, the harmonic oscillator is manifestly symmetric in
+$\hat{p}$ and $\hat{x}$, yet our wave function formalism favored $x$. When we
+operate on our wave function with the $\hat{x}$ operator we just get back the
+value $x$. But when we act with $\hat{p}$, we have to take a derivative. Where
+did we lose the $p-x$ symmetry? 
+
+
+It has been lost because we choose a basis for representing our states --
+a position basis. We will now review some of what we know about vectors and their representations. Take the example of a
+vector $\vec{v}$ in 3D space. We are aware that this is a geometrical object, with a length and a direction, that exists independent of the basis we select to represent the vector. We will denote this abstract
+vector, without a specified basis, with the following notation of Dirac -- 
+$|\vec{v}\rangle$.
+
+\section{Dirac Notation} 
+
+Suppose we have a vector in ordinary 3D space. That vector is a geometric
+object, consisting of a length and direction, independent on the basis we
+choose. We could choose to \textit{represent} the vector in a specific basis.
+For example, the basis could be taken to be the three Cartesian unit vectors
+
+\[
+\hat{e}_x, \; \hat{e}_y, \; \hat{e}_y \quad \Rightarrow \quad | \hat{e}_x
+\rangle, \; |\hat{e}_y  \rangle, \; | \hat{e}_z \rangle     
+\] \vspace{3px}
+
+The bases we use satisfy two important conditions. The first requirement on our
+basis vectors is \textit{orthonormality}, 
+
+\[
+  \langle \hat{e}_i  | \hat{e}_j \rangle = \langle i | j \rangle = \delta_{ij}
+  \qquad \{i , j\} \in \{x, \; y, \; z\}
+\] \vspace{3px}
+
+That is, our basis vectors are unit vectors orthogonal to one another. The
+second, implicit when we expand a vector $| \alpha \rangle$ in a basis, is
+\textit{completeness}. 
+
+\[
+  \sum_{i\in\{x, y, z\}} | \hat{e}_i \langle \hat{e}_i | \rangle \equiv \sum_i
+  | i \rangle\langle i | = 1
+\] \vspace{3px}
+
+We use this result when we represent a vector in terms of an orthonormal basis.
+Thus
+
+\[
+|\vec{v} \rangle = \sum_i | \hat{e}_i \rangle \langle \hat{e}_i  | \vec{v}
+\rangle = | \hat{e}_x \rangle v_x + | \hat{e}_y \rangle v_y + | \hat{e}_z
+\rangle v_z
+\] \vspace{3px}
+
+These requirements involve both vectors, e.g., $|\alpha\rangle$, and adjoint
+vectors, $\langle \alpha |$, which I explain below. 
+
+One is free to choose any basis satisfying the conditions above, a freedom that
+can be used to simplify many problems. For example, if one is working in 3D and
+interested in a problem with spherical symmetry, an alternative basis that
+transforms more simply under rotations is the spherical basis: 
+
+\[
+|\hat{e}_1\rangle = -\frac{1}{\sqrt{2}}(|\hat{e}_x\rangle + i|\hat{e}_y\rangle)
+\qquad |\hat{e}_0\rangle = |\hat{e}_z \rangle \qquad |\hat{e}_{-1}\rangle
+= \frac{1}{\sqrt{2}}(|\hat{e}_x\rangle - i|\hat{e}_y\rangle )
+\] \vspace{3px}
+
+Here the adjoint basis vectors are 
+
+\[
+\langle \hat{e}_1| = -\frac{1}{\sqrt{2}}(\langle \hat{e}_x| - i\langle \hat{e}_y|
+\qquad \langle \hat{e}_0| = \langle \hat{e}_z | \qquad \langle \hat{e}_{-1} |
+= \frac{1}{\sqrt{2}}(\langle \hat{e}_x| + i\langle \hat{e}_y| )
+\] \vspace{3px}
+
+That is, $\langle \alpha |$ is the \textit{conjugate transpose}  of $| \alpha
+\rangle$. For this basis one can readily verify orthonormality and
+completeness. Consequently we can also represent a vector in 3D in a spherical
+basis 
+
+\[
+| \vec{v} \rangle = \sum_i |\hat{e}_i\rangle \langle \hat{e}_i  | \vec{v}
+\rangle = | \hat{e}_{-1} \rangle v_{-1} + | \hat{e}_0 \rangle v_0 + | \hat{e}_1
+\rangle v_1
+\] \vspace{3px}
+
+The discussion above can be generalized beyond simple vectors in 3D, as we can
+represent any vector $|\alpha\rangle$ of finite dimension $N$ similarly, 
+
+\[
+| \alpha \rangle = \sum_{i=1}^{N} | i \rangle \langle i  | \alpha \rangle
+= \sum_{i=1}^{N} \alpha_i |i\rangle
+\] \vspace{3px}
+ 
+in terms of a chosen $N$-dimensional set of unit basis vectors. Here $\langle
+i | \alpha \rangle$ is a scalar, the inner product defined below. The adjoint
+(conjugate transpose) of a vector is defined by 
+
+\[
+\langle \alpha | \equiv | \alpha \rangle^\dagger = \sum_{i=1}^{N} \langle
+\alpha | i \rangle \langle i \rangle = \sum_{i=1}^{N}  \alpha_i^* \langle
+i\rangle 
+\] \vspace{3px}
+
+That is, the inner product satisfies 
+
+\[
+\langle i | \alpha \rangle^* = \langle \alpha | i \rangle. 
+\] \vspace{3px}
+
+
+We can think of $| \alpha \rangle$ represented in a basis as a column vector
+whose entries are the expansion coefficients in that basis
+
+\[
+| \alpha  \rangle = \begin{pmatrix}
+  \alpha_1 \\ \alpha_2 \\ \vdots \\ \alpha_N
+\end{pmatrix}
+\] \vspace{3px}
+
+Correspondingly, the adjoint vector can be viewed as a row matrix in that
+basis, 
+
+\[
+\langle \alpha | = (\alpha_1^*, \; \alpha_2^*, \; \cdots, \; \alpha_N^* )
+\] \vspace{3px}
+
+\section{Infinite Dimensional Representations and Wave Functions}
+
+On several occasions (infinite square well, harmonic oscillator) we have
+expanded initial wave packets over stationary states that were discrete (like
+above) but infinite dimensional (unlike above), obtaining an expression for the
+wave function that could be used with the prime directive to determine the time
+evolution of the wave packet. 
+
+\[
+\Psi(x, t = 0) = \sum_{i=1}^{\infty} c_i \psi_i(x) \quad \text{ where } \quad
+c_i = \int_\Omega \psi_i^*(y) \Psi(y, t = 0) \, dy
+\] \vspace{3px}
+
+where $\Omega$ is the relevant domain). Let's assume we have a problem like
+the harmonic oscillator where the wave functions extend over all space
+($\Omega \equiv -\infty < x < \infty$ ). In this case, 
+
+\[
+\Psi(x, t=0) = \sum_{i=1}^{\infty} c_i\psi(x) \quad \text{where} \quad c_i
+\int_{-\infty}^{\infty} \psi_i^*(y) \Psi(y, t=0)\, dy
+\] \vspace{3px}
+
+where $\psi_i(y)$ are the stationary state wave functions. 
+
+Can we extract this result from the more abstract Dirac-formulation described
+just above? Consider
+
+\begin{align} \label{formintro}
+|\Psi(t = 0)\rangle = \sum_{i=1}^{\infty} |\psi_i\rangle \langle \psi_i
+| \Psi(t=0) \rangle 
+\end{align} \vspace{3px}
+
+We introduce the complete set of normalized position states (postponing
+additional discussion until later). As position is a continuous quantum number, 
+
+\[
+1 = \sum_{i}^{}  |\hat{e}_i\rangle \langle \hat{e}_i | \quad \Rightarrow \quad
+  1 = \int_{-\infty}^{\infty} |y\rangle \langle y | \, dy
+\] \vspace{3px}
+
+Consequently, 
+
+\begin{align} \label{formintro_2}
+|\Psi(t = 0)\rangle = \int_{-\infty}^{\infty} |y\rangle \langle
+y | \Psi(t=0)\rangle
+\end{align} \vspace{3px}
+
+Inserting this into Equation \ref{formintro} then yields 
+
+\[
+|\Psi(t = 0)\rangle = \sum_{i=1}^{\infty} |\psi_i\rangle
+\int_{-\infty}^{\infty} \langle \psi_i | y \rangle \langle y | \Psi(t
+= 0)\rangle \, dy
+\] \vspace{3px}
+
+Finally we take the scalar product with $\langle x |$, 
+
+\begin{align} \label{formintro_3}
+\langle x | \Psi(t = 0) \rangle = \sum_{i=1}^{\infty}  \langle
+x | \psi_i\rangle \int_{-\infty}^{\infty} \langle \psi_i | y\rangle \langle
+y | \Psi(t = 0)\rangle \, dy
+\end{align} \vspace{3px}
+
+Now if we define the wave function as the quantity 
+
+\[
+\Psi(x, t= 0) = \langle x | \Psi(t = 0)\rangle
+\] \vspace{3px}
+
+and likewise with the other quantities appearing in Equations \ref{formintro_2}
+and \ref{formintro_3}, those equations become 
+
+\[
+  (\ref{formintro_2}') \quad |\Psi(t = 0)\rangle = \int_{-\infty}^{\infty}
+  \Psi(y, t) | y \rangle\, dy \qquad (\ref{formintro_3}') \quad |\Psi(x,
+  t=0)\rangle = \sum_{i=1}^{\infty} \psi_i(x) \int_{-\infty}^{\infty}
+  \psi_i^*(y) \Psi(y, t=0) \, dy  
+\] \vspace{3px}
+
+Equation \ref{formintro_3}' is just the expression we have been using up to
+this point, where we expand the initial wave packet in terms of
+stationary-state wave functions, prior to employing the prime directive.
+Equation \ref{formintro_2}' identifies the wave function $\psi(x)$ as the
+coefficients of the expansion of the state $| \psi \rangle$ in terms of the
+position basis functions $|x\rangle$. In other words, wave functions are
+expansion coefficients, analogous to the $c_i$ that arose in the discrete case
+we described first. 
+
+The notion of expansions and wave functions lead to an interpretation of the
+wave function as a particular representation of a more basic and more object,
+abstract state -- Dirac's ``ket", which he denoted as $|\Psi\rangle$. 
+
+\subsection{Summary}
+
+We now recognize wave functions are just a particular representation of a more
+fundamental quantity, the state vector $|\Psi\rangle$, that exists independent
+of the representation, just as an ordinary 3D vector exists independent of any
+coordinate basis. However, one always has the freedom to select a basis, to
+represent both state vectors and their adjoins. In Dirac's notation, 
+
+\begin{mainbox}{Dirac Notation}
+  \[
+  \text{Dirac's Ket: } |\Psi\rangle  \quad \text{ representation in a basis
+  $i$: } |\Psi\rangle \equiv \sum_{i}^{} | i \rangle \langle i | \Psi \rangle
+  \equiv \sum_{i}^{} |i\rangle c_i
+  \] \[ \text{Dirac's Bra: } \langle \Psi | \quad \text{ representation in
+  a basis $i$: } \langle \Psi | \equiv \sum_{i}^{} \langle\Psi | i\rangle
+  \langle i | \equiv \sum_{i}^{} \langle i | c_i^*  \] \vspace{3px}
+
+  If the basis is described by a continuous index rather than a discrete one
+  like  $i$, the sum is replaced with an integral.
+\end{mainbox}
+
+
+
+Up to this point we have repeatedly dealt with states of infinite dimension,
+representing them by taking an integral over the position eigenstates, 
+
+\[
+\sum_{i}^{} |i\rangle \langle i | \equiv 1 \quad \Rightarrow \quad \int
+|x\rangle \langle x | \, dx = 1
+\] \vspace{3px}
+
+We used the position eigenstate representation and an inner
+product defined over the vector space of functions, 
+
+\begin{align*}
+  \delta_{\beta a} = \langle \psi_\beta | \psi_\alpha \rangle \Rightarrow \int
+  \langle \psi_\beta | x \rangle \langle x | \psi_\alpha \rangle \, dx = \int
+  \langle x|\psi_\beta\rangle^* \langle x | \psi_\alpha \rangle \, dx = \int
+  \psi_\beta^* (x) \psi_\alpha (x) \, dx 
+\end{align*} \vspace{3px}
+
+
+\section{Continuous spectra, momentum, and position wave functions}
+
+The \textit{spectrum} of an operator is defined as the set of possible outcomes
+after measurement. 
+
+If the spectrum of a Hamiltonian, or any other quantum mechanical operator is
+continuous, the eigenfunctions are not normalizable -- not part of the
+``Hilbert Space" we will describe soon. For example, in the infinite square
+well and harmonic oscillator, we found the resultant eigenfunctions / wave
+functions to be discrete in energy, following 
+
+\[
+\text{Infinite Square Well: } E_n = \frac{\hbar^2n^2\pi^2}{2ma^2} \qquad
+\text{Harmonic Oscillator: } E_n = \left( n + \frac{1}{2} \right) \hbar\omega   
+\] \vspace{3px}
+
+If you refer back to Figures \ref{graphsoln} and \ref{fig:infsquarewell} you
+will see the spectrum of the Hamiltonian is discrete -- only certain wave
+functions are allowed at specific energies. Because the set of wave functions,
+the spectrum, is not continuous, the wave functions are normalizable. 
+
+\subsection{Momentum-Position Symmetry} 
+
+Now that we understand the Dirac formulation of Quantum mechanics, let's return
+to our question at the beginning of this chapter -- why the momentum operator
+$\hat{p}$ requires a derivative, yet the position operator $\hat{x} \rightarrow
+x$ just returns $x$. I answered that the reason for this is our choice of
+representing our quantum states with the position basis -- $\psi(x)$. Let's
+try to understand this more closely. 
+
+
+In the \textit{position basis}, the position operator $\hat{x}$ acting on a position
+eigenstate $|x\rangle$ yields 
+
+\[
+\hat{x}|x\rangle = x |x\rangle
+\] \vspace{3px}
+
+Because  $p \leftrightarrow x$ are manifestly symmetric, in the
+\textit{momentum basis}, the momentum operator $\hat{p}$ acting on a momentum
+eigenstate $|p\rangle$ yields
+
+\[
+\hat{p}|p\rangle = p|p\rangle
+\] \vspace{3px}
+
+However, in the position basis, from our Dirac formulation, this equation can
+also be written as 
+
+\[
+\hat{p} \langle x | p \rangle = p\langle x|p \rangle 
+\] \vspace{3px}
+
+Here, $\langle x|p \rangle $ is the wave function of the momentum eigenstate
+$|p\rangle$, in the position basis. Substituting in the momentum operator
+$\hat{p} = -i\hbar \frac{d }{d x} $ into the above equation, 
+
+\[
+-i\hbar \frac{d }{d x} \langle x|p \rangle = p\langle x|p \rangle 
+\] \vspace{3px}
+
+This is a first-order differential equation. We separate the variables, 
+
+\begin{align}
+  \frac{d }{d x} \langle x|p \rangle &= \frac{ip}{\hbar}\langle x |p \rangle
+  \\
+  \frac{1}{\langle x|p \rangle } \frac{d }{d x}  \langle x|p \rangle
+                                     &= \frac{ip}{\hbar}
+\end{align} \vspace{3px}
+
+Integrating, 
+
+\[
+\int \frac{1}{\langle x|p \rangle } \frac{d \langle x|p \rangle }{d x} \, dx
+= \int \frac{ip}{\hbar} \, dx 
+\] \vspace{3px}
+
+Finally, 
+
+\begin{align} \label{}
+  \ln \langle x|p \rangle &= \frac{ipx}{\hbar} + C \\ 
+  \langle x|p \rangle &= Ae^{\frac{ipx}{\hbar}}
+\end{align}\vspace{3px}
+
+
+The expression $\langle x|p \rangle = Ae^{ipx / \hbar}$ thus represents the
+wave function of the momentum eigenstate in the position basis. To solve for $A$,
+we normalize, 
+
+\[
+\langle p'|p \rangle = \int_{-\infty}^{\infty} \langle p'|x \rangle \langle x|p
+\rangle \, dx = A^2 \int_{-\infty}^{\infty} e^{i(p-p')x / \hbar} \, dx
+= |A^2|2\pi\hbar \delta(p-p')
+\] \vspace{3px}
+
+Therefore to allow $\langle p' | p \rangle = \delta (p' - p)$, i.e. satisfying
+orthonormality (both orthogonality and normalization), $A
+= \frac{1}{\sqrt{2\pi\hbar}}$. Thus 
+
+\begin{subbox}{}
+  \[
+  \langle x|p \rangle = \frac{1}{\sqrt{2\pi\hbar}} \quad \text{ then } \quad
+  \langle p' | p \rangle = \delta(p' - p)
+  \] 
+\end{subbox}
+
+Griffiths calls this \textit{Dirac-Delta Orthonormality}. These wave functions
+form a complete basis that can expand any normalizable state vector. We note  
+
+\begin{align} \label{}
+  \int_{-\infty}^{\infty} | p \rangle \langle p | \, dp
+  = \int_{-\infty}^{\infty} &dp \int_{-\infty}^{\infty}  dx
+  \int_{-\infty}^{\infty} |x\rangle \langle x|p\rangle \langle p | x'\rangle
+  \langle x'| \, dx ' = \frac{1}{2\pi\hbar} \int_{-\infty}^{\infty} dp
+  \int_{-\infty}^{\infty} dx \int_{-\infty}^{\infty} \,|x\rangle
+  \langle x'| e^{ip(x - x') / \hbar}\, dx' \\ 
+                               &= \int_{-\infty}^{\infty} dx
+                               \int_{-\infty}^{\infty} |x\rangle \langle
+                               x'| \delta(x-x') \, dx' = \int_{-\infty}^{\infty}
+                               |x\rangle \langle x| \, dx = 1
+\end{align}\vspace{3px}
+
+Thus we can use these momentum eigenstates just as we use the position
+eigenstates. Given a state vector $|\alpha\rangle$, we can insert a complete
+set to determine 
+
+\[
+|\alpha\rangle = \int_{-\infty}^{\infty} |p\rangle \langle p |\alpha\rangle \,
+dp = \int_{-\infty}^{\infty} |p\rangle \psi_\alpha (p)
+\] \vspace{3px}
+
+Then taking the inner product with $\langle x |$, 
+
+ \[
+\psi_\alpha(x) \equiv \langle x | \alpha \rangle = \int_{-\infty}^{\infty}
+\langle x | p\rangle \langle p |\alpha \rangle \, dp
+= \frac{1}{\sqrt{2\pi\hbar}} \int_{-\infty}^{\infty} e^{ipx / \hbar}
+\psi_\alpha(p) \, dp
+\] \vspace{3px}
+
+And conversely, 
+
+\[
+\psi_\alpha(p) = \langle p | \alpha \rangle = \int_{-\infty}^{\infty}  \langle
+p|x\rangle \langle x|\alpha \rangle \, dx = \frac{1}{\sqrt{2\pi\hbar}}
+\int_{-\infty}^{\infty} e^{-ipx / \hbar} \psi_\alpha(x) \, dx
+\] \vspace{3px}
+
+The momentum wave function is the Fourier transform of the position wave
+function! Hence the symmetry. 
+
+
+This raises a question we have not yet answered -- what is the \textit{wave
+function} of a position state? That is, we have a position ket $| x_0 \rangle$
+with 
+
+\[
+\hat{x} |x_0\rangle = x_0|x_0\rangle
+\] \vspace{3px}
+
+So inserting a complete set of position states, 
+
+\[
+|x_0\rangle = \int_{-\infty}^{\infty}  |x\rangle \langle x|x_0 \rangle \, dx
+\equiv \int_{-\infty}^{\infty} |x\rangle \psi_{x_0}(x) \, dx \quad \Rightarrow
+\quad \psi_{x_0} = \delta(x - x_0)
+\] \vspace{3px}
+
+\subsection{Example Problem --  Schr\"odinger equation to the wave equation} 
+
+We have learned that the Schr\"odinger equation wave functions that we have
+focused on thus far of are a particular representation -- in position space --
+of a \textit{more fundamental} equation that can be written out in terms of an
+abstract state vector and operators acting on it. Let's try to go from the
+abstract equation to the wave equation. We start with an elementary Hamiltonian
+energy eigenvalue equation: 
+
+\[
+  \left[ -\frac{\hat{p}^2}{2m} + \hat{V}(\hat{x}) \right] | \alpha \rangle
+  = E|\alpha\rangle 
+\] \vspace{3px}
+
+We take the inner product with $\langle x |$, 
+
+\[
+  \langle x | \left[ -\frac{\hat{p}^2}{2m} + \hat{V}(\hat{x}) \right] |\alpha
+  \rangle = E \langle x|\alpha \rangle = E\psi_\alpha (x) 
+\] \vspace{3px}
+
+
+So far so good, we have the wave function on the right. Now  
+
+\[
+\langle x | \hat{V}(x) | \alpha \rangle = \int_{-\infty}^{\infty} \langle
+x | \hat{V}(\hat{x}) | x' \rangle \langle x' | \alpha \rangle \, dx'
+= \int_{-\infty}^{\infty} V(\hat{x'}) \langle x | x' \rangle \langle x'
+| \alpha \rangle \, dx' = \int_{-\infty}^{\infty}
+V(x')\delta(x-x')\psi_\alpha(x') \, dx' = V(x) \psi_\alpha(x)
+\] \vspace{3px}
+
+In the next section, where we discuss \textit{Hermitian} operators, we will be
+able to obtain the same result more efficiently. $\hat{V}$ is Hermitian, and
+such operators can be moved from the ket to the bra in the following way, 
+
+\[
+\langle x | \hat{V}(\hat{x})| \alpha \rangle = \langle \hat{V}(\hat{x})x
+| \alpha \rangle = V(x) \langle x|\alpha \rangle  = V(x) \psi_\alpha(x)
+\] \vspace{3px}
+
+obtaining the same result as above. And for $\hat{p}^2$, 
+
+\begin{align} \label{}
+  \langle x | \hat{p}^2 | \alpha \rangle &= \int_{-\infty}^{\infty} \langle
+  x | \hat{p}^2 | p \rangle \langle p | \alpha \rangle \, dp
+  = \int_{-\infty}^{\infty}  p^2 \langle x | p\rangle \langle p | \alpha
+  \rangle\, dp = \frac{1}{\sqrt{2\pi\hbar}} \int_{-\infty}^{\infty}
+  p^2e^{-ipx/\hbar} \langle p | \alpha \rangle \, dp \\
+  &= \frac{1}{\sqrt{2\pi\hbar}} \int_{-\infty}^{\infty} \left( -\hbar^2
+  \frac{d^2 }{d x^2}  \right) e^{ipx/\hbar} \langle p |\alpha \rangle \, dp
+  = \int_{-\infty}^{\infty} \left( -\hbar^2 \frac{d^2 }{d x^2}  \right) \langle
+  x | p \rangle \langle p |\alpha \rangle \, dp = \left( -\hbar^2 \frac{d^2 }{d
+x^2}  \right) \langle x | \alpha \rangle \\ &= \left( -\hbar^2 \frac{d^2 }{d
+x^2}  \right)  \psi_\alpha(x)
+\end{align}\vspace{3px}
+
+Putting the pieces together, we get our familiar position-space wave function
+equation
+
+\[
+  \left[ -\frac{\hbar^2}{2m} \frac{d^2 }{d x^2}  + V(x) \right] \psi_\alpha(x)
+  = E\psi_\alpha(x)
+\] \vspace{3px}
+
+
+\section{Hilbert Spaces, Hermitian Operators}
+
+
+Here, we review the properties of vector spaces and scalar products, connecting
+them to function spaces and integration. These concepts allow us to extract
+scalars -- representing amplitudes and observables -- from our
+infinite-dimensional vectors (functions).
+
+\subsection{Hilbert Spaces} 
+
+The Hilbert spaces in which quantum mechanical state vectors and operators
+reside are vector spaces to which an inner product has been added, one with
+specific properties connecting to our quantum mechanical requirements that
+$|\psi(x)|^2$ be normalizable. 
+
+\subsubsection{Inner Product Spaces} 
+
+Inner product spaces are vector spaces with an inner product defined on them.
+The inner product of two vectors $| \alpha \rangle$ and $| \beta \rangle$ is
+a mapping from these vectors to a scalar in the scalar field of the vector
+space, $\langle u|v \rangle = a$. In our applications this is a complex scalar.
+The inner product (or scalar product) has the following properties: 
+
+\begin{itemize}
+  \item[1.] $\langle \gamma | \alpha + \beta \rangle = \langle \gamma | \alpha
+    \rangle + \langle \gamma | \beta \rangle$ 
+  \item[2.]  $\langle \beta | a \alpha \rangle = a \langle \beta | \alpha
+    \rangle$
+  \item[3.] $\langle \alpha | \alpha \rangle \geq 0$ 
+  \item[4.] $\langle \alpha | \beta \rangle^* = \langle \beta | \alpha \rangle$
+\end{itemize}
+
+Note that 
+
+\[ \langle \alpha + \beta | \gamma \rangle = \langle \gamma | \alpha + \beta
+  \rangle^* = \langle\gamma | \alpha\rangle^* + \langle \gamma | \beta\rangle^*
+= \langle \alpha | \gamma \rangle + \langle \beta | \gamma \rangle \] 
+\[ \langle a \alpha | \beta \rangle = \langle \beta | a \alpha \rangle^* = (a
+\langle \beta | \alpha \rangle)^* = a^* \langle \alpha | \beta\rangle \] 
+\[ | \langle \alpha | \beta \rangle | ^2 \leq \langle \alpha | \alpha \rangle
+\langle \beta | \beta \rangle \]
+
+
+The last result, the triangle inequality, is familiar from ordinary vectors in
+geometry, 
+
+\[
+|\vec{a} \cdot \vec{b}| = |ab \cos \theta| \leq ab \quad \Rightarrow | \langle
+a | b\rangle | ^2 \leq \langle a | a \rangle \langle  b | b \rangle
+\] \vspace{3px}
+
+The triangle inequality takes the form of the Schwarz inequality the
+infinite-dimensional vector spaces use in quantum mechanics 
+
+\[
+|\langle \alpha | \beta \rangle |^2 \leq \langle \alpha | \alpha \rangle
+\langle \beta | \beta \rangle \rightarrow \Bigg| \int_{a}^{b} \psi_2^*(x)
+\psi_1(x)  \, dx \Bigg|^2 \leq \int_{a}^{b} |\psi_1(x)|^2 \, dx \int_{a}^{b}
+|\psi_2(x)|^2 \, dx
+\] \vspace{3px}
+
+
+The normalizable stationary states we have derived form complete basis in an
+infinite dimensional complex vector space with these properties. Such spaces
+are called \textit{Hilbert spaces}. Specifically, our vector space of states
+includes only those whose wave functions are \textit{square integrable}. Thus
+this choice of functions (our vectors describing physical states) along with
+the complex numbers (our scalar field) and the inner product defined as above,
+constitutes our Hilbert space. 
+
+
+\subsection{Observables as expectations of Hermitian operators}
+
+We want to define the properties of operators whose expectation values
+correspond to possible quantum mechanical measurements. We note operators with
+their ``hats" $\hat{Q}$. Operators act on states to produce new states: 
+
+\[
+\hat{Q}| \alpha \rangle = | \hat{Q} \alpha \rangle \equiv | \beta \rangle
+\] \vspace{3px}
+
+Here an operator $\hat{Q}$ acts on a state $| \alpha \rangle$ to produce a new
+state $| \hat{Q}\alpha \rangle$. If we want we can give this new state
+a different name -- we call it $| \beta \rangle$. 
+
+We have discussed how abstract states can be represented in a basis that we
+select, by using completeness of this basis, $\sum_i | i \rangle \langle
+i | = 1$
+
+\begin{align} \label{vecbasis}
+|\alpha \rangle = \sum_{i}^{} | i \rangle \langle i | \alpha \rangle \equiv
+\sum_{i}^{} |i\rangle \alpha_i \quad \text{ e.g. } \quad |\alpha \rangle = \int
+|x\rangle \langle x | \alpha \rangle \, dx \equiv \int |x\rangle \psi_\alpha(x)
+\, dx 
+\end{align} \vspace{3px}
+
+The coefficients of the basis vectors $|i\rangle$ in the expansion are numbers
+generated from the inner product for our vector space -- $\langle i | \alpha
+\rangle$. If the basis we adopt is the position eigenstates, then $\langle
+| \alpha \rangle = \psi_\alpha(x)$, the wave function value at that $x$. 
+
+In exactly the same way, we can pick a basis in which to represent operators 
+
+\[
+\hat{Q} = \sum_{i}^{} \sum_{j}^{} |i\rangle \langle i | \hat{Q} | j \rangle
+\langle j | \equiv \sum_{i}^{} \sum_{j}^{} |i\rangle \langle j | Q_{ij}
+\] \vspace{3px}
+
+The $Q_{ij} \equiv \langle i | \hat{Q} | j\rangle$ are just numbers generated
+from taking the inner product of vectors 
+
+\[
+  Q_{ij} = \langle i | \hat{Q} | j\rangle = \langle i | \hat{Q}j \rangle 
+\] \vspace{3px}
+
+and are the expansion coefficients of our operator $\hat{Q}$ in terms of the
+basis operators $|i\rangle \langle j |$, exactly in the way that $\alpha_i
+\equiv \langle i | \alpha \rangle$ in Equation \ref{vecbasis} are the expansion
+coefficients of the state vector $|\alpha \rangle$ in terms of the basis
+vectors $|i\rangle$. The quantity $\langle i | \hat{Q} | j\rangle $ is called
+the \textit{matrix element} of $\hat{Q}$ in the basis introduced above. 
+
+
+Frequently in quantum mechanics we are asked to solve an eigenvalue/eigenvector
+problem, 
+
+\begin{align} \label{eigenvalproblem}
+  \hat{Q}|\alpha\rangle = Q_\alpha |\alpha\rangle \quad \text{ e.g. } \quad
+  \hat{H}_{SE}|\alpha\rangle = \left[ \frac{\hat{p}^2}{2m}
+  + \hat{V}(\hat{x})\right] |\alpha\rangle = E_\alpha |\alpha\rangle
+\end{align}\vspace{3px}
+
+Up to this point, $\hat{Q}$ has been our Schr\"odinger Hamiltonian
+$\hat{H}_{SE}$ for which we were asked to find the eigen-energies and
+eigenvector wave functions. We generally did this working in a specific
+representation -- the position basis. But as we noted with the harmonic
+oscillator, underlying this is the abstract, basis-independent form of the
+Schr\"odinger equation of Equation \ref{eigenvalproblem}. 
+
+While we solved the harmonic oscillator in its abstract form, via raising and
+lowering operators, in all other cases we solved the eigenvalue/eigenfunction
+problems using a basis. Let's go through the steps of representing the operator
+Equation \ref{eigenvalproblem} above in terms of a basis. Since this reduces an
+abstract problem into one that involves only numbers, we can solve using
+differential equations, or a computer. We assume a finite Hilbert space of
+dimension $N$ to make visualization easier. 
+
+\begin{align} \label{}
+  \hat{Q}|\alpha \rangle &= Q_\alpha |\alpha \rangle \; \Rightarrow \\ 
+  \sum_{i}^{}  \sum_{j}^{} |i\rangle \langle i | \hat{Q} | j \rangle \langle
+  j | \alpha \rangle &= Q_\alpha \sum_{k}^{} |k\rangle \langle k | \alpha
+  \rangle \; \Rightarrow \\ 
+  \sum_{i}^{} \sum_{j}^{} \langle m | i \rangle \langle i | \hat{Q} | j \rangle
+  \langle j | \alpha \rangle &= Q_\alpha \sum_{k}^{} \langle m | k \rangle
+  \langle k | \alpha \rangle \; \Rightarrow \\ 
+  \sum_{j}^{} \langle m | \hat{Q} | j \rangle \langle j | \alpha \rangle &=
+  Q_\alpha \langle m | \alpha \rangle \label{operatorbasis}
+\end{align}\vspace{3px}
+
+In the third line above we took the inner product with a specific adjoint basis
+state $\langle m |, m \in \{1, 2, \hdots, N\}$ so we have  $N$ choices for that
+state. Everything appearing in these equations is a number. We can write out
+these $N$ equations
+
+\[
+\begin{pmatrix}
+  Q_{11} & Q_{12} & \cdots Q_{1N} \\
+  Q_{21} & Q_{22} & \cdots & Q_{2N} \\ 
+  \vdots & \vdots & \vdots & \vdots \\ 
+  Q_{N1} & Q_{N2} & \cdots & Q_{NN}  
+\end{pmatrix} \begin{pmatrix}
+  \alpha_1 \\ \alpha_2 \\ \vdots \\ \alpha_N 
+\end{pmatrix} = Q_\alpha \begin{pmatrix}
+  \alpha_1 \\ \alpha_2 \\ \vdots \alpha_N
+\end{pmatrix} 
+\] \vspace{3px}
+
+This is the familiar matrix form of an eigenvalue problem. 
+
+In other cases, we are simply acting on a state with an operator, not
+necessarily looking for the operator's eigenvalues. We represented this
+abstractly by 
+
+\[
+\hat{Q}|\alpha \rangle = |\hat{Q}\alpha \rangle \equiv |\beta\rangle
+\] \vspace{3px}
+
+The new vector generated, $| \beta \rangle$ in general would not be
+proportional to $|\alpha\rangle$. If we now adopt a representation, this
+becomes 
+
+\[
+\sum_{i}^{}  \sum_{j}^{} |i\rangle \langle i | \hat{Q} | j \rangle \langle
+j | \alpha \rangle = \sum_{k}^{} |k\rangle \langle k | \beta \rangle
+\] \vspace{3px}
+
+and taking the inner product with $\langle m |, m \in \{1, 2, \hdots, N\}$
+yields $N$ equations of the form 
+
+\begin{align}
+\sum_{j}^{} \langle m | \hat{Q} | j \rangle \langle j | \alpha \rangle
+= \langle m | \beta \rangle 
+\end{align} \vspace{3px}
+
+The matrix/vector form of this is 
+
+
+\[
+\hat{Q}| \alpha \rangle \leftrightarrow \begin{pmatrix}
+  Q_{11} & Q_{12} & \cdots & Q_{1N} \\ Q_{21} & Q_{22} & \cdots & Q_{2N} \\
+  \vdots & \vdots & \vdots & \vdots \\ Q_{N1} & Q_{N2} & \cdots & Q_{NN}
+\end{pmatrix} \begin{pmatrix}
+  a_1 \\ a_2 \\ \vdots \\ a_N
+\end{pmatrix} = \begin{pmatrix}
+  b_1 \\ b_2 \\ \vdots \\ b_N
+\end{pmatrix}  \leftrightarrow |\hat{Q} \alpha\rangle \quad \text{where} \quad
+b_i = \sum_{j=1}^{N} Q_{ij}a_j
+\] \vspace{3px}
+
+\subsubsection{Infinite Dimensional Spaces}
+
+Although we used a finite-dimensional vector space to illustrate the operator
+algebra, the results extend to the infinite dimensional case. For example, if
+we specialize Equation \ref{operatorbasis} to the Hamiltonian and use the
+position basis, 
+
+\begin{align} \label{infdimeq}
+  \sum_{j}^{} \langle m | \hat{Q} | j\rangle \langle j | \alpha \rangle
+  = Q_\alpha \langle m | \alpha \rangle \Rightarrow \int \langle x | \left[
+  \frac{\hat{p}^2}{2m} + \hat{V}(\hat{x}) \right] |x'\rangle \psi_\alpha(x')
+  = E_\alpha \psi_\alpha(x)
+\end{align}\vspace{3px}
+
+Now we showed previously that 
+
+\[
+\langle x | \hat{V}(\hat{x}) | x'\rangle = V(x')\delta(x-x')
+\] \vspace{3px}
+
+while 
+
+\begin{align} \label{}
+  \langle x | \hat{p}^2 | x' \rangle &= \int_{-\infty}^{\infty} \langle
+  x | \hat{p}^2 | p \rangle \langle p | x' \rangle \, dp
+  = \int_{-\infty}^{\infty} p^2 \langle x | p \rangle \langle p | x' \rangle \,
+  dp = \int_{-\infty}^{\infty} p^2 \frac{1}{\sqrt{2\pi\hbar}}e^{ipx / \hbar}
+  \langle p | x'\rangle \, dp \\ 
+  &= -\hbar^2 \frac{d^2}{d x^2} \int_{-\infty}^{\infty}
+  \frac{1}{\sqrt{2\pi\hbar}} e^{ipx / \hbar} \langle p | x' \rangle \, dp
+  = -\hbar^2 \frac{d^2 }{d x^2} \int_{-\infty}^{\infty} \langle x|p \rangle
+  \langle p|x' \rangle \, dp = -\hbar^2 \frac{d^2 }{d x^2} \langle x|x' \rangle
+  \\ &= -\hbar^2 \frac{d^2 }{d x^2} \delta(x-x')
+\end{align}\vspace{3px}
+
+
+Plugging in these two results into Equation \ref{infdimeq} and using the delta
+function to do the integral over $x'$ yields the familiar result: 
+
+\[
+  \left[ -\frac{\hbar^2}{2m} \frac{d^2 }{d x^2} + V(x) \right] \psi_\alpha(x)
+  = E_\alpha \psi_\alpha(x)
+\] \vspace{3px}
+
+\subsubsection{Adjoint of matrices and Hermitian Operators} 
+
+The adjoint of a matrix is obtained by taking is transpose, then complex
+conjugating. So in a representation, 
+
+\[
+  [\hat{Q}^\dagger]_{ij} = [\hat{Q}]_{ji}^* = Q_{ji}^*
+\] \vspace{3px}
+
+
+A vector $| \alpha \rangle$ in a representation is just a matrix with one
+column, with components $[|\alpha\rangle]_{i1}$. So the adjoint vector $\langle
+\alpha |$ has components of 
+
+\[
+  [\langle \alpha | ]_{1i} \leftrightarrow \langle \alpha | i\rangle = \langle
+  i | \alpha \rangle^* = a_i^* \leftrightarrow [|\alpha\rangle ]^*_{i1}
+\] \vspace{3px}
+
+That is, vectors and their adjoints in a representation are related by 
+
+\[
+|\alpha \rangle: \qquad \begin{pmatrix}
+  a_1 \\ a_2 \\ \vdots \\ a_N
+\end{pmatrix}  \leftrightarrow (a_1^*, \; a_2^*\, \hdots, \; a_N^*) \qquad
+:\langle \alpha |
+\] \vspace{3px}
+
+Now if we take the conjugate of Equation \ref{operatorbasis}, 
+
+\[
+  \sum_{j=1}^{N} Q^*_{mj} a^*_j = b^*_m \quad \sum_{j=1}^{N} [\langle \alpha
+  | ]_{1j}[Q^\dagger ]_{jm} = [\langle \beta | ]_{1m}  
+\] \vspace{3px}
+
+So we see 
+
+\[
+  [\hat{Q}|\alpha \rangle ]^\dagger = |\hat{Q}\alpha \rangle^\dagger
+  = \langle \hat{Q} \alpha | = \langle a | Q^\dagger 
+\] \vspace{3px}
+
+In quantum mechanics the expectation of a measurement should be real, as it
+must correspond to an observable. Thus we should require 
+
+\[
+\langle \alpha | \hat{Q} | \alpha \rangle = \langle \alpha | \hat{Q} | \alpha
+\rangle^* \quad \Leftrightarrow \quad \langle \alpha | \hat{Q} | \alpha \rangle
+= \langle \alpha | \hat{Q}^\dagger | \alpha \rangle \quad \Leftrightarrow \quad
+\langle \alpha | \hat{Q} \alpha \rangle = \langle \hat{Q} \alpha
+| \alpha\rangle
+\] \vspace{3px}
+
+In a representation, Hermitian operators correspond to matrices for which
+$[\hat{Q}^\dagger]_{ij} = [\hat{Q}]_{ij}$ -- the matrix is equal to its
+adjoint. Operators that satisfy the above conditions for all $|\alpha\rangle$
+are called Hermitian. 
+
+
+\begin{subbox}{Hermitian Operators}
+  \[ \hat{Q} = \hat{Q}^\dagger \] \vspace{3px} 
+
+  Observables are represented by Hermitian operators -- real, possible
+  measurements: $\langle \alpha | \hat{Q} \alpha \rangle = \langle \hat{Q}
+  \alpha | \alpha \rangle$
+\end{subbox}
+
+
+For example, the momentum operator is Hermitian, which we show via partial
+integration, 
+
+\begin{align} \label{}
+  \langle \psi | \hat{p}\psi \rangle &= \int \langle \psi|x \rangle \langle
+  x | \hat{p}\psi \rangle \, dx = \int \psi^*(x) \frac{\hbar}{i} \frac{d }{d x}
+  \psi(x) \, dx = \int \left[ -\frac{\hbar}{i} \frac{d }{d x} \psi^*(x) \right]
+  \psi(x)\, dx \\ 
+                                     & = \int \left[\frac{\hbar}{i} \frac{d }{d
+                                     x} \psi(x) \right]^*\psi(x) \, dx = \int
+                                     [\langle x | \hat{p} \psi \rangle ]^*
+                                     \langle x|\Psi \rangle \, dx = \int
+                                     \langle \hat{p} \psi | x \rangle
+                                     \langle x | \Psi\rangle \, dx = \langle
+                                     \hat{p}\psi | \psi \rangle
+\end{align}\vspace{3px}
+
+But the operator $ \frac{d }{d x} $ would not be. 
+
+
+
+
+\subsection{Determinate States of Hermitian Operators} 
+
+The Hamiltonians we have studied thus far have stationary states of definite
+energy. If you measure the energy of a stationary state you always get back the
+same value. $|\alpha\rangle$ is said to be a determinate state of an operator
+$\hat{Q}$ if every measurement 
+
+\[
+\langle \alpha | \hat{Q} | \alpha \rangle  = Q
+\] \vspace{3px}
+
+returns the same value $Q$. In this case, 
+
+\[
+0 = \sigma^2 = \langle \alpha | \hat{Q}^2 | \alpha \rangle - \langle \alpha
+  | \hat{Q} | \alpha \rangle ^2 = \langle \alpha | (\hat{Q} - Q)^2 | \alpha
+  \rangle = \langle (\hat{Q} - Q)\alpha | (\hat{Q} - Q)\alpha \rangle  
+\] \vspace{3px}
+
+But this can only be if 
+
+\begin{mainbox}{}
+  \[
+  \hat{Q} \alpha = Q |\alpha\rangle
+  \] \vspace{3px}
+  
+  Determinate states of an operator $\hat{Q}$ are eigenfunctions of $\hat{Q}$.
+  This means the eigenvalue $Q$  can be used as a wave function label! -- we'll
+  get to that later. 
+\end{mainbox}
+
+The eigenvalue $Q$ of a Hermitian operator is a real number -- I will
+distinguish operators from their eigenvalues by denoting the former with
+a hat, $\hat{Q}$. Thus the stationary states $|\alpha_i\rangle$ of the
+Hamiltonians we have considered 
+
+\[
+\hat{H}|\alpha_i\rangle = E_i |\alpha_i\rangle
+\] \vspace{3px}
+
+are the determinate states of $\hat{H}$. The collection of all eigenvalues of
+an operator $ \hat{Q}$ is the \textit{spectrum} of $\hat{Q}$. States with the
+same eigenvalue are said to be \textit{degenerate}.
+
+
+\subsection{Discrete Spectra}
+
+We consider a Hermitian operator with a discrete spectrum -- the eigenvalues
+correspond to eigenfunctions that are normalizable and thus proper states. We
+note 
+
+\begin{subbox}{}
+  The eigenvalues of the normalizable eigenfunctions of a Hermitian operator
+  are \textit{real} and eigenfunctions belonging to distinct eigenvalues are
+  \textit{orthogonal}. 
+\end{subbox}
+
+The eigenvalues are real because 
+
+\[
+Q_\alpha = \langle \alpha | \hat{Q} \alpha \rangle = \langle \hat{Q}\alpha
+| \alpha\rangle = \left[ | \hat{Q}\alpha \rangle \right]^\dagger |\alpha
+\rangle = [Q_\alpha|\alpha\rangle]^\dagger |\alpha \rangle = Q_\alpha^* \langle
+\alpha | \alpha \rangle = Q_\alpha^*
+\] \vspace{3px}
+Eigenfunctions belonging to distinct eigenvalues are orthogonal because, if
+$\hat{Q}|\alpha\rangle = Q_\alpha |\alpha \rangle$ and $\hat{Q}|\beta\rangle
+= Q_\beta |\beta\rangle$, with $Q_\alpha \neq Q_\beta$, then 
+
+\[
+  Q_\beta \langle \alpha | \beta \rangle = \textcolor{red}{\langle \alpha | \hat{Q} \beta \rangle
+  = \langle \hat{Q} \alpha | \beta \rangle} = Q_\alpha \langle \alpha | \beta
+\rangle \quad \Rightarrow \quad (Q\beta - Q_\alpha) \langle \alpha | \beta
+\rangle  = 0 \quad \Rightarrow \quad \langle \alpha | \beta \rangle  = 0 
+\] \vspace{3px}
+
+If a subset of eigenfunctions are degenerate, we have previously described how
+these states can be \textit{made} ortogonal/orthonormal via Gram-Schmidt. Thus
+we can assume that the eigenfunctions of a Hermitian operator form an
+orthonormal basis. 
+
+A third property of the eigenfunctions of a Hermitian operator is 
+
+\begin{mainbox}{}
+  The eigenfunctions of an operator for any observable are complete. Any
+  state in the Hilbert space can be expanded in terms of this basis.
+\end{mainbox}
+
+We have generally used the eigenstates of the Hamiltonian $\hat{H}$ as our
+basis, expanding initial wave packets in terms of these stationary states, then
+exploiting the prime directive to determine the time evolution of the wave
+packet. While this is a special basis because of the prime directive, we
+certainly have the freedom to use as a basis the eigenfunctions of other
+operators. 
+
+
+\subsection{Projection Operators} 
+
+We have previously expressed the completeness of our Hilbert space, for
+simplicity assumed discrete here, by the identity 
+
+\[
+I = \sum_{i=1}^{\infty} |i\rangle \langle i | 
+\] \vspace{3px}
+
+The projection operator onto the state $i$ is defined by 
+
+\[
+\hat{P}_i = |i\rangle \langle i | \quad \textit{ so equivalently } \quad
+I = \sum_{i=1}^{\infty} \hat{P}_i 
+\] \vspace{3px}
+
+Projection operators have the following properties, which follow immediately
+from the assumed orthonormality of the basis, 
+
+\[
+  \hat{P}_i \hat{P}_j = \delta_{ij} \hat{P}_j \quad \text{so in particular}
+  \quad \hat{P}_i \hat{P}_i = \hat{P}_i
+\] \vspace{3px}
+
+
+Projection operators in quantum mechanics are connected with measurement, and thus are very
+useful. For example, if a measurement is done on a wave packet formed as a sum
+over many stationary states, there may be many possible outcomes of that
+measurement. However, a specific
+measurement will yield one result. The act of measurement is often said to
+``collapse" the wave function. To be specific, suppose a measurement is done on
+a system described by a wave packet to determine the energy. Assuming the
+stationary states are non-degenerate, the result obtained will correspond to
+the energy of one of the stationary states $i$. The measurement will thus have
+collapsed the wave packet to that state. The state of the system immediately
+after measurement will then be given by the projection operator $\hat{P}_i$
+acting on the original wave packet (up to normalization, which in this case
+would be adjusted to one).
+
+In the case of measurement, the basis you use and thus the projection operator
+employed depends on what one measures -- energy, position, momentum, spin,
+etc. But each such observable
+corresponds to a Hermitian operator for which there is a complete set of eigenfunctions, as noted
+above. The appropriate projection operator thus should use the basis
+appropriate to the measure ment. If the operator is not the Hamiltonian,
+measurement will again collapse the wave function,
+but the projection will generally not be to a single stationary state.
+
+
+\subsection{Generalized statistical interpretation of measurements} 
+
+
+We can generalize early discussions about operators and measurements to include
+any Hermitian operator, which all correspond to possible observables. The
+normalizable eigenfunctions of a Hermitian operator $\hat{Q}$ are real and the
+normalized eigenfunctions form an orthonormal basis. Consequently for any
+Hermitian operator with a discrete spectrum, 
+
+\[
+\langle \alpha | \hat{Q} | \alpha \rangle = \sum_{i=1}^{\infty}
+\sum_{j=1}^{\infty} \langle \alpha | i\rangle \langle i | \hat{Q} | j\rangle
+\langle j | \alpha \rangle = \sum_{i=1}^{\infty} \sum_{j=1}^{\infty} \langle
+\alpha | i \rangle Q_j \langle i | j \rangle \langle j | \alpha \rangle
+= \sum_{i=1}^{\infty} Q_i | \langle i | \alpha \rangle|^2 \equiv
+\sum_{i=1}^{\infty} Q_i |c_i^\alpha |^2  
+\] \vspace{3px}
+
+Here it is understood that $| \alpha \rangle$ is the state of a system at some
+time of measurement $t$, and that the sum is over all discrete eigenstates of
+$\hat{Q}$ which here is taken to be infinite, but could also very well be
+finite. 
+
+The Quantum Mechanical interpretation is that if a series of identical
+experiments are done, with $|\alpha\rangle$ prepared identically each time,
+then the possible outcomes $Q_i$ will be found with probability $|\langle
+i | \alpha \rangle | ^2 = |c_i^\alpha|^2$. This is a probability because 
+
+\[
+1 = \langle \alpha | \alpha \rangle = \sum_{i=1}^{\infty} \langle \alpha
+  | i\rangle \langle i | \alpha \rangle  = \sum_{i=1}^{\infty} |c_i^\alpha |^2 
+\] \vspace{3px}
+
+Thus any outcome $Q_i$ is possible in a given measurement -- that is, any
+outcome for which the amplitude $\langle i | \alpha \rangle$ is nonzero. Only
+the expectation -- the average of the outcomes after many repetitions of an
+identical experiment -- is certain in Quantum Mechanics, 
+
+\[
+\langle \hat{Q} \rangle = \sum_{i=1}^{\infty}  Q_i |c_i^\alpha | ^2
+\] \vspace{3px}
+
+This interpretation generalizes to the continuous case
+
+\begin{align} \label{}
+  \langle \alpha | \hat{Q} | \alpha \rangle &= \int_{-\infty}^{\infty} dz
+  \int_{-\infty}^{\infty} \langle \alpha | z \rangle \langle
+  z | \hat{Q}(\hat{z'})| z' \rangle \langle z' | \alpha \rangle \, dz'
+  = \int_{-\infty}^{\infty}  dz \int_{-\infty}^{\infty}  \langle \alpha
+  | z \rangle Q(z') \langle z | z' \rangle \langle z' | \alpha \rangle \, dz'
+  \\
+  &= \int_{-\infty}^{\infty} dz \int_{-\infty}^{\infty} \langle \alpha
+  | z \rangle Q(z') \delta(z- z') \langle z' | \alpha \rangle \, dz'
+  = \int_{-\infty}^{\infty} Q(z) | \langle z | \alpha \rangle |^2 \, dz
+\end{align}\vspace{3px}
+
+where $z$ represents the appropriate continuous eigenspectrum, for example, $x$
+if we are finding the expectation values for some potential $\hat{V}(\hat{x})$
+or $ p$ if we were evaluating the operator $-\frac{\hbar^2}{2m}\hat{p}^2$. So
+we can summarize 
+
+
+
+\begin{subbox}{}
+  A Hermitian $\hat{Q}$ has a discrete spectrum and eigenstates \[ \{Q_i,
+  |i\rangle\} \Rightarrow \langle \alpha | \hat{Q} | \alpha \rangle 
+  = \sum_{i=1}^{\infty}  Q_i |c_i^\alpha|^2\] \[ \text{Probability of outcome
+    } \quad Q_i
+  = |c_i^\alpha|^2 = |\langle i | \alpha \rangle |^2. \] 
+
+  A Hermitian $\hat{Q}$ has a continuous spectrum and eigenstates \[\{Q(z),
+  |z\rangle\} \Rightarrow \langle \alpha | \hat{Q} | \alpha \rangle
+= \int_{-\infty}^{\infty} Q(z)|\langle z | \alpha \rangle |^2 \, dz\] 
+  \[ \text{Probability of outcome } \quad  dQ(z) = |\langle z | \alpha \rangle
+  |^2 \, dz \]
+\end{subbox}
+
+Here we define $dQ(z)$ via a Taylor series expansion. If $z_0$ is the middle of
+the region $\delta z$, \[ \text{outcome between } Q(z_0 + \delta z / 2) \text{
+  and }
+  Q(z_0 - \delta z / 2) \text{ has the probability } |\langle z_0 | \alpha \rangle |^2
+  \delta z\] \[ \text{ outcome between } Q(z_0) \pm \frac{1}{2}
+  \frac{dQ(z)}{dz}\Bigg|_{z_0} \, dz \text{ has the probability } |\langle z_0 | \alpha
+\rangle |^2 \, dz\] 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
