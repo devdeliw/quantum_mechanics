@@ -1,0 +1,242 @@
+
+So far we have studied quantum mechanical problems that are either finite, or
+involving functions in only one-dimension, described by the coordinate $x$. Our experience with 1D prepares us to solve a huge variety of 3D problems, many
+of which can be reduced to effectively 1D properties by exploiting symmetries
+like rotational invariance. 
+
+\section{Schr\"odinger's Equation in 3D}
+
+The generalization of the Schr\"odinger equation 
+
+\[
+\hat{H} | \Psi \rangle = i\hbar \frac{\partial \Psi}{\partial t} 
+\] \vspace{3px}
+
+
+for 3D is obtained by the replacement 
+
+\[
+\hat{H} = \frac{1}{2m} \hat{p}_x^2 + \hat{V}(\hat{x}) \rightarrow \frac{1}{2m}
+\hat{\vec{p}}^2 + \hat{V}(\hat{x}, \hat{y}, \hat{z}) = \frac{1}{2m}
+(\hat{p}_x^2 + \hat{p}_y^2 + \hat{p}_z^2) + \hat{V}(\hat{x}, \hat{y}, \hat{z})
+\] \vspace{3px}
+
+The operators $\hat{p}_x, \; \hat{p}_y, \; \hat{p}_z^2$ in position space are
+just the natural generalization of the 1D case, 
+
+\[
+\hat{p}_x \rightarrow \frac{1}{i} \frac{\partial }{\partial x} \quad \hat{p}_y
+\rightarrow \frac{\hbar}{i} \frac{\partial }{\partial y} \quad \hat{p}_z
+\rightarrow \frac{\hbar}{i} \frac{\partial }{\partial z} 
+\] \vspace{3px}
+
+This can be expressed more compactly as the replacement
+
+\[
+\hat{p}_x \rightarrow \hat{\vec{p}} = \frac{\hbar}{i} \left( \hat{e}_x
+\frac{\partial }{\partial x} , \, \hat{e}_y \frac{\partial }{\partial y} , \,
+\hat{e}_z \frac{\partial }{\partial z}  \right)  = \frac{\hbar}{i} \nabla
+\] \vspace{3px}
+
+Here $\hat{e}_x, \, \hat{e}_y, \, \hat{e}_z$ are the unit vectors along
+someone's favorite coordinate system, while $\nabla$ expresses the same thing,
+without reference to a coordinate system. Thus the Schr\"odinger equation can
+be written compactly as  
+
+\begin{subbox}{3D Schr\"odinger's Equation}
+  \[\left[ -\frac{\hbar^2}{2m} \nabla^2 + V(\vec{r}) \right] \Psi(\vec{r}, t)
+  = i\hbar \frac{\partial }{\partial t} \Psi(\vec{r}, t) \] 
+\end{subbox}
+
+with  $r = (x, y, z)$ with our usual assumption that $V$ is not explicitly time
+dependent, and with the Laplacian defined as 
+
+\[
+ \nabla^2 = \frac{\partial^2 }{\partial x^2} + \frac{\partial^2 }{\partial y^2}
+ + \frac{\partial^2 }{\partial z^2} 
+\] \vspace{3px}
+
+\subsection{Normalization and the Prime Directive} 
+
+We require that our wave functions in 3D represent a probability distribution
+and thus require that 
+
+\[
+\int |\Psi|^2 \, d^3r = \int |\Psi|^2 \, dxdydz = \int |\Psi|^2 r^2 \, dr
+d\Omega = 1, \quad \text{ where } d\Omega = \sin\theta \, d\theta d\phi
+\] \vspace{3px}
+
+Our strategy for solving problems in 3D will continue to be based on finding
+the stationary states so we can implement the prime directive. 
+
+\[
+  \Psi(\vec{r}, t) \rightarrow \psi_n(\vec{r}) e^{-iE_n t / \hbar} \qquad
+  \left[ -\frac{\hbar^2}{2m} \nabla^2 + V(\vec{r}) \right] \psi_n(\vec{r})
+  = E_n \psi_n(\vec{r})
+\] \vspace{3px}
+
+Given a wave packet $\Psi(\vec{r}, 0)$, the prime directive generates
+a solution of the Schr\"odinger equation with this initial condition 
+
+\[
+|\Psi(t)\rangle = \sum_{n}^{} |\psi_n\rangle \langle \psi_n| \Psi(0) \rangle
+e^{-iE_n t /\hbar}
+\] \vspace{3px}
+
+which in position space becomes 
+
+\[
+\langle \vec{r}, \psi(t) \rangle = \sum_{n}^{} \langle \vec{r} | \psi_n\rangle
+\langle \psi_n | \Psi(0) \rangle e^{-iE_nt/\hbar} \quad \Rightarrow \quad
+\Psi(\vec{r}, t) = \sum_{n}^{} \psi_n(\vec{r}) \langle \psi_n | \Psi(0) \rangle
+e^{-iE_n t / \hbar}
+\] \vspace{3px}
+
+\section{Infinite Cubical Box}
+
+An interesting first problem is the infinite cubical box, the analog of the 1D
+infinite square well, where 
+
+\[
+V(x, y, z) = \begin{cases}
+  0 \quad &\frac{a}{2} < x, \,y,\, z < \frac{a}{2} \\
+  \infty &\quad\;\;\text{otherwise} 
+\end{cases} 
+\] \vspace{3px}
+The time-independent Schr\"odinger equation reads 
+
+\[
+-\frac{\hbar^2}{2m} \left[ \frac{\partial^2 }{\partial x^2}  + \frac{\partial^2
+}{\partial y^2}  + \frac{\partial^2 }{\partial z^2} \right] \psi(x, y, z)
+= E\psi(x, y, z)
+\] \vspace{3px}
+
+We write it in this form because the box is Cartesian, so the boundary
+conditions will be easier to implement if we exploit that symmetry. We look for
+a separable solution $\psi_{n_x, n_y, n_z} = \psi_{n_x} (x) \psi_{n_y} (y)
+\psi_{n_z}(z)$. Substituting this in, the dividing by $\psi_{n_x} \psi_{n_y}
+\psi_{n_z}(z)$ yields 
+
+\[
+  \frac{1}{\psi_{n_x}} \frac{d^2 \psi_{n_x}}{d^2 x^2} + \frac{1}{\psi_{n_y}}
+  \frac{d^2 \psi_{n_y}}{d y^2} + \frac{1}{\psi_{n_z}} \frac{d^2 \psi_{n_z}}{d
+  z^2} = -\frac{2m}{\hbar^2} E_{n_x, n_y, n_z} 
+\] \vspace{3px}
+
+Since each term on the left is independent and can be varied separately from
+the others, while the term on the right is constant, it must be that each term
+on the left is constant, that is, 
+
+\[
+  \frac{1}{\psi_{n_x}} \frac{d^2 \psi_{n_x}}{d x^2} = -k_{n_x}^2 \qquad
+  \frac{1}{\psi_{n_y}} \frac{d^2 \psi_{n_y}}{d y^2} = -k_{n_y}^2 \qquad
+  \frac{1}{\psi_{n_z}} \frac{d^2 \psi_{n_z}}{d z^2} = -k_{n_z}^2 \qquad
+  E = \frac{\hbar^2}{2m} \left( k_{n_x}^2 + k_{n_y}^2 + k_{n_z}^2 \right)  
+\] \vspace{3px}
+
+
+But these are three 1D problems for which we know the solutions from our 1D
+infinite square well. 
+
+\[
+\psi_n(\xi) = \begin{cases}
+  &\sqrt{\frac{2}{a}} \cos \frac{\pi n \xi}{a} \quad n = 1,3,5, \hdots \text{
+  even} \\ &\sqrt{\frac{2}{a}} \sin \frac{\pi n \xi}{a} \quad n = 2,4,6,\hdots
+  \text{ odd}  
+\end{cases}  \qquad \xi \in \{x, \, y, \, z\}
+\] \[ k_n^2 = \frac{n^2\pi^2}{a^2} \] \vspace{3px}
+
+
+  Consequently, 
+
+  \[
+    \psi_{n_x, n_y, n_z} (x, y, z) = \psi_{n_x} (x) \psi_{n_y}(y) \psi_{n_z}(z)
+    \qquad E_{n_x, n_y, n_z} = \frac{\hbar^2 \pi^2}{2ma^2} ( n_x^2 + n_y^2
+    + n_z^2)
+  \] \vspace{3px}
+  
+  
+  Thus to enumerate all the states and their energies, we need to enumerate all
+  ordered triplets $(n_x, n_y, n_z)$. So there are many more possible states in
+  3D! Note that (1, 1, 2) is distinct from (1, 2, 1) -- the orthonormality
+  condition is given below. 
+
+
+  One sees that this solution in 3D is labeled by quantum numbers from
+  \textit{three commuting Hermitian operators} corresponding to three
+  observables that can be measured simultaneously, 
+
+  \[
+  \hat{p}_x = \hbar \hat{k}_x \qquad \hat{p}_y = \hbar \hat{k}_y \qquad
+  \hat{p}_z = \hbar \hat{k}_z
+  \] \vspace{3px}
+  
+  This is an important theme in all of the 3D problems we do -- finding a maximal set of independent
+but commuting operators whose eigenvalues then act as the wave function labels,
+or quantum numbers. We showed previously that given two commuting Hermitian operators, a basis exists in
+which the basis states are simultaneously eigenfunctions of both operators.
+Note that in this case considered above, $\hat{H}$ is not an independent
+operator, as $E$ is determined if one knows $p_x, p_y, p_z$. This contrasts
+with the 1D case, where wave functions typically carry one label, which in most
+cases is the energy eigenvalue. 
+
+A couple of observations 
+
+\begin{itemize}
+  \item[1.] The solution is properly normalized
+
+    \[
+      \int |\psi_{n_x, n_y, n_z} (x, y, z) |^2 \, d\vec{r} = \left[
+      |\psi_{n_x}(x)|^2 \, dx \right] \left[ \int |\psi_{n_y} (y) |^2 \right]
+      \left[ \int | \psi_{n_z}(z) |^2 \right] = 1
+    \] \vspace{3px}
+    \item[2.] The solutions are orthonormal 
+  
+  \[
+    \int \psi^*_{n_x', n_y', n_z'} (x, y, z) \psi_{n_x, n_y, n_z} (x, y, z) \,
+    d\vec{r} = 
+    \] \[ \left[ \psi_{n_x'}^* (x) \psi_{n_x}(x) \right] \left[ \psi_{n_y'}^*
+    (y) \psi_{n_y}(y) \right]
+    \left[ \psi_{n_z'}^* (z) \psi_{n_z}(z) \right] = \delta_{n_x', n_x}
+    \delta_{n_y', n_y} \delta_{n_z', n_z} \] \vspace{3px}
+
+  \item[3.] Unlike in 1D, there are energy degeneracies -- solutions are no
+    longer solely identified by their energies. For example the states labeled 
+
+    \[
+      (n_x, n_y, n_z) = \{ (1, 1, 2),\, (1, 2, 1),\, (2, 1, 1)\}
+    \] \vspace{3px}
+    
+    all have energy $E = \frac{3\hbar^2\pi^2}{ma^2}$. In 3D we generally will
+    need to find additional quantum labels for our wave functions, as $E$ does
+    not suffice. 
+  \item[4.] The solutions provide a complete basis for representing any wave
+    packet satisfying the same boundary conditions. This property plus 1. and
+    2. allows us to implement the prime directive. 
+  \item[5.] We made good use of parity in 1D and we have already exploited it
+    here, solving the infinite cubic well. In 1D, the square well parity is
+    $(-1)^{n+1}$. 
+
+     \[
+    \text{1D} : \quad \text{under } x \rightarrow -x, \; \psi_n(x) \rightarrow
+    \psi_n(-x) = (-1)^{n+1}\psi_n(x)
+    \] \vspace{3px}
+    
+    but in 3D, the cubic well parity is $(-1)^{n_x + n_y + n_z + 1}$. 
+
+     \[
+       \text{3D} : \quad \text{under } \{ x, y, z\} \rightarrow \{-x, -y, -z\},
+       \; \psi_{n_x}(x) \psi_{n_y}(y) \psi_{n_z}(z) \rightarrow \psi_{n_x}(-x)
+       \psi_{n_y}(-y) \psi_{n_z}(-z)
+       \] \[ = (-1)^{n_x+ n_y+n_z+1} \psi_{n_x}(x)
+     \psi_{n_y}(y) \psi_{n_z}(z)\]
+\end{itemize}
+
+These questions of normalization, orthonormality, completeness, and wave
+function labeling will come up in every 3D problem we tackle. 
+
+
+
+
+
+

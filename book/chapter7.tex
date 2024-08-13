@@ -270,7 +270,7 @@ product defined over the vector space of functions,
 \end{align*} \vspace{3px}
 
 
-\section{Continuous spectra, momentum, and position wave functions}
+\section{Continuous Spectra, Momentum, and Position Wave Functions}
 
 The \textit{spectrum} of an operator is defined as the set of possible outcomes
 after measurement. 
@@ -1271,6 +1271,94 @@ can not be determined simultaneously with unlimited precision, but most
 observables. 
 
 
+
+\subsection{Energy-Time Uncertainty Principle} 
+
+We consider the time variation of the expectation of observable $\hat{Q}$ 
+
+\[
+\frac{d }{d t} \langle \psi |\psi\rangle = \langle \frac{\partial
+\psi}{\partial t} | \hat{Q} | \psi \rangle + \langle \psi | \frac{d \hat{Q}}{d
+t} | \psi \rangle + \langle \psi | \hat{Q} | \frac{\partial \psi}{\partial t} 
+\] \vspace{3px}
+
+where we allow for $\hat{Q}$ itself having explicit time dependence. Now if
+$|\psi\rangle$ is a solution of the Schr\"odinger equation, 
+
+\[
+i\hbar \frac{\partial }{\partial t} |\psi \rangle = \hat{H}|\psi\rangle \quad
+\Rightarrow \frac{\partial }{\partial t} |\psi\rangle = -\frac{i}{\hbar}
+\hat{H} |\psi \rangle
+\] \vspace{3px}
+
+This yields
+
+\begin{subbox}{Generalized Ehrenfest Theorem}
+  \[
+  \frac{d }{d t} \langle \psi | \hat{Q} | \psi \rangle = \frac{i}{\hbar}
+  \langle \psi | [\hat{H}, \hat{Q}]| \psi \rangle + \langle \psi
+  | \frac{\partial \hat{Q}}{\partial t} | \psi \rangle
+  \] \vspace{3px}
+\end{subbox}
+
+
+Thus for operators that have no explicit dependence on time, the rate of change
+of the expectation value of an operator is determined by the commutator of
+$\hat{Q}$ with $\hat{H}$. If $\hat{Q}$ commutes with $\hat{H}$, its expectation
+value is constant in time. 
+
+We can obtain a related result from the generalized uncertainty principle by
+the substitutions $\hat{A} \rightarrow \hat{H}$ and $\hat{B} \rightarrow
+\hat{Q}$, yielding in a case for an operator that has no explicit time
+dependence 
+
+\[
+\sigma^2_H\sigma_Q^2 \; \geq \; \langle \psi | \frac{1}{2i} \left[ \hat{H},
+\hat{Q}\right]| \psi \rangle^2 = \left[ -\frac{\hbar}{2} \frac{d }{d t} \langle
+\psi | \hat{Q} | \psi \rangle \right]^2 \quad \Rightarrow \quad \sigma_H
+\sigma_Q \; \geq \; \frac{\hbar}{2} \Bigg| \frac{d }{d t} \langle \psi
+| \hat{Q} | \psi \rangle \Bigg|
+\] \vspace{3px}
+
+
+If we abbreviate the expectation value of the Hamiltonian, $\langle \psi
+| \hat{H} | \psi \rangle$ as $\bar{E}$, 
+
+\[
+  \sigma_H^2 = \langle \psi | (\hat{H} - \bar{E})^2 | \psi \rangle
+  = \sum_{i,j}^{} \langle \psi | E_j \rangle \langle E_j | (\hat{H}
+  - \bar{E})^2 | E_i \rangle \langle E_i | \psi \rangle = \sum_{i}^{} |c_i|^2
+  (E_i - \bar{E})^2 \equiv (\Delta E)^2
+\] \vspace{3px}
+
+Given a time $t_0$ of a measurement, we can also define a time interval $\Delta
+t$ where the expectation value of $\hat{Q}$ will change by one standard
+deviation, 
+
+\[
+\sigma_Q = \Bigg| \frac{d \langle \psi | \hat{Q} | \psi \rangle}{d t_0}\Bigg| \,
+\Delta t_Q
+\] \vspace{3px}
+
+Plugging these into our result above, we obtain 
+
+\begin{mainbox}{Energy-Time Uncertainty Principle}
+  \[
+  \Delta E \Delta t_Q \; \geq \; \frac{\hbar}{2}
+  \] \vspace{3px}
+  
+  where \[ \Delta E = \sqrt{\langle | \hat{H}^2 | \psi \rangle - \langle \psi
+  | \hat{H} | \psi \rangle^2} \qquad \sigma_Q = \Bigg| \frac{d \langle \psi
+| \hat{Q}| \psi \rangle}{d t_0} \Bigg|\, \Delta t_Q \]
+\end{mainbox}
+
+
+
+
+Thus if a wave packet is a stationary state, $\Delta E \rightarrow 0$,
+requiring $\Big| \frac{d \langle \psi | \hat{Q} | \psi \rangle}{d t_0} \Big|
+\, \Delta t_Q \rightarrow 0$. Thus any observable that is itself not explicitly
+dependent on time will not vary. 
 
 
 
