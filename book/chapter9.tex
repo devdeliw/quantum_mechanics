@@ -1,0 +1,157 @@
+
+\section{Addition of Angular Momentum}
+
+Much of the interesting physics of the hydrogen atom and other atomic systems
+derives from interactions that involve both orbital motion and the electron
+spin (as well as the nuclear total angular momentum). This problem leads us to
+describe systems with more than one angular momentum operator. We describe here
+the coupling of two commuting angular momentum operators $\hat{J}_1$ and
+$\hat{J}_2$. An understanding of this two-angular-momenta system will allow us
+to proceed to other problems of much greater complexity -- by successively
+coupling angular momenta in pairs. 
+
+The orthonormal eigenstates of $\hat{J_1}^2$ and $J_{1z}$ we will denote by
+$|j_1m_1\rangle$: $\hat{J_2}$ will have no effect on these states. Similarly
+$\hat{J_2}$ and $J_{2z}$ will have the eigenstates $|j_2m_2\rangle$ and
+$\hat{J_1}$ will have no effect on them. That is, these operators act in
+a direct product space 
+
+\[
+  \Sigma = \Sigma_{j_1} \otimes \Sigma_{j_2}
+\] \vspace{3px}
+
+corresponding to the state vectors 
+
+\[
+|j_1m_1; j_2m_2 \rangle \equiv |j_1m_1\rangle |j_2m_2\rangle
+\] \vspace{3px}
+
+The wave function labels come from the full set of four commuting operators
+$\hat{J_1}^2, J_{1z}, \hat{J_2}^2,$ and $J_{2z}$. The Hilbert space of
+a physical problem may involve other degrees of freedom. For example, if one is
+describing a particle according to its location in 3D space and its spin, then
+its wave function could be represented as 
+
+\[
+  | \vec{r_1} s_1 = \frac{1}{2}m_{s_1} \rangle \rightarrow |n_1\ell 1 m_1 s_1
+  = \frac{1}{2} m_{s_1} \rangle 
+\] \vspace{3px}
+
+Or one could have two electrons, with a possible set of labels for the full
+Hilbert space being 
+
+\[
+  | \vec{r_1} s_1 = \frac{1}{2} m_{s_1} \rangle | \vec{r_2} s_2
+  = \frac{1}{2}m_{s_2} \equiv \begin{cases}
+    |\vec{r_1}s_1m_{s_1}; \vec{r_2}s_2m_{s_2} \\ |\vec{r_1}\rangle |
+    s_1m_{s_1}\rangle |\vec{r_2}\rangle |s_2m_{s_2}\rangle
+  \end{cases} 
+\] \vspace{3px}
+
+
+That is, we can think of this as a single Hilbert space for the problem, or
+alternatively as a direct product space involving the kets for particle 1 and
+particle 2, or alternatively, the ket for each particle can be viewed as
+a \textit{product} of kets describing the particle's spatial and spin degrees
+of freedom. 
+
+Another example would be the case where $\hat{J_1}$ and $\hat{J_2}$ might
+represent the orbital and spin angular momentum carried by a single particle.
+This would correspond to one of the electrons described above, but where the
+nature of the problem (e.g., motion in a central field) allows us to further
+decompose the state vector $|\vec{r_1}\rangle$. In this case the full set of
+labels for our Hilbert space could be taken to be 
+
+\[
+  |\vec{r_1}s_1m_{s_1} \rangle \rightarrow | n_1\ell_1 m_{\ell_1} s_1m_1\rangle
+\] \vspace{3px}
+
+
+Both of the examples described above involve Hilbert spaces that are infinite,
+if all degrees of freedom are considered.  In many cases we may want to focus only on the angular momentum
+quantum numbers – and often only the magnetic quantum numbers, as we may be working in
+subspaces with fixed $j_1$ and $j_2$. In that case we may put aside the other quantum numbers that
+may be carried along (implicitly) and focus on just the angular momentum degrees of freedom. In
+the following we thus will suppress the accompanying quantum numbers. 
+
+If we have commuting angular momenta $\hat{J_1}$ and $\hat{J_2}$, then when we
+form $\hat{J} = \hat{J_1} + \hat{J_2}$, 
+
+\[
+  [J_{1i}, J_{1j}] = i\epsilon_{ijk} J_{1k} \quad [J_{2i}, J_{2j}]
+  = i\epsilon_{ijk} J_{2k} \quad \Rightarrow \quad [J_i, J_j] = [J_{1i},
+  J_{1j}] + [J_{2i}, J_{2j}] = i\epsilon_{ijk} (J_{1k} + J_{2k})
+  = \epsilon_{ijk} J_k
+\] \vspace{3px}
+
+we have another angular momentum. The ``coupled representation" corresponds to
+a direct sum of subspaces having definite $j$
+
+\[
+  |(j_1j_2) jm \rangle \quad \Leftrightarrow \quad \Sigma = \Sigma_{|j_1
+  - j_2|} \oplus \cdots \oplus \Sigma_{j_1+j_2} \qquad |j_1-j_2| \leq j \leq
+  j_1 + j_2
+\] \vspace{3px}
+
+
+The wave function has been labeled by the eigenvalues of another set of four
+commuting operators $\hat{J_1}^2,  \hat{J_2}^2, \hat{J^2}$, and $J_z$. Thus the
+eigenvalues $j_1$ and $j_2$ are held in common in the coupled and uncoupled
+representations. Previously we counted the number of distinct magnetic
+substates in the uncoupled representation -- 
+
+\[
+  (2j_1 + 1 )(2j_2+1)
+\] \vspace{3px}
+
+and of course we have the same number of states in the coupled representation, 
+
+\[
+\sum_{j=|j_1 - j_2|}^{j_1+j_2} (2j+1) = (j_1 + 1)(j_2+1) 
+\] \vspace{3px}
+
+
+Which basis should we use? It depends on one's problem. For the simple Coulomb
+hydrogen atom problem, the interaction had no dependence on spin, so we worked
+in the uncoupled representation -- and could forget entirely about the spin
+degree of freedom. If we include spin, all we have to remember is that each
+state is actually two, one with spin up, and one with spin down. But they have
+the same energy. 
+
+However, had we considered corrections to the hydrogen atom Hamiltonian
+associated with the electron's velocity, we would have encountered new
+contributions to the Hamiltonian, such as an interaction proportional to
+$\vec{\ell} \cdot \vec{s} $ that couples the electron's angular momentum to its
+spin. The eigenstates can no longer be written as single uncoupled states, but
+instead take on the coupled form, 
+
+\[
+|(\ell s) jm_j\rangle
+\] \vspace{3px}
+
+
+where $j$ is the total angular momentum we get by coupling $\ell$ to $s
+= \frac{1}{2}$, so $j = \ell \pm \frac{1}{2}$. Thus the six uncoupled $2p$
+states in hydrogen: 
+
+\[
+2p: \quad |n=2, \ell=1, m \rangle |s = \frac{1}{2}m_s\rangle \rightarrow
+\begin{cases}
+  |n \left( \ell\frac{1}{2} \right) j = \frac{3}{2} m\rangle \\ 
+  |n\left( \ell\frac{1}{2} \right) j = \frac{1}{2}m\rangle 
+\end{cases} 
+\] \vspace{3px}
+
+
+
+
+are reshuffled to produce two subsets of states that transform as $j
+= \frac{1}{2}$ and $\frac{3}{2}$ amplitudes. These states -- not the uncoupled
+ones -- are the stationary state basis Nature chooses and thus we must also.
+The problem is rotationally invariant, and Nature knows that. In this sense,
+our ability to solve the hydrogen atom in the uncoupled basis was the result of
+an ``accidental" degeneracy. ``Accident" is in quotes because the accident was
+on we created -- by ignoring the fine-structure interactions that break the
+degeneracy of these states.
+
+
