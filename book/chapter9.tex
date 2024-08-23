@@ -981,14 +981,14 @@ have electromagnetic weak interactions)
   e^- \quad e^+ \quad \mu^- \quad \mu^+ \quad \tau^- \quad \tau^+ 
 \] \vspace{3px}
 
-and their neutral partners, the neutrinos
+and their neutral partners, the \textit{neutrinos}
 
 \[
   \nu_e \quad \bar{\nu}_e \quad \nu_\mu \quad \bar{\nu}_\mu \quad \nu_\tau
   \quad \bar{\nu}_\tau 
 \] \vspace{3px}
 
-and the quarks, which have strong interactions and their antiparticles 
+and the \textit{quarks}, which have strong interactions and their antiparticles 
 
 \[
   u \quad d \quad s \quad c \quad t \quad b \qquad \qquad \bar{u} \quad
@@ -1002,8 +1002,8 @@ We also have the particles that mediate the forces, which carry spin $s = 1$,
 interactions: } \gamma \qquad \text{ strong interactions: } g 
 \] \vspace{3px}
 
-and finally we have the Higgs boson which generates the masses of the charged
-fermions, which is the standard model's only spin-less $s = 0$ particle. 
+and finally we have the \textit{Higgs boson} which generates the masses of the charged
+fermions, which is the standard model's only spinless $s = 0$ particle. 
 
 The nucleon is a ``composite fermion" -- like an elementary fermion, only one
 composite fermion at a time can occupy a given quantum state. Its spin is made
@@ -1011,16 +1011,628 @@ up of the spin of its elementary quark components, the angular momentum of the
 quarks, and the ``glue" (gluons) that hold the nucleon together. 
 
 
+\subsection{Spin $\frac{1}{2}$}
+
+The $s = \frac{1}{2}$ case is the most interesting for us as this is the
+intrinsic spin of the electron and all other elementary fermions, and because
+of its simplicity. First envision an arbitrary spin state, which we might
+denote $|\vec{s}\rangle$. Now we select a basis by first introducing
+a coordinate system, and choosing $\hat{s}$ and $s_z$ as our eigenstate labels.
+Then, with the basis, our state (assumed normalized) can be represented 
+
+\[
+|\vec{s}\rangle = \sum_{m_s}^{} | \frac{1}{2} m_s \rangle \langle \frac{1}{2}
+m_s | \vec{s}\rangle
+\] \vspace{3px}
+
+There are two $\hat{s}_z$ basis states can be expressed in terms of what are
+called Pauli spinors: 
+
+\[
+|\frac{1}{2}m_s = \frac{1}{2}\rangle \leftrightarrow \begin{pmatrix}
+  1 \\ 0
+\end{pmatrix} \equiv \chi_+ \qquad | \frac{1}{2} m_s = -\frac{1}{2}\rangle
+\leftrightarrow \begin{pmatrix}
+  0 \\ 1
+\end{pmatrix} \equiv \chi_-
+\] \vspace{3px}
 
 
+Here $\chi_+$ and $\chi_-$ are the two special states where the spin points up
+or down, respectively with respect to the chosen $z$ axis. The general
+normalized spin-1/2 state can be written 
+
+\[
+  \chi_{\alpha, \beta} = \begin{pmatrix}
+    \alpha \\ \beta
+  \end{pmatrix} = \alpha\chi_+ + \beta\chi_- \quad \text{ with } |\alpha|^2
+  + |\beta|^2 = 1
+\] \vspace{3px}
+
+That is, in the first equation above, the expansion coefficients in this basis
+are 
+
+\[
+\langle \frac{1}{2} m_s = \frac{1}{2} \rangle \vec{s} \rangle = \alpha \qquad
+\langle \frac{1}{2} m_s = -\frac{1}{2} | \vec{s} \rangle = \beta
+\] \vspace{3px}
+
+From the general expression of spin, one has for the case of $s=\frac{1}{2}$, 
+
+\begin{align} \label{}
+  \hat{S}^2 |s m_s \rangle = \hbar^2 s(s+1)|s m_s \rangle \quad &\Rightarrow
+  \quad \hat{S}^2 \chi_+ = \frac{3\hbar^2}{4}\chi_+ \quad \hat{S}^2 \chi_-
+  = \frac{3\hbar^2}{4}\chi_- \\ 
+  \hat{S}_z|s m_s \rangle = \hbar m_s | s m_s \rangle \quad &\Rightarrow \quad
+  \hat{S}_z \chi_+ = \frac{\hbar}{2}\chi_+ \quad \hat{S}_z \chi_-
+  = -\frac{\hbar}{2}\chi_-
+\end{align}\vspace{3px}
+
+so in the spin-1/2 representations,  $\hat{S}^2$ and $\hat{S}_z$ correspond to
+the matrices 
+
+\[
+\hat{S}^2 = \frac{3\hbar^2}{4} \begin{pmatrix}
+  1 & 0 \\ 0 & 1 
+\end{pmatrix} \qquad \hat{S}_z = \frac{\hbar}{2} \begin{pmatrix}
+  1 & 0 \\ 0 & -1 
+\end{pmatrix} 
+\] \vspace{3px}
 
 
+Similarly, 
+
+\begin{align} \label{}
+  \hat{S}_+|s m_s \rangle = \hbar \sqrt{s(s+1) - m_s (m_s + 1)} | s m_s
+  + 1 \rangle \quad &\Rightarrow \quad \hat{S}_+ \chi_+ = 0 \quad \hat{S}_+
+  \chi_- = \hbar \chi_+ \\ 
+  \hat{S}_-|s m_s \rangle = \hbar \sqrt{s(s+1) - m_s(m_s - 1)}|s m_s
+  + 1 \rangle \quad &\Rightarrow \quad \hat{S}_-\chi_+ = \hbar \chi_- \quad
+  \hat{S}_-\chi_- = 0
+\end{align}\vspace{3px}
 
 
+Therefore, 
+
+\[
+\hat{S}_+ = \hbar \begin{pmatrix}
+  0 & 1 & 0 & 0 
+\end{pmatrix} \qquad \hat{S}_- = \hbar \begin{pmatrix}
+  0 & 0& 1 & 0
+\end{pmatrix} 
+\] \vspace{3px}
+
+And as $\hat{S}_\pm = \hat{S}_x \pm i \hat{S}_y$, then $\hat{S}_x = \frac{1}{2}
+( \hat{S}_+ + \hat{S}_- )$ and $\hat{S}_y = \frac{1}{2i} (\hat{S}_+
+- \hat{S}_-)$, or 
+
+\[
+\hat{S}_x = \frac{\hbar}{2} \begin{pmatrix}
+  0 & 1 & 1 & 0
+\end{pmatrix} \qquad \hat{S}_y = \frac{\hbar}{2} \begin{pmatrix}
+  0 & -i & i & 0
+\end{pmatrix} 
+\] \vspace{3px}
+
+Conventionally, $\hat{S}_x, \hat{S}_y,$ and $\hat{S}_z$ are expressed in terms
+of the Pauli matrices $\vec{\sigma}$ as 
+
+\begin{subbox}{Pauli Spin Matrices}
+  \[
+  \hat{S} = \frac{\hbar}{2} \vec{\sigma} \qquad \qquad \sigma_x = \begin{pmatrix}
+    0 & 1 \\ 1 & 0 
+  \end{pmatrix} \qquad \sigma_y = \begin{pmatrix}
+    0 & -i \\ i & 0 
+  \end{pmatrix} \qquad \sigma_z = \begin{pmatrix}
+    1 & 0 \\ 0 & -1
+  \end{pmatrix} 
+  \] 
+\end{subbox}
+
+These are Hermitian operators, as are the matrices representing observables
+$\hat{S}^2$ and $\hat{S}_z$.
 
 
+\subsection{Spin Measurements} 
+
+We noted above that the most general normalized statevector can be expressed as 
+
+\[
+  \chi_{\alpha, \beta} \equiv \alpha \chi_+ + \beta \chi_- = \begin{pmatrix}
+    \alpha \\ \beta
+  \end{pmatrix} , \qquad |\alpha|^2 + |\beta|^2 = 1
+\] \vspace{3px}
+
+We will be interested in measuring spin relative to some direction, e.g., the
+$x, y$ or $z$ axis. And when we do any such measurement, the answer is binary
+-- either $+\frac{\hbar}{2}$ or $-\frac{\hbar}{2}$, with respective
+probabilities that will depend on the state we are in. The $z$ axis is
+particularly simple because its the axis of our angular momentum quantization.
+If we calculate the expectation value of $\hat{S}_z$ in the general state
+described above,
+ 
+\[
+  \langle \hat{S}_z \rangle \equiv \chi_{\alpha, \beta}^\dagger \hat{S}_z
+  \chi_{\alpha, \beta} = (\alpha^* \; \; \beta^*) \frac{\hbar}{2} \begin{pmatrix}
+    1 & 0 \\ 0 & -1
+  \end{pmatrix} \begin{pmatrix}
+    \alpha \\ \beta
+  \end{pmatrix} = \frac{\hbar}{2} (|\alpha|^2 - |\beta|^2 )
+\] \vspace{3px}
+
+From this result, we can see choices corresponding to states of definite spin
+along $z$ -- the case where every measurement will give the same result, either
+always $\hbar / 2$ or always $-\hbar / 2$ -- are 
+
+\[
+\alpha =1, \; \beta = 0 \quad \text{ corresponds to spin aligned with $z $:
+} \quad \chi_+ =  \begin{pmatrix}
+  1\\0
+\end{pmatrix} 
+\] \[ \alpha = 0, \; \beta = 1 \quad \text{ corresponds to spin anti-aligned
+with $z$: } \quad \chi_- = \begin{pmatrix}
+  0 \\ 1
+\end{pmatrix} \] \vspace{3px}
+
+
+(up to an overall phase). Of course, this was obvious from the start. 
+
+
+But now we can do the same thing with $x$ to find the states aligned with or
+against $x$. Taking the expectation value of $\hat{S}_x$, 
+
+\[
+  \langle \hat{S}_x \rangle \equiv \chi_{\alpha, \beta}^\dagger \hat{S}_x
+  \chi_{\alpha, \beta} = (\alpha^* \; \; \beta^* ) \frac{\hbar}{2}\begin{pmatrix}
+    0 & 1 \\ 1 & 0 
+  \end{pmatrix} \begin{pmatrix}
+    \alpha \\ \beta
+  \end{pmatrix} = \frac{\hbar}{2} (\alpha^* \beta + \alpha \beta^* ) = \hbar
+  \text{Re}[\alpha \beta^*] 
+\] \vspace{3px}
+
+So the state with $\alpha = \beta = \frac{1}{\sqrt{2}}$ has $\langle \hat{S}_x
+\rangle = \frac{\hbar}{2}$ and the state with $\alpha = -\beta
+= \frac{1}{\sqrt{2}}$ has $\langle \hat{S}_x\rangle = -\frac{\hbar}{2}$. Thus
+
+\[
+\chi_+^x = \begin{pmatrix}
+  \frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}} \end{pmatrix} \quad \chi_-^x = \begin{pmatrix}
+    \frac{1}{\sqrt{2}} \\ - \frac{1}{\sqrt{2}}
+  \end{pmatrix} \quad \Rightarrow \quad \chi_+ = \frac{1}{\sqrt{2}} (\chi_+^x
+  + \chi_-^x) \quad \chi_- = \frac{1}{\sqrt{2}} (\chi_+^x - \chi_-^x)
+\] \vspace{3px}
+
+For a system quantizing along $z$, $\chi_+^x$ and $\chi_-^x$ are states
+pointing up and down along $x$. And we can do the exercise a third time, taking
+the expectation value of $\hat{S}_y$ in the general state: 
+
+\[
+  \langle \hat{S}_y \rangle \equiv \chi_{\alpha, \beta}^\dagger \hat{S}_y
+  \chi_{\alpha, \beta} = (\alpha^* \;\; \beta^*) \frac{\hbar}{2}\begin{pmatrix}
+    0 & -i \\ i & 0 
+  \end{pmatrix} \begin{pmatrix}
+    \alpha \\ \beta
+  \end{pmatrix} = \frac{\hbar}{2} (-i\alpha^*\beta + i\alpha \beta^*) = \hbar
+  \text{Re}[i\alpha \beta^*]
+\] \vspace{3px}
+
+So the state with $\alpha = \frac{1}{\sqrt{2}}, \beta = \frac{i}{\sqrt{2}}$ has
+$\langle \hat{S}_y \rangle = \frac{\hbar}{2}$ and the state with $\alpha
+= \frac{1}{\sqrt{2}}, \beta = -\frac{i}{\sqrt{2}}$ has $\langle \hat{S}_y
+\rangle = -\frac{\hbar}{2}$. Therefore 
+
+\[
+\chi_+^y = \begin{pmatrix}
+  \frac{1}{\sqrt{2}} \\ \frac{i}{\sqrt{2}} 
+\end{pmatrix} \quad \chi_-^y = \begin{pmatrix}
+  \frac{1}{\sqrt{2}} \\ - \frac{i}{\sqrt{2}}
+\end{pmatrix} \quad \Rightarrow \quad \chi_+ = \frac{1}{\sqrt{2}} (\chi_+^y
++ \chi_-^y ) \quad \chi_- = \frac{i}{\sqrt{2}} (\chi_-^y - \chi_+^y)
+\] \vspace{3px}
+
+So our general state can be expressed in several equivalent ways
+
+\begin{mainbox}{General Quantum Statevector}
+  \[ \chi_{\alpha, \beta} \equiv \alpha \chi_+ + \beta \chi_- = \left(
+    \frac{\alpha + \beta}{\sqrt{2}} \right) \chi_+^x + \left( \frac{\alpha
+  - \beta}{\sqrt{2}} \right) \chi_-^x = \left( \frac{\alpha - i\beta}{\sqrt{2}}
+\right) \chi_+^y + \left( \frac{\alpha + i\beta}{\sqrt{2}} \right) \chi_-^y \]     
+\end{mainbox}
+
+
+\subsection{Example -- Wave Packet Collapse}
+
+These results allow one to quickly compute various examples, including the
+collapse of a wave packet. 
+
+\begin{itemize}
+  \item[1.] Suppose the initial state is pointed along the positive $z$ axis --
+    that is, the initial state is $|\chi_+\rangle$. Then a measurement of
+    $\hat{S}_x$ yields $+\frac{\hbar}{2}$ and $-\frac{\hbar}{2}$ with
+    probabilities 
+
+    \[
+    |\langle \chi_+^x | \chi_+\rangle |^2 = | \frac{1}{\sqrt{2}}(\chi_+
+    + \chi_-)| \chi_+ \rangle|^2 = \frac{1}{2} \quad \text{and} \quad |\langle
+    \chi_-^x | \chi_+\rangle |^2 = | \langle \frac{1}{\sqrt{2}} (\chi_+
+    - \chi_-)|\chi_+\rangle |^2 = \frac{1}{2}
+    \] \vspace{3px}
+  \item[2.] If the initial state is $\chi_+$, then a measurement of $\hat{S}_y$ 
+    yields $+\frac{\hbar}{2}$ and $-\frac{\hbar}{2}$ with probabilities 
+
+    \[
+    |\langle \chi_+^y | \chi_+ \rangle |^2 = | \langle \frac{1}{\sqrt{2}}
+    (\chi_+ + i\chi_-) | \chi_+ \rangle |^2 = \frac{1}{2} \quad \text{and}
+    \quad |\langle \chi_-^y | \chi_+ \rangle |^2 = |\langle \frac{1}{\sqrt{2}}
+    (\chi_+ - i\chi_- )|\chi_+\rangle |^2 = \frac{1}{2}
+    \] \vspace{3px}
     
+  \item[3.] And collapse: the state is initially $|\chi_+\rangle$, but
+    a measurement of $\hat{S}_x$ is done yielding the answer
+    $|\chi_+^x\rangle$. If another measurement is done to see if the spin is
+    aligned along $z$, the answer will be 
+
+    \[
+      |\langle \chi_+ | \chi_+^x \rangle |^2 = | \langle \frac{1}{\sqrt{2}}
+      (\chi_+^x + \chi_-^x )|\chi_+^x \rangle |^2 = \frac{1}{2}
+    \] \vspace{3px}
     
+    So half the time the electron will be anti-aligned with $z$, even though it
+    started out aligned.
+\end{itemize}
+
+\section{Larmor Precession \& Prime Directive}
+
+A charged particle with spin generates a magnetic dipole moment $\mu$
+proportional to its spin 
+
+\[
+\mu = \gamma \vec{S}
+\] \vspace{3px}
+
+where $\gamma$ is the geomagnetic ratio (nearly exactly $e/m$ for the
+electron). This magnetic momentum responds to an applied magnetic field
+$\vec{B}$, yielding 
+
+\[
+\hat{H} = -\mu \cdot \vec{B} = -\gamma \vec{B} \cdot \hat{\vec{S}}
+\] \vspace{3px}
+
+If we define our $z$-axis along $\vec{B} = B \hat{z}$, this becomes 
+
+\[
+\hat{H} = -\gamma B \hat{S}_z = -\frac{\gamma \hbar B}{2} \begin{pmatrix}
+  1 & 0 \\ 0 & -1
+\end{pmatrix} 
+\] \vspace{3px}
+
+yielding the stationary states and eigenvalues 
+
+\[
+\chi_+, \quad E_+ = -\frac{\gamma B \hbar}{2}\qquad \chi_-, E_- = \frac{\gamma
+B \hbar}{2}
+\] \vspace{3px}
+
+so $\chi_+$, with its spin pointing along the  $z$-axis, in the direction of
+$\vec{B}$, has the lower energy. At time $t=0$, if we are given an arbitrary
+wave packet 
+
+\[
+\chi(0) = \alpha \chi_+ + \beta\chi_- \equiv \cos \left( \frac{\theta}{2}
+\right) \chi_+ + \sin \left( \frac{\theta}{2} \right) \chi_-  
+\] \vspace{3px}
+
+where we have used the constraint $|\alpha|^2 + |\beta|^2 = 1$ and the ability
+to absorb phases into the basis states to write this in terms of a ``mixing
+angle". This angle is the one between $\vec{B}$ and the spin. The prime
+directive then gives us the general solution for how this wave packet evolves
+in time in the presence of $\vec{B}$, with the $z$-axis pointing along
+$\vec{B}$: 
+
+\[
+\chi(t) = \alpha \chi_+ + \beta \chi_- \equiv \cos \left( \frac{\theta}{2}
+\right) e^{i\gamma B t / 2} + \sin \left( \frac{\theta}{2} \right) \chi_-
+e^{-i\gamma Bt / 2} = \begin{pmatrix}
+  \cos \left( \frac{\theta}{2} \right) e^{i\gamma Bt / 2} \\ \sin \left(
+  \frac{\theta}{2} \right) e^{-i\gamma Bt/2}  
+\end{pmatrix}     
+\] \vspace{3px}
+
+Just as we did previously, we can calculate the expectation value of $\hat{S}_x$
+
+\[
+\langle \hat{S}_x(t)\rangle = \chi(t)^\dagger \frac{\hbar}{2} \begin{pmatrix}
+  0 & 1 \\ 1 & 0
+\end{pmatrix} \chi(t) = \frac{\hbar}{2}\sin \theta \cos \gamma B t
+\] \vspace{3px}
+
+and also $\hat{S}_y$, 
+
+\[
+\langle \hat{S}_y(t) \rangle = \chi(t)^\dagger \frac{\hbar}{2} \begin{pmatrix}
+  0 & -i \\ i & 0 
+\end{pmatrix} \chi(t) = -\frac{\hbar}{2}\sin\theta \sin \gamma Bt
+\] \vspace{3px}
+
+and also $\hat{S}_z$, 
+
+\[
+\langle \hat{S}_z(t) \rangle = \chi(t)^\dagger \frac{\hbar}{2} \begin{pmatrix}
+  1 & 0 \\ 0 & -1
+\end{pmatrix} \chi(t) = \frac{\hbar}{2} \cos \theta
+\] \vspace{3px}
+
+These are the formulae for a classical precessing gyroscope. The angle $\theta$
+and thus the projection on the $z$-axis remains constant while the projection
+onto the $x-y$ plane precesses with an angular frequency $\gamma B$, the Larmor
+frequency. 
+
+\section{Applications of the Addition of Angular Momenta}
+
+An interesting example of what we discussed previously about the addition of
+angular momenta is having two particles each with a spin-1/2. In general (not
+only spin-1/2), states in the uncoupled representation are eigenstates of four
+operators: 
 
 
+\begin{align*}
+(\hat{S}^{(1)})^2 \left| s_1 m_1 s_2 m_2 \right\rangle &= s_1(s_1 + 1)\hbar^2 \left| s_1 m_1; s_2 m_2 \right\rangle \\
+(\hat{S}^{(2)})^2 \left| s_1 m_1 s_2 m_2 \right\rangle &= s_2(s_2 + 1)\hbar^2 \left| s_1 m_1; s_2 m_2 \right\rangle \\
+\hat{S}^{(1)}_z \left| s_1 m_1 s_2 m_2 \right\rangle &= m_1\hbar \left| s_1 m_1; s_2 m_2 \right\rangle \\
+\hat{S}^{(2)}_z \left| s_1 m_1 s_2 m_2 \right\rangle &= m_2\hbar \left| s_1 m_1; s_2 m_2 \right\rangle
+\end{align*}
+
+
+while in the coupled representation, 
+
+\[
+  (\hat{S}^{(1)})^2 |(s_1s_2) sm_s \rangle = s_1 (s_1 + 1)\hbar^2 |(s_1 s_2)
+sm_s \rangle \]
+\[ (\hat{S}^{(2)})^2 |(s_1s_2)sm_s \rangle = s_2 (s_2 + 1 ) \hbar^2
+|(s_1s_2)sm_2 s \rangle \] 
+\[
+\hat{S}^2 \left| (s_1 s_2) s m_s \right\rangle = s(s + 1) \hbar^2 \left| (s_1
+s_2) s m_s \right\rangle \] \[
+\hat{S}_z \left| (s_1 s_2) s m_s \right\rangle = m_s \hbar \left| (s_1 s_2) s m_s \right\rangle
+\] \vspace{3px}
+
+where $\hat{S} = \hat{S}^{(1)} + \hat{S}^{(2)}$. 
+
+
+Specializing to spin-1/2, a case that will be useful when we discuss the Helium
+atom later, we can form either $s = 1$ (spin symmetric) triplet states of an $s
+= 0$ (spin antisymmetric) singlet state. Using our Clebsch-Gordan tech, we
+write these states in terms of their uncoupled equivalents. For the triplet
+case, 
+
+\[
+  |\left( \frac{1}{2}\frac{1}{2} \right) s=1 m_s \rangle = \sum_{m_1m_2}
+  \langle \frac{1}{2} m_1 \frac{1}{2} m_2 | \left( \frac{1}{2}\frac{1}{2}
+  \right) sm_s \rangle | \frac{1}{2} m_1 \frac{1}{2} m_2 \rangle = \begin{cases}
+    |\frac{1}{2}\frac{1}{2}\frac{1}{2}\frac{1}{2}\rangle m_s &= 1 \\
+    \frac{1}{\sqrt{2}}|\frac{1}{2}\frac{1}{2}\frac{1}{2}-\frac{1}{2} \rangle
+    + \frac{1}{\sqrt{2}} |\frac{1}{2}-\frac{1}{2}\frac{1}{2}\frac{1}{2} \rangle
+    m_s &= 0 \\
+    |\frac{1}{2} -\frac{1}{2}\frac{1}{2}-\frac{1}{2}\rangle m_s &= -1
+  \end{cases}   
+\] \vspace{3px}
+
+While for the singlet case, 
+
+\[
+|\left( \frac{1}{2}\frac{1}{2} \right) s = 0 m_s = 0\rangle = \sum_{m_1m_2}^{}
+\langle \frac{1}{2}m_1 \frac{1}{2}m_2 | \left( \frac{1}{2}\frac{1}{2} \right)
+00\rangle | \frac{1}{2} m_1 \frac{1}{2}m_2 \rangle = \frac{1}{\sqrt{2}}
+| \frac{1}{2}\frac{1}{2}\frac{1}{2}-\frac{1}{2} \rangle - \frac{1}{\sqrt{2}}
+| \frac{1}{2} -\frac{1}{2} \frac{1}{2}\frac{1}{2} \rangle
+\] \vspace{3px}
+
+In summary 
+
+\begin{subbox}{Symmetric Spin Triplet $(s = 1)$ States}
+  \[
+\left|\uparrow; \uparrow\right\rangle = \left| \frac{1}{2} \frac{1}{2}; \frac{1}{2} \frac{1}{2} \right\rangle = \left| \left( \frac{1}{2} \frac{1}{2} \right) s = 1 \, m_s = 1 \right\rangle \quad m_s = 1
+\]
+
+\[
+\frac{1}{\sqrt{2}} \left( \left| \uparrow; \downarrow \right\rangle + \left| \downarrow; \uparrow \right\rangle \right) = \frac{1}{\sqrt{2}} \left( \left| \frac{1}{2} \frac{1}{2}; \frac{1}{2} - \frac{1}{2} \right\rangle + \left| \frac{1}{2} - \frac{1}{2}; \frac{1}{2} \frac{1}{2} \right\rangle \right) \equiv \left| \left( \frac{1}{2} \frac{1}{2} \right) s = 1 \, m_s = 0 \right\rangle \quad m_s = 0
+\]
+
+\[
+\left| \downarrow; \downarrow \right\rangle = \left| \frac{1}{2} - \frac{1}{2}; \frac{1}{2} - \frac{1}{2} \right\rangle = \left| \left( \frac{1}{2} \frac{1}{2} \right) s = 1 \, m_s = -1 \right\rangle \quad m_s = -1
+\]
+\end{subbox}
+
+\begin{mainbox}{Antisymmetric Spin Singlet $(s =0)$ State}
+  \[
+\frac{1}{\sqrt{2}} \left( \left| \uparrow; \downarrow \right\rangle - \left| \downarrow; \uparrow \right\rangle \right) = \left( \left| \frac{1}{2} \frac{1}{2}; \frac{1}{2} - \frac{1}{2} \right\rangle - \left| \frac{1}{2} - \frac{1}{2}; \frac{1}{2} \frac{1}{2} \right\rangle \right) \equiv \left| \left( \frac{1}{2} \frac{1}{2} \right) s = 0 \, m = 0 \right\rangle \quad m_s = 0
+\]
+\end{mainbox}
+
+
+\section{Review}
+
+\subsection{Clebsch-Gordan Coefficients}
+
+Now that we have introduced quantum mechanical spin, we can ``close the loop"
+on our previous discussion of Clebsch-Gordan coefficients, using
+spin-$\frac{1}{2}$ as an example. The two cases we will address are the
+coupling of two spins (very relevant to our future discussion of the ground
+state of Helium with its two electrons) and the coupling of orbital angular and
+spin momentum for a single electron (important for our subsequent treatment of
+spin-orbit interactions in Helium). We will also summarize here the key
+relationships you might need when utilizing Clebsch-Gordan coefficients. This
+summary might be particularly helpful for those of you following the discussion
+in Griffiths. Griffiths has a rather intimidating table of Clebsch-Gordan
+coefficients -- that is, intimidating if your eyes are keen enough to read
+print that small. Griffiths also uses a notation that doesn't help with
+transparency. He writes 
+
+\[
+  |sm\rangle = \sum_{m_1+m_2=m}^{} C_{m_1m_2m}^{(s_1s_2)s} |s_1s_2m_1m_2\rangle
+\] \vspace{3px}
+
+A more common notation that I feel better captures the meaning of the
+coefficients are the expansion coefficients of the states of the orthonormal
+coupled basis in terms of the states of the orthonormal uncoupled basis - 
+
+\[
+  |(s_1 s_2 ) sm \rangle = \sum_{m_1, m_2, m_1 + m_2 = m} |s_1m_1s_2m_2\rangle
+  \langle s_1m_1s_2m_2|(s_1s_2)sm\rangle
+\] \vspace{3px}
+
+Here $\vec{S} = \vec{S}^{(1)} + \hat{S}^{(2)}$, the basis states are
+eigenstates of 
+
+\[ \text{coupled -- basis: } \hat{S}^{(1)}, \hat{S}^{(2)}, \hat{S}, \hat{S}_z
+\] 
+\[
+  \text{uncoupled basis: } \hat{S}^{(1)}, \hat{S}_z^{(1)}, \hat{S}^{(2)},
+  \hat{S}_z^{(2)}
+\] \vspace{3px}
+
+As $\hat{S}_z = \hat{S}_z^{(1)} + \hat{S}_z^{(2)}$, we have the restriction in
+the sum that $m = m_1 + m_2$. And the expansion coefficients -- analogous to
+the $c_i$s when we expanded a wave packet in terms of a complete set of
+stationary states -- are the Clebsch-Gordan coefficients. 
+
+\[
+\langle s_1m_1 s_2 m_2 | (s_1 s_2) sm \rangle
+\] \vspace{3px}
+
+We have previously described some of the properties of Clebsch-Gordan
+coefficients. As 
+
+\begin{align} \label{}
+  \langle (s_1 s_2 ) s' m' | (s_1 s_2) sm \rangle &= \delta_{s's} \delta_{m'm}
+  \quad \Rightarrow \quad \delta_{s's}\delta_{m'm}\\ &\Rightarrow
+  \sum_{m_1,m_2, \;\; m_1+m_2
+  = m}^{} |\langle s_1 m_1 s_2 m_2 | (s_1 s_2) sm \rangle |^2 = 1
+\end{align}\vspace{3px}
+
+
+But in fact the coefficients are defined as real, which is possible because
+phases can be absorbed into the states. So 
+
+\[
+\langle s_1 m_1 s_2 m_2 | (s_1 s_2) sm \rangle^* = \langle s_1 m_1 s_2 m_2
+| (s_1s_2) sm\rangle
+\] \vspace{3px}
+
+Also, we can expand the uncoupled states in terms of the coupled states, the
+reverse of what we did above. 
+
+\[
+|s_1m_1s_2m_2\rangle = \sum_{s,m, \; \; m = m_1 + m_2}^{} |(s_1s_2) sm\rangle
+\langle (s_1 s_2) sm | s_1m_1s_2m_2\rangle 
+\] \vspace{3px}
+
+Some further properties of Clebsch-Gordan coefficients that we have not
+explicitly derived, but follow from the same discussion include 
+
+\[ \langle j_1 m_1 j_2 m_2 | (j_1j_2) jm \rangle = (-1)^{j_1+j_2-j} \langle
+j_2m_2 j_1 m_1 | (j_2 j_1 ) jm \rangle \] 
+\[ \langle j_1 m_1 j_2 m_2 | (j_1j_2) jm \rangle = (-1)^{j_1+j_2-j} \langle j_1
+  - m_1 j_2 - m_2 | (j_1 j_2) j - m\rangle \] \vspace{3px}
+
+
+\section{Addition of Momenta}
+
+\subsection{Addition of Two Spins with Spin $\frac{1}{2}$}
+
+We have stressed that the Clebsch-Gordan coefficients describe the orthogonal
+transformation between the uncoupled and coupled bases. We can write this out
+explicitly f or the case of two spin-1/2 particles. 
+
+i\[
+\left(
+\begin{array}{c}
+\left| \left(\frac{1}{2} \frac{1}{2}\right) 1 \, 1 \right\rangle \\[3mm]
+\left| \left(\frac{1}{2} \frac{1}{2}\right) 1 \, 0 \right\rangle \\[3mm]
+\left| \left(\frac{1}{2} \frac{1}{2}\right) 0 \, 0 \right\rangle \\[3mm]
+\left| \left(\frac{1}{2} \frac{1}{2}\right) 1 \, -1 \right\rangle
+\end{array}
+\right)
+=
+\left(
+\begin{array}{cccc}
+  1 & 0 & 0 & 0 \\[3mm]
+0 & \sqrt{\frac{1}{2}} & \sqrt{\frac{1}{2}} & 0 \\[3mm]
+0 & -\sqrt{\frac{1}{2}} & \sqrt{\frac{1}{2}} & 0 \\[3mm]
+0 & 0 & 0 & 1
+\end{array}
+\right)
+\left(
+\begin{array}{c}
+\left| \frac{1}{2} \frac{1}{2} \frac{1}{2} \frac{1}{2} \right\rangle \\[3mm]
+\left| \frac{1}{2} \frac{1}{2} \frac{1}{2} -\frac{1}{2} \right\rangle \\[3mm]
+\left| \frac{1}{2} -\frac{1}{2} \frac{1}{2} \frac{1}{2} \right\rangle \\[3mm]
+\left| \frac{1}{2} -\frac{1}{2} \frac{1}{2} -\frac{1}{2} \right\rangle
+\end{array}
+\right)
+\] \vspace{3px} 
+
+
+This matrix is the matrix of corresponding Clebsch-Gordan coefficients
+
+\[
+\begin{pmatrix}
+  \left\langle \frac{1}{2}\frac{1}{2}\frac{1}{2}\frac{1}{2}| \left(
+  \frac{1}{2}\frac{1}{2} \right) 11 \right\rangle & 0 & 0 & 0 \\[3mm]
+    0 & \left\langle \frac{1}{2}\frac{1}{2}\frac{1}{2}-\frac{1}{2}| \left(
+    \frac{1}{2}\frac{1}{2} \right) 10\right\rangle & \left\langle
+    \frac{1}{2}-\frac{1}{2}\frac{1}{2}\frac{1}{2} | \left(
+\frac{1}{2}\frac{1}{2} \right) 1 0 \right\rangle & 0 \\[3mm] 
+0 & \left\langle \frac{1}{2}\frac{1}{2}\frac{1}{2}-\frac{1}{2} | \left(
+\frac{1}{2}\frac{1}{2} \right)  00 \right\rangle & \left\langle \frac{1}{2}-
+\frac{1}{2}\frac{1}{2}\frac{1}{2} | \left( \frac{1}{2}\frac{1}{2} \right) 00
+\right\rangle & 0 \\[3mm]
+0 & 0 & 0 & \left\langle \frac{1}{2}-\frac{1}{2}\frac{1}{2}-\frac{1}{2}
+  | \left( \frac{1}{2}\frac{1}{2} \right) 1 -1 \right\rangle  
+\end{pmatrix}
+\] \vspace{3px}
+
+\subsection{Addition of Orbital Angular Momentum and Spin}
+
+Here we consider the application to a single particle that has both spin and
+angular momentum. We can add these to form a total angular momentum 
+
+\[
+\hat{j} = \hat{\ell} + \hat{s}
+\] \vspace{3px}
+
+For the spin-$\frac{1}{2}$ electron with definite $\ell$ there would be
+$(2\ell+1)(2)$ possibilities for $j$. If $\ell = 0$ there is a single
+possibility: 
+
+\[
+|(\ell = 0s) j = \frac{1}{2} m_j = \pm \frac{1}{2} \rangle
+\] \vspace{3px}
+
+But for $\ell > 0$, two multiplets are formed -- spin aligned and spin
+antialigned. From the $2(2\ell+1)$ states, 
+
+\[ (\ell s ) j = \ell + \frac{1}{2} m_j \rangle \quad 2\ell+2 \text{ states
+} \] 
+\[ |(\ell s) j = \ell - \frac{1}{2} m_j \rangle \quad 2\ell \text{ states } \]
+\vspace{3px}
+
+
+Thus in a hydrogen atom, once spin is considered, the states of good angular
+momenta are 
+
+\[ 1s_{1/2}: |n=1 \left(\ell = 0 s = \frac{1}{2}\right) j = \frac{1}{2}m_j
+\rangle \] 
+\[ 2s_{1/2}: |n=2 \left( \ell = 0 s = \frac{1}{2} \right) j = \frac{1}{2} m_j
+  \rangle \quad 2p_{1/2}: |n = 2 \left( \ell=1 s = \frac{1}{2} \right)
+  j = \frac{1}{2} m_j \rangle \quad 2p_{3/2}: |n = 2 \left( \ell
+= 1 s = \frac{1}{2} \right) j = \frac{3}{2}m_j \rangle \] 
+\[ 3s_{1/2}: |n = 2 \left(\ell = 0 s = \frac{1}{2} \right) j = \frac{1}{2}m_j
+  \rangle \quad 3p_{1/2}: |n = 2 \left( \ell = 1 s = \frac{1}{2} \right)
+  j = \frac{1}{2} m_j \rangle \quad 3p_{3/2}: |n=2 \left(\ell
+= 1 s = \frac{1}{2} \right) j = \frac{3}{2}m_j \rangle \] 
+\[ 3d_{3/2}: |n=2 \left( \ell = 2 s = \frac{1}{2} \right) j = \frac{3}{2}m_j
+  \rangle \quad 3d_{5/2}: |n = 2 \left(\ell = 2s=\frac{1}{2}\right)
+j = \frac{5}{2} m_j \rangle \] \vspace{3px} 
 
