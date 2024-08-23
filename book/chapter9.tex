@@ -1,5 +1,5 @@
-
-\section{Addition of Angular Momentum}
+\section{Angular Momentum}
+\subsection{Addition of Angular Momentum}
 
 Much of the interesting physics of the hydrogen atom and other atomic systems
 derives from interactions that involve both orbital motion and the electron
@@ -153,5 +153,874 @@ our ability to solve the hydrogen atom in the uncoupled basis was the result of
 an ``accidental" degeneracy. ``Accident" is in quotes because the accident was
 on we created -- by ignoring the fine-structure interactions that break the
 degeneracy of these states.
+
+\subsection{Transformations Between Coupled and Uncoupled Bases}
+
+Because the coupled and uncoupled bases of states span equivalent spaces, we
+can expand any state in one basis relative to the other. 
+
+\begin{mainbox}{Clebsch-Gordan Coefficients}
+  Unitary transformations from the uncoupled to the coupled representations are
+  accomplished with \textcolor{red}{Clebsch-Gordan coefficients} 
+
+  \[ |(\ell_1\ell_2) jm_j \rangle = \sum_{m_1 = -\ell_1}^{\ell_1} \sum_{m_2
+    = -\ell_2}^{\ell_2} |\ell_1m_1\ell_2m_2\rangle \textcolor{red}{\langle
+  \ell_1m_1\ell_2m_2|(\ell_1\ell_2) jm_j\rangle} \]
+\end{mainbox}
+
+The transformation coefficients in red -- numbers that conventionally are
+real, as we will see -- are the Clebsch-Gordan coefficients. They are nonzero
+only if $m_j = m_1 + m_2$. We stress that the result in the box above is simply
+a unitary transformation that does not alter the portion of the Hilbert space
+being spanned. But the coupled representation breaks the Hilbert space into
+a block-diagonal form, with each block labeled by one of the allowed values of
+$j, |\ell_1 - \ell_2| \leq \ell_1+\ell_2$.
+
+The inverse transformation is 
+
+\[
+|\ell_1 m_1 \ell_2 m_2\rangle = \sum_{j=|\ell_1 - \ell_2|}^{\ell_1+\ell_2}
+\sum_{m_j = -j}^{j} |(\ell_1\ell_2) jm_j \rangle \langle
+(\ell_1\ell_2)jm_j|\ell_1m_1\ell_2m_2\rangle 
+\] \vspace{3px}
+
+The statements of unitary follow from the orthogonality of the states in either
+basis, namely 
+
+\[ \delta_{m_1'm_1} \delta_{m_2'm_2} = \langle \ell_1 m_1' \ell_2m_2'
+| \ell_1m_1\ell_2m_2 \rangle = \sum_{j=|\ell_1-\ell_2}^{\ell_1+\ell_2}
+\sum_{m_j = -j}^{j} \langle \ell_1m_1' \ell_2m_2' | (\ell_1\ell_2)jm_j \rangle
+\langle (\ell_1\ell_2)jm_j | \ell_1 m_1 \ell_2 m_2 \rangle\] 
+
+\[
+  \delta_{jj'} \delta_{m_j'm_j} = \langle (\ell_1\ell_2)j'm_j' |(\ell_1\ell_2)
+  jm_j \rangle = \sum_{m_1 = -\ell_1}^{\ell_1} \sum_{m_2 = -\ell_2}^{\ell_2}
+  \langle (\ell_1\ell_2) j'm_j' | \ell_1m_1\ell_2m_2\rangle \langle
+  \ell_1m_1\ell_2m_2 | (\ell_1\ell_2)jm_j \rangle
+\] \vspace{3px}
+
+It is understood in the last relation that $j$ satisfies the triangle
+condition, $|\ell_1-\ell_2| \leq j \leq \ell_1+\ell_2$. 
+
+\subsection{Angular Momentum \& Rotations of States}
+
+Let’s now try to make the connections to rotations
+more explicit.
+
+We used rotational symmetry to simplify our treatment of the general central force problem, but in
+a hidden way, a consequence of our separation of variable in spherical coordinates. We found that
+all 3D central-force problems can be reduced to 1D radial equations, with the angular behavior
+encoded in wave functions $|\ell m\rangle$ whose position representations are the
+$Y_{\ell m}$s.
+
+\[
+  \langle \theta, \phi | \ell m\rangle = Y_{\ell m}(\theta, \phi)
+\] 
+
+\begin{itemize}
+  \item[1.] The angular solutions are universal, valid for any central-force
+    problems we decide to do.
+  \item[2.] Infinite-dimensional physics is factored into finite-dimensional
+    subspaces, blocks labeled by $\ell$ containing $2\ell+1$ magnetic substates
+    labeled by $m$. This revealed an energy degeneracy associated with $m$. 
+  \item[3.] $\ell$ and $m$ are quantum labels of our orthonormal stationary
+    states.
+\end{itemize}
+
+
+The $Y_{\ell m}$s are angular momentum eigenstates for our coordinate system --
+the magnetic number $m$ is defined with respect to the $z$ axis we picked.
+
+Because these eigenfunctions are associated with a particular $z$-axis -- yet
+clearly the physics can not depend on the choice of coordinate system -- it is
+natural to ask what happens were we to rotate to a different coordinate system.
+Under an arbitrary rotation $\hat{U}$, the state $|\ell m\rangle$ will
+\textit{remain in the subspace} defined by $\{|\ell m\rangle, m = -\ell,
+\cdots, \ell\}$. That is, 
+
+\[
+\hat{U}(\hat{n}, \phi)|\ell m\rangle = \sum_{m' = -\ell}^{\ell} |\ell m'\rangle
+\langle \ell m' | \hat{U} | \ell m \rangle \equiv \sum_{m' = -\ell}^{\ell}
+|\ell m'\rangle D_{m'm}^\ell (\hat{n}, \phi )
+\] \vspace{3px}
+
+The rotation operator here has been defined by an axis $\hat{n}$ about which we
+rotate and an angle $\phi$ specifying the number of radians in the rotation
+(with the direction of rotation conventionally defined by right hand rule). The
+unitary operator that accomplishes this is 
+
+\[
+\hat{U}(\hat{n}, \phi) = \text{exp} \left[ -\frac{i}{\hbar} \phi  \hat{n} \cdot
+\hat{L} \right] \rightarrow \text{exp} \left[ -\frac{i}{\hbar} \phi \hat{n}
+\cdot \hat{J}\right]
+\] \vspace{3px}
+
+where here we replaced $\hat{L}$ with $\hat{J}$ because we intend the
+discussion to apply to \textit{any} angular momentum operator. What is
+important about this? The numerical coefficients describing the rotation, the
+$D_{m'm}^j(\hat{n}, \phi)$ depend on the rotation and on $j$, but not on
+details of the state being rotated. It could be a Coulomb state, a 3D harmonic
+oscillator state, etc. 
+
+Given a Hilbert space and an operator acting in that Hilbert space, if there exists a subset of
+the Hilbert space in which the operator, acting on that subspace, generates states that are also
+in that Hilbert subspace, we say that this subspace is invariant under that operator. Thus under
+rotations, the states of definite $\ell, m = -\ell, \cdots , \ell$ are invariant subspaces.
+
+We can do a very simple example of a rotation. Suppose we have picked a set of axes and made
+measurements, but someone else has chosen different $x, y$ axes, but hasn't
+changed the $z$ axis. What
+would our states look like in the other person’s coordinate system? The solution in our coordinate
+system can be transformed to the other coordinate system by a rotation by some
+angle $\phi$ around our
+mutual $z$ axis, to align the $x, y$ axes. As an exponentiated operator is defined by the corresponding
+power series, for this case
+
+
+\[
+\hat{U}(\hat{n}, \phi) = \text{exp} \left[ -\frac{i}{\hbar}\phi \hat{n} \cdot
+\hat{J}\right] = \text{exp} \left[ -\frac{i}{\hbar} \phi \hat{J}_z\right] 
+\] \vspace{3px}
+
+
+But if we apply $(\hat{J}_z)^n$ on $|jm\rangle$ it returns $m^n$. So on
+re-exponentiating, 
+
+\[
+  D_{m'm}^j (\hat{n}, \phi) = \langle jm' | \hat{U}|jm\rangle = \langle jm'
+  | \text{exp} [-i\phi m] | jm\rangle = \delta_{m'm} \text{exp}  [-i m\phi ]
+\] \vspace{3px}
+
+Because the two experimentalists agree on a common z axis, they also have
+a common set of quantum numbers. The transformed solution differs from the
+original only by a phase. This expression
+is easily computed as a function of $\phi$.
+
+How difficult is it to generalize this? 
+
+\begin{itemize}
+  \item[1.] What must we do to describe a rotation from one coordinate system
+    to another that share the same origin but otherwise can differ in arbitrary
+    ways?
+  \item[2.] Once we figure out how to characterize the rotation, can we
+    evaluate the expressions for $D_{m'm}^j (\hat{n}, \phi)$, as we did with
+    our simple rotation above? 
+\end{itemize}
+
+Without derivation, the answers are: 
+
+\begin{itemize}
+  \item[1.] Using techniques you may have seen in classical mechanics, one
+    coordinate system $(x,y,z)$ can be put into alignment with a second
+    coordinate system $(x',y',z')$ via a series of three sequential rotations
+    about the axes of the original system -- these are the Euler angle
+    rotations. The rotations are 
+
+    \begin{itemize}
+      \item[-] A rotation of $\gamma$ about the $z$ axis 
+      \item[-] A rotation of $\beta$ around the $y$ axis
+      \item[-] A rotation of $\alpha$ around the $z$ axis
+    \end{itemize}
+
+    This means that the general $\hat{U}$ takes the form 
+
+    \[
+    \hat{U}(\alpha, \beta, \gamma) = \text{exp} \left[ -\frac{i}{\hbar} \alpha
+    \hat{J_z}\right] \text{exp}  \left[ -\frac{i}{\hbar}\beta \hat{J_y}\right]
+    \text{exp} \left[ -\frac{i}{\hbar} \gamma \hat{J_z}\right], \quad 0 \leq
+    \alpha, \gamma \leq 2\pi, 0 \leq \beta \leq \pi
+    \] \vspace{3px}
+    
+    and consequently 
+
+    \[
+      D_{m'm}^j (\alpha, \beta, \gamma) = \langle jm' | \hat{U}(\alpha, \beta,
+      \gamma) | jm \rangle = \text{exp}  [ -i\alpha m] d_{m'm}^j (\beta)
+      \text{exp} [-i\gamma m]
+    \] \vspace{3px}
+    
+    where 
+
+    \[
+      d_{m'm}^j(\beta) = \langle jm' | \text{exp} \left[ -\frac{i}{\hbar} \beta
+      \hat{J_y} \right] | jm\rangle 
+    \] \vspace{3px}
+    
+  \item[2.] an we evaluate expressions like that directly above? As we will
+    discuss soon, $\hat{J_y}$ can be
+expressed in terms of raising and lowering operators that have a simple matrix element in our
+angular momentum subspaces, which when we expand our exponentiated operator in a power
+series, allows the power series to be evaluated term by term and summed. All this has been
+done and tabulated for our use. So the answer is yes. For $j = \frac{1}{2}$
+, for example, one can show
+
+\[
+  d_{m'm}^\frac{1}{2} (\beta) = \begin{pmatrix}
+    \cos \beta /2 & -\sin \beta /2 \\ \sin \beta/2 & \cos \beta /2 
+  \end{pmatrix} 
+\] \vspace{3px}
+
+\end{itemize} 
+
+\subsection{Review So Far}
+
+
+We described how the states of a system with two angular momenta be represented
+either in the coupled or uncoupled representations within the same subspace of
+the Hilbert space, but with the former more useful in systems where the total
+angular momenta is conserved. 
+
+\begin{subbox}{Clebsch-Gordan Coefficients}
+  Unitary transformations from the uncoupled to the coupled representations are
+  accomplished with \textcolor{red}{Clebsch-Gordan coefficients} 
+
+  \[ |(\ell_1\ell_2) jm_j \rangle = \sum_{m_1 = -\ell_1}^{\ell_1} \sum_{m_2
+    = -\ell_2}^{\ell_2} |\ell_1m_1\ell_2m_2\rangle \textcolor{red}{\langle
+  \ell_1m_1\ell_2m_2|(\ell_1\ell_2) jm_j\rangle} \]
+\end{subbox}
+
+We also described how the rotational symmetry of the eigenstates we derived in
+the central force problem, the position-space states $Y_{\ell m}$, remain in
+the subspace $\{ |\ell m\rangle, m = - \ell, \cdots, \ell\}$ under rotations.
+This is what it means to be an angular momentum eigenstate. So 
+
+\begin{mainbox}{}
+  \[ \hat{U}(\hat{n}, \phi) | \ell m \rangle = \sum_{m' = -\ell}^{\ell} |\ell
+    m' \rangle \langle \ell m' | \hat{U} | \ell m \rangle \equiv \sum_{m'
+  = -\ell}^{\ell}  |\ell m' \rangle D_{m'm}^\ell (\hat{n}, \phi) \] 
+  \[ \hat{U}(\hat{n}, \phi) = \text{exp} \left[ -\frac{i}{\hbar} \phi \hat{n}
+  \cdot \hat{L} \right] \] 
+\end{mainbox}
+
+We also noted that the most general rotation of axes can be described by three
+Euler angles defining sequential rotations about the $\hat{z}, \hat{y}$ and
+$\hat{z}$ axes of the initial axes, 
+
+\begin{subbox}{}
+   \[
+    \hat{U}(\alpha, \beta, \gamma) = \text{exp} \left[ -\frac{i}{\hbar} \alpha
+    \hat{J_z}\right] \text{exp}  \left[ -\frac{i}{\hbar}\beta \hat{J_y}\right]
+    \text{exp} \left[ -\frac{i}{\hbar} \gamma \hat{J_z}\right], \quad 0 \leq
+    \alpha, \gamma \leq 2\pi, 0 \leq \beta \leq \pi
+    \] \vspace{3px}
+    \[
+      D_{m'm}^j (\alpha, \beta, \gamma) = \langle jm' | \hat{U}(\alpha, \beta,
+      \gamma) | jm \rangle = \text{exp}  [ -i\alpha m] d_{m'm}^j (\beta)
+      \text{exp} [-i\gamma m]
+    \] \vspace{3px}
+    \[
+      d_{m'm}^j(\beta) = \langle jm' | \text{exp} \left[ -\frac{i}{\hbar} \beta
+      \hat{J_y} \right] | jm\rangle
+    \] 
+\end{subbox}
+
+
+\subsection{Constructing Spherical Tensor Operators}
+
+The discussion so far shows that states of good angular momentum not only
+factorize the Hilbert space into subspaces, but that this factorization is
+preserved under rotations -- the subspaces are invariant. If we can take one
+more step -- figure out how to form operators that behave in the same way -- we
+will be able to greatly simplify our calculations of observables (matrix
+elements). 
+
+Why have we not previously talked about the angular momentum operator? -- how
+to formulate such operators so they transform simply under rotations? The
+simple reason is that our 3D work thus far has been on Hamiltonian, which are
+scalars and thus do not change under rotations. For our central force problem 
+
+\[
+\langle \ell' m | \hat{H} | \ell m \rangle \rightarrow \langle \ell m | \hat{H}
+| \ell m \rangle \rightarrow \langle \ell | \hat{H}|\ell\rangle 
+\] \vspace{3px}
+
+There is no dependence on $m$ and thus no dependence on the choice of
+coordinate system. But we have need in Quantum Mechanics for many types of
+operators, and most do carry nonzero angular momentum. It is clear we need to
+understand how both state vectors \textit{and} operators transform under
+rotations, if we are to treat matrix elements involving both states and
+operators -- and observables correspond to matrix elements. This is clear
+because 
+
+\[
+  \langle j' m | \hat{T}| jm \rangle = \langle j'm' | \hat{U}^{-1} \hat{U}
+  \hat{T} \hat{U}^{-1} \hat{U} | jm \rangle
+  \] \[ \text{ transformed operator: } \hat{T}' = \hat{U}\hat{T}\hat{U}^{-1} \] \vspace{3px}
+
+
+What requirement should we place on this transformation? It is the following: 
+
+\begin{mainbox}{Spherical Tensor Operators}
+  An irreducible spherical tensor operator of rank  $k$, denoted $\hat{T}_q^k$,
+  is a set of $2k+1$ operators, $q = -k, -k+1, \cdots, k-1, k$ that transforms
+  according to 
+
+  \begin{align} \hat{U}(\alpha, \beta, \gamma) \hat{T}_q^k \hat{U}^{-1}(\alpha, \beta,
+    \gamma) = \sum_{q'}^{} T_{q'}^k D_{q'q}^k (\alpha, \beta,\gamma)
+  \end{align}
+\end{mainbox}
+
+That is, components of spherical tensor operators transform under rotations of
+the coordinate frame just like the components of the states $|jm_j\rangle$ we
+previously discussed. 
+
+As in the case of choosing the representation $|(\ell_1\ell_2) jm\rangle$ not
+$|\ell_1m_1\ell_2m_2\rangle$, this is largely a matter of properly grouping the
+components of our operators. For example, we can rearrange the components of
+the rank-one operator $\hat{r}$ -- so the Cartesian components $(x, y, z)$
+transform into the components of a spherical tensor: 
+
+\[
+\begin{pmatrix}
+  r_1 \\ r_0\\ r_{-1} 
+\end{pmatrix} = \begin{pmatrix}
+  -\frac{1}{\sqrt{2}} (x + iy) \\ z \\ \frac{1}{\sqrt{2}} (x - iy)
+\end{pmatrix} = r\sqrt{\frac{4\pi}{3}} \begin{pmatrix}
+Y_{11}(\theta, \phi) \\ Y_{10} (\theta, \phi) \\ Y_{1-1} (\theta, \phi)
+\end{pmatrix}   
+\] \vspace{3px}
+
+But what about more complicated operators -- quantum systems may have dipoles,
+quadropoles, octupoles, etc. diagonal moments, and more important, these
+operators govern the \textit{transitions} between quantum states. Is there some
+general procedure for grouping components to create spherical tensors that
+transform simply and link only invariant subspaces? 
+
+Before answering this question, let's look at a few examples to get a better
+idea of what we want to do. Suppose, for example, we had two factors of
+$\vec{r}$, two rank-one operators we want to combine. From the Cartesian
+components we  can construct six independent bilinears, 
+
+\[
+  (x^2, xy, xz, y^2, yz, z^2) 
+\] \vspace{3px}
+
+And the spherical regrouping? It is 
+
+\[
+  (x^2, xy, xz, y^2, yz, z^2) \quad \leftrightarrow \qquad \begin{cases}
+    \qquad \qquad \qquad (r^2Y_{00}) &J = 0 \\ (r^2 Y_{22}, r^2 Y_{21}, r^2Y_{20}, r^2Y_{2-1},
+    r^2Y_{2-2}) &J=2
+  \end{cases} 
+\] \vspace{3px}
+
+There are six independent Cartesian bilinears on the left, and two spherical
+operators on the right, one with a single component ($J=0$ ), and one with five
+($J=2$). Note that when we couple  $\hat{r}$ to itself, only even-parity
+spherical tensors are generated -- and only six Cartesian bilinears arise. If
+we had coupled $\hat{r}$ to the Pauli matrices $\hat{\sigma}$ (we'll get to
+Pauli later), nine Cartesian bilinears would result, and a $J=1$ spherical
+tensor operator would also be generated. 
+
+Let's try three. The Cartesian trilinears we can now form are these 10, 
+
+\[
+  (x^3, x^2y, x^2z, xy^2, xz^2, y^3, y^2z, yz^2, z^3) \quad \leftrightarrow
+  \quad \begin{cases}
+     r^3Y_{1m} &J=1, m = -1, 0, 1 \\ r^2Y_{3m} &J = 3, m= 3, 2, 1,
+    0, -1, -2, -3
+  \end{cases} 
+\] \vspace{3px}
+
+
+Again, the two representations agree on the number of trilinear operators. In
+this case, the use of three powers of the same vector leads to only odd
+spherical harmonics. 
+
+These examples reflect a general procedure that can be used to generate more
+complicated spherical tensor operators from elementary ones like $\hat{r},
+\hat{p}$, and $\hat{\sigma}$. One can show 
+
+\begin{subbox}{}
+  If $\hat{A}_{\ell_1m_1}$ and $\hat{B}_{\ell_2m_2}$ are spherical tensor
+  operators, so too is 
+
+  \[ \hat{C}_{\ell m} = \sum_{m_1m_2}^{} \hat{A}_{\ell_1 m_1}
+    \hat{B}_{\ell_2m_2} \langle \ell_1m_1 \ell_2m_2| (\ell_1 \ell_2 ) \ell
+  m \rangle\] 
+\end{subbox}
+
+Our friend the Clebsch-Gordan coefficients show up again. 
+
+\section{The Wigner-Eckart Theorem}
+
+Finally, we come to the real payoff of using states and operators that
+transform under rotations like our friends, the $Y_{\ell m}$s. The evaluation
+of matrix elements via Wigner-Eckart describes a powerful factorization of
+matrix elements into a piece that is operator dependent but frame independent,
+and a piece that is specific to the quantization axis the experimentalist has
+chosen, but independent of the operator apart from its angular momentum rank.
+This second term, again given in terms of Clebsch-Gordan coefficients, encodes
+all of the geometry of rotation. Two forms are given, 
+
+\begin{mainbox}{Wigner-Eckart Theorem}
+  \begin{align*} \langle n' j' m' | \hat{T}_{kq} | njm \rangle
+    &= \frac{(-1)^{j-m}}{\sqrt{2k+1}} \langle j' m' j - m | (j'j) kq \rangle
+  \langle nj' ||\hat{T}_k || nj \rangle \\ &=
+  \frac{(-1)^{k-j+j'}}{\sqrt{2j'+1}} \langle kq jm | (kj) j'm' \rangle \langle
+nj' ||\hat{T}_k || nj\rangle \end{align*}
+\end{mainbox}
+
+Although we will not derive this here, the results should look reasonable to
+you, at least from a coupling perspective. Consider the second form: it states
+that if one operators on a state of angular momenta $j, m$ with a spherical
+operator carrying angular momenta $k, q$, the only way this is going to connect
+to a final state characterized by $j'm'$ is if $j,m$ and $k,q$ are coupled to
+$j'm'$. 
+
+Why is this a powerful result? There are a total of  $(2j' + 1)(2j+1)(2k+1)$
+matrix elements above. (The ones where $q + m - m' \neq 0$ are zero though). To
+determine these, only one measurement or one calculation is needed. One
+measurement for a specific $m', m$ and $q$ determines the ``reduced matrix
+element" $\langle n j' || \hat{T}_k || nj \rangle$, a quantity independent of
+magnetic quantum numbers. And once that quantity is known, all other matrix
+elements are then determined. This makes sense. Suppose, for example, you make
+a measurement with one coordinate system, and want to know what the answer is
+in another. As bra, ket, and operators all transform under the rules of
+rotation, you can envision rotating your axes to the new axes to determine the
+answer. That is just geometry, not a function of operator physics. The
+Wigner-Eckart theorem just tells one the geometry is really as simple as
+a Clebsch-Gordan coefficient. 
+
+\section{Orbital Angular Momenta \& Ladder Operators}
+
+We previously discussed the commutation relations among the orbital angular
+momentum operators
+
+\[
+  [\hat{L}_i, \hat{L}_j ] = i\hbar \epsilon_{ijk} \hat{L}_k \quad \text{ and
+  }  \quad [\hat{L}^2, \hat{L}_i] = 0
+\] \vspace{3px}
+
+and then the convention choice to take $\hat{L}^2$ and $L_z$ as the maximal set
+of commuting operators. We are then able to adopt a basis labeled by these
+quantum numbers -- our stationary states are eigenfunctions of both operators. 
+
+From the unused operators $\hat{L}_z, \hat{L}_y$ we form the linear
+combinations 
+
+\[
+\hat{L}_\pm \equiv \hat{L}_x \pm iL_y
+\] \vspace{3px}
+
+and then we study their properties. 
+
+
+\begin{itemize}
+  \item[1.] $L_\pm$ \textit{is an eigenstate} of $\hat{L}^2$ -- As $[\hat{L}^2,
+    L_i] = 0$, clearly $[\hat{L}^2, L_\pm] = 0$. Further we find 
+
+    \[
+      [\hat{L}_z, \hat{L}_\pm ] = [\hat{L}_z, \hat{L}_x ] \pm i [\hat{L}_z,
+      \hat{L}_y] = i\hbar \hat{L}_y \pm \hbar \hat{L}_x = \pm \hbar(\hat{L}_x
+      \pm i \hat{L}_y = \pm \hbar \hat{L}_\pm
+    \] \vspace{3px}
+    
+    So suppose we act on on an eigenstate of $\hat{L}^2$ and $\hat{L}_z$,
+    $|n\ell m\rangle$, by $\hat{L}_\pm$: 
+
+    \[
+    \hat{L}^2 \hat{L}_\pm | n\ell m \rangle = \hat{L}_\pm \hat{L}^2 | n \ell
+    m\rangle = \hat{L}_\pm \hbar^2 \ell(\ell + 1) | n \ell m \rangle = \hbar^2
+    \ell(\ell+1) \hat{L}_\pm | n \ell m \rangle 
+    \] \vspace{3px}
+    
+    which states that $\hat{L}_\pm |n \ell m \rangle$ is an \textit{eigenstate}
+    of $\hat{L}^2$. So  $\hat{L}_\pm$ produces a state within the selected
+    invariant subspace. 
+
+  \item[2.] $\hat{L}_{\pm}$ \textit{raises/lowers} $m$ by one unit; 
+
+    \begin{align*} \label{}
+      \langle n \ell m' | \hat{L}_z \hat{L}_\pm - \hat{L}_\pm \hat{L}_z | n\ell
+      m\rangle = \pm \hbar \langle n \ell m' | \hat{L}_\pm | n \ell m \rangle
+    \end{align*} \[ \Rightarrow \hbar(m' - m) \langle n \ell m' | \hat{L}_z
+    | n \ell m \rangle = \pm \hbar \langle n \ell m | \hat{L}_\pm | n \ell
+    m\rangle \quad \Rightarrow \quad  m' - m = \pm 1 \] 
+
+    So $\hat{L}_+$ raises $m$ by one unit while $\hat{L}_-$ lowers $m$ by one
+    unit. 
+
+  \item[3.] The raising/lowering amplitudes \textit{are related}. 
+    \[ \hat{L}_+ |n\ell m\rangle = x_m | n \ell m + 1 \rangle \quad \hat{L}_-
+    |n\ell m \rangle = x_m' |n \ell m - 1 \rangle\] \vspace{3px}
+
+    Therefore, $x_m'$
+
+    \[ x_m' = \langle n \ell m - 1 | \hat{L}_- | n \ell m \rangle = \langle
+    n \ell m - 1 | \hat{L}_x - i \hat{L}_y | n \ell m \rangle \] 
+    \[ = \langle ( \hat{L}_x + i \hat{L}_y ) n \ell m - 1 | n \ell m \rangle
+    = \langle \hat{L}_+ n \ell m - 1 | n \ell m \rangle = x_{m-1}^* \]
+    \vspace{3px}
+   
+    Consequently, 
+
+    \[
+      x_{m+1}^{'} = x_m^* \quad \Rightarrow \quad \hat{L}_+ | n \ell m \rangle
+    = x_m | n \ell m + 1 \rangle \quad \hat{L}_-|n \ell m \rangle
+    = x_{m-1}^*|n \ell m -1 \rangle
+    \] \vspace{3px}
+    
+    Note again that the statevector is defined by quantum numbers  $n, \ell$
+    and  $m \pm 1$; it is not literally $n \ell m - 1$ as an algebraic
+    expression. 
+
+  \item[4.] From the commutation relations one can show $\hat{L}_+ \hat{L}_-
+    - \hat{L}_- \hat{L}_+ = 2\hbar L_z$. And 
+
+    \[
+    \langle n \ell m | \hat{L}_+\hat{L}_- - \hat{L}_- \hat{L}_+ | n \ell
+    m \rangle = x_{m-1}^* \langle n \ell m | \hat{L}_+ | n \ell m - 1\rangle
+    - x_m \langle n \ell m | \hat{L}_- | n \ell m + 1 \rangle = |x_{m-1}|^2
+  - |x_m|^2 
+    \] \vspace{3px}
+    
+    And 
+
+    \[
+    \langle n \ell m | 2\hbar L_z | n \ell m \rangle = 2\hbar^2 m
+    \] \vspace{3px}
+    
+    Therefore
+
+    \[
+      |x_m|^2 - |x_{m-1}|^2 = -2\hbar^2 m \quad \Rightarrow \quad |x_m|^2 = (C
+      - m (m + 1))\hbar^2
+    \] \vspace{3px}
+    
+    One can show $C = \ell(\ell+1)$ based on the fact that $\hat{L}_+$
+    annihilates $| n \ell \ell \rangle$. Consequently, 
+
+    \begin{subbox}{Unfixed Angular Momentum Ladder Operators}
+      \begin{align} \label{}
+        \hat{L}_+ | n \ell m \rangle &= e^{i\beta_m} \hbar \sqrt{\ell(\ell+1)
+        - m(m+1)}|n \ell m + 1 \rangle \\ \hat{L}_-|n\ell m\rangle
+                                     &= e^{-i\beta_{m-1}} \hbar \sqrt{\ell(\ell + 1 ) - m(m-1)} | n \ell
+        m - 1\rangle 
+      \end{align}
+    \end{subbox}
+
+  \item[5.] \textit{Phase choices of Condon and Shortley}: We adopt a phase
+    convention for fixing the relative phases $e^{i\beta_{m}}$ and
+    $e^{-i\beta_{m-1}}$. The relations above involve  $2\ell$ phases $\{
+      \beta_{\ell - 1}, \cdots \beta_{-\ell}$ and we have $2\ell$ relative
+      phases at our disposal. We can get rid of all the phases recursively,
+      starting with $m = \ell$ and $m = \ell - 1$, where we have 
+
+      \begin{align} \label{}
+        \hat{L}_- |n \ell \ell \rangle &= e^{-i\beta_{\ell - 1}}\hbar
+        \sqrt{\ell(\ell+1) - \ell(\ell-1)} | n \ell \ell - 1 \rangle \\
+        \hat{L}_+|n \ell \ell - 1 \rangle &= e^{i\beta_{\ell - 1}}\hbar
+        \sqrt{\ell ( \ell - 1 ) - \ell ( \ell - 1 )} | n \ell \ell \rangle
+      \end{align}\vspace{3px}
+    
+      the relations involving these states would read 
+
+      \[
+      \hat{L}_- | n \ell \ell \rangle = \hbar \sqrt{\ell(\ell+1)
+      - \ell(\ell-1)} | n \ell \ell - 1 \rangle' \quad \hat{L}_+ | n \ell \ell
+      - 1 \rangle' = \hbar \sqrt{\ell(\ell+1) - \ell(\ell - 1)}|n \ell \ell
+      \rangle
+      \] \vspace{3px}
+      
+      as desired. The relation between states with $m = \ell - 1$ and $m = \ell
+      - 2$ would then read 
+
+      \begin{align} \label{}
+        \hat{L}_- |n \ell \ell - 1\rangle' &= e^{-\beta(\beta_{\ell - 2}
+        + \beta_{\ell - 1} )} \hbar \sqrt{\ell(\ell + 1) - (\ell - 1)(\ell
+          - 2)}|n \ell \ell - 2 \rangle \\ \hat{L}_+|n \ell \ell - 2\rangle
+                                           &= e^{i(\beta_{\ell - 2}
+                                           + \beta_{\ell - 1})} \hbar \sqrt{\ell(\ell + 1)
+        - (\ell - 1)(\ell - 2)}|n \ell \ell - 1 \rangle'
+      \end{align}\vspace{3px}
+      
+    and we could absorb this shifted phase into $|n \ell \ell - 2\rangle$
+    without affecting what we did above, 
+
+    \[
+      |n \ell \ell- 2\rangle' = e^{-i (\beta_{\ell - 2} + \beta_{\ell - 1})} |n
+      \ell \ell - 2\rangle
+    \] \vspace{3px}
+    
+    and so on. We adopt such a phase convention for fixing relative phases,
+    leaving one overall phase still arbitrary, yielding the conventional
+    fixed angular momentum operators
+
+    \begin{mainbox}{Angular Momentum Operators}
+      \begin{align} \label{}
+        \hat{L}_+ |n\ell m \rangle &= \hbar \sqrt{\ell(\ell + 1) - m ( m +1)}
+        | n\ell m + 1 \rangle \\ \hat{L}_-|n \ell m \rangle &= \hbar
+        \sqrt{\ell(\ell+1) - m(m-1)} |n \ell m -1 \rangle
+      \end{align}
+    \end{mainbox}
+    
+    This choice is incorporated in definitions of the $Y_{\ell m}$s for
+    example. Now with these definitions we see 
+
+    \[
+    \hat{L}_+|n \ell \ell \rangle = 0 \qquad \hat{L}_-|n \ell - \ell \rangle
+    = 0
+    \] \vspace{3px}
+    
+    like I mentioned above. 
+    
+  \item[6.] \textit{Matrix Elements of $\hat{L}_x$ and $\hat{L}_y$}. As 
+
+    \[
+    \hat{L}_x = \frac{1}{2} \left( \hat{L}_+ + \hat{L}_- \right) \quad \text{
+    and }  \quad  \hat{L}_y = \frac{1}{2i} \left( \hat{L}_+ - \hat{L}_- \right)   
+    \] \vspace{3px}
+
+    one finds 
+
+    \begin{align} \label{}
+      \hat{L}_x|\ell m \rangle &= \frac{\hbar}{2} \sqrt{\ell(\ell+1) - m(m+1)}|\ell m +1
+      \rangle + \frac{\hbar}{2} \sqrt{\ell(\ell+1) - m(m - 1)}|\ell m -1
+      \rangle \\ \hat{L}_y |\ell m \rangle &= \frac{\hbar}{2i}
+      \sqrt{\ell(\ell+1) - m(m+1)}|\ell m +1\rangle - \frac{\hbar}{2i}
+      \sqrt{\ell(\ell+1) - m (m - 1)}|\ell m -1 \rangle 
+    \end{align}\vspace{3px}
+    
+    
+    So these are tri-diagonal Hermitian matrices but with zeros down the
+    diagonal. For example, we have the following analogs of the $\ell
+    = \frac{1}{2}$ Pauli matrices, 
+
+    \[
+    L_x = \frac{\hbar}{2} \begin{pmatrix}
+      0 & \sqrt{2} & 0 \\ \sqrt{2} & 0 & \sqrt{2} \\ 0 & \sqrt{2} & 0 
+    \end{pmatrix} \qquad L_x = \begin{pmatrix}
+      0 & -i\sqrt{2} & 0 \\ i\sqrt{2} & 0 & -i\sqrt{2} \\ 0 & i\sqrt{2} & 0
+    \end{pmatrix} 
+    \] \vspace{3px}
+    
+    As the orbital angular momentum comes from $\hat{r} \times \hat{p}$, we can
+    transform into spherical coordinates and derive the position-space
+    representations of the various components
+
+    \[ \hat{L}_z = \frac{\hbar}{i} \frac{\partial }{\partial \phi} \qquad
+      \hat{L}_x = i\hbar \left( \sin \phi \frac{\partial }{\partial \theta}
+      + \cos \phi \cot \theta \frac{\partial }{\partial \phi}  \right) \qquad
+      \hat{L}_y = i\hbar \left( -\cos\phi \frac{\partial }{\partial \theta}
+    + \sin\phi \cot \theta \frac{\partial }{\partial \phi}  \right) \] 
+    \[
+      \hat{L}_\pm + \pm \hbar e^{\pm i\phi} \left( \frac{\partial }{\partial
+      \theta} \pm i \cot \theta \frac{\partial }{\partial \phi}  \right)  
+    \] \vspace{3px}
+    
+    These acting on the $Y_{\ell m}$s for $\ell = 1$ will generate the same
+    matrices deduced above. 
+\end{itemize}
+
+\section{Generating the Clebsch-Gordan Coefficients}
+
+While I won't go through the derivation of Clebsch-Gordan coefficients in
+detail, I do want to stress that the raising/lowering operator properties
+derived above, including the Condon and Shortley phase convention, is all one
+needs to derive numerical values for the Clebsch-Gordan coefficients while
+showing that they are real. The procedure is basically an algorithm that can be
+executed using the lowering operator. (For practical purposes just use Wolfram
+Mathematica to calculate them for you). 
+
+I will sketch the algorithm for the coupling of two angular momenta $\ell_1
+= 1$ and $\ell_2 = 1$. One begin with the state of maximum total $L_z = 2$
+which demands that $\ell_{12}$ also be maximum. 
+
+\begin{align}\label{cg_1}
+|(\ell = 1 \ell_2 = 1) \ell_{12} = 2 m_{12} = 2 \rangle \quad = \quad |\ell_1
+= 1 m_1 = 1 \ell_2 m_2 = 1 \rangle 
+\end{align} \vspace{3px}
+
+
+These two states are identified with each other  and in each representation
+they are the unique states with the $L_z$ eigenvalue of $2\hbar$. Consequently,
+(with the sign in this part of the CS phase convention), 
+
+\[
+\langle ( \ell_1 = 1 \ell_2=1 ) \ell_{12} = 2 m_{12} = 2 | \ell_1 = 1 m_1
+= 1 \ell_2 = 1 m_2 = 1 \rangle = 1
+\] \vspace{3px}
+
+Now we lower both sides of Equation \ref{cg_1}. $L_{12-} = L_{1-} + L_{2-}$,
+and we use the left form on the left and right form on the right. This yields 
+
+\begin{align} \label{cg_2}
+  2\hbar |(\ell_1 = 1 \ell_2 = 1) \ell_{12} = 2 m_{12} = 1 \rangle
+  = \sqrt{2}\hbar (|\ell_1 = 1 m_1 = 0 el_2 = 1 m_2 = 1\rangle + |\ell_1 m_1
+  = 1\ell_2 = 1 m_2 = 0 \rangle )
+\end{align}\vspace{3px}
+
+If we contract both sides of Equation \ref{cg_2} with $\hat{\langle \ell_1
+= 1 m_1 = 0 \ell_2 = 1 m_2 = 1|}$ we obtain 
+
+\[
+\langle \ell_1 = 1 m_1 = 0 \ell_2 = 1 m_2 = 1 | (\ell_1 = 1 \ell_2 = 1)
+\ell_{12} = 2 m_{12} = 1 \rangle = \frac{1}{\sqrt{2}}
+\] \vspace{3px}
+
+and if we contract both sides of Equation \ref{cg_2} with $\langle \ell_1
+= 1 m_1 = 1 \ell_2 = 1 m_2 = 0|$ we obtain 
+
+\[
+\langle \ell_1 m_1 = 1 \ell_2 = 1 m_2 = 0 | (\ell_1 = 1 \ell_2 = 1 ) \ell_{12}
+= 2 m_{12} = 1 \rangle = \frac{1}{\sqrt{2}}
+\] \vspace{3px}
+
+But examining Equation \ref{cg_2} we see that there are two other normalized
+states of $L_z = 1$ that do not appear, that are orthogonal to the states in
+\ref{cg_2}, and thus these must be uniquely identified with each other. That
+is, we find 
+
+\begin{align} \label{cg_3}
+|(\ell = 1 \ell_2 = 1)\ell_{12} = 1 m_{12} = 1 \rangle = \frac{1}{\sqrt{2}}
+( - |\ell_1 = 1 m_1 = 0 \ell_2 = 1 m_2 = 1 \rangle + |\ell_1 = 1 m_1 = 1 \ell_2
+= 1 m_2 = 0 \rangle ) 
+\end{align} \vspace{3px}
+
+from which we deduce
+
+\begin{align} \label{}
+  \langle \ell_1 = 1 m_1 = 0 \ell_2 = 1 m_2 = 1 | (\ell_1 = 1 \ell_2
+  = 1 ) \ell_{12} = 1 m_{12} = 1 \rangle &= -\frac{1}{\sqrt{2}} \\ 
+  \langle \ell_1 = 1 m_1 = 1 \ell_2 = 1 m_2 = 0 | (\ell_1 =1 \ell_2 = 1)
+  \ell_{12} = 1 m_{12} = 1 \rangle &= \frac{1}{\sqrt{2}}
+\end{align}\vspace{3px}
+
+Notice that, even with the assumption that the Clebsch-Gordan coefficients are
+real, the sign chosen on the RHS of Equation \ref{cg_3} appears arbitrary. This
+is again part of the CS phase convention: the component with the maximum $m$ on
+the RHS was taken to have the positive sign. 
+
+The point here is not to have you calculate all of the CG coefficients -- that
+is what Mathematica is for -- but instead for you to understand that they can
+be derived using properties of the lowering operator combined with a convention
+for fixing various signs/phases. 
+
+
+\section{Spin} 
+
+\subsection{Some History}
+
+In the early 1920s experimentalists studied the splitting of the lines of
+hydrogen and other atoms when the atoms were placed in a magnetic field. The
+external field defines a direction, and thees breaks rotational symmetry, and
+as a consequence, previously degenerate states split into their magnetic sub
+components, $-\ell \leq m \leq \ell$. The number of distinct lines produced
+exceeded the number that would be expected based on the description of the
+hydrogen atom we have developed so far. 
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width =7cm]{zeemansplit.pdf}
+    \caption{Zeeman Splittings in Hydrogen}
+    \label{zeemansplit}
+\end{figure}
+
+Alfred Lande, an experimentalist based at T\"ubingen University, had developed
+an empirical model describing the Zeeman splittings, not based in theory. Pauli
+had concluded the necessary theory was one that introduced an additional
+electron quantum number that could take on only two values. A 20-year-old
+student Kronig, visiting Lande at the time Pauli also came for discussions,
+interpreted Pauli's idea as an electron having a ``spin" $s = \frac{1}{2}$.
+Kronig shared his ideas with Pauli, whose objections included 
+
+\begin{itemize}
+  \item[1.] the discrepant values needed for $g_s$. 
+  \item[2.] the physical requirements for generating the needed magnetic moment
+    were unrealistic -- Pauli argued that the only radius one could construct
+    for the electron, $r \sim \frac{e^2}{mc^2} \sim \alpha \frac{\hbar
+    c}{mc^2}$ was so small that the electron's surface would need to rotate at
+    100s of $c$ to generate the magnetic moment. 
+\end{itemize}
+
+Kronig's idea was also met with skepticism from Niels Bohr, and was never
+published. 
+
+Nine month's later the same idea was generated by two young theorists in
+Holland, graduate students Uhlenbeck and Goudsmit, who described the notion of
+spin to Ehrenfest. He told the two that the idea was ``either nonsense, or
+something important" and urged them to write a paper. Uhlenbeck and Goudsmit
+consulted Lorentz, the leading Dutch theorist of the time, who raised
+objections similar to those of Pauli. They returned to Ehrenfest, asking him to
+return their paper, but he had already submitted it, and advised his students
+not to worry as they were young enough to be forgiven for stupidity. 
+
+In 1926, Thomas identified a relativistic correction, a spin-orbit contribution
+to the Hydrogen atom Hamiltonian that removed the need for a state-dependent
+magnetic moment -- they key objection both Pauli and Lorentz raisd. That plus
+the acceptance that the electron spin was not some analog of classical spin,
+but a uniquely quantum phenomena of the electron, resolved earlier objections. 
+
+
+\subsection{Quantum Mechanical Spin} 
+
+Spin in Quantum Mechanics is defined by an algebra borrowed from orbital
+angular momentum: 
+
+\[
+  [\hat{S}_i, \hat{S}_j ]  = i\hbar \epsilon_{ijk} S_k \quad \Rightarrow \quad
+  [\hat{S}_x, \hat{S}_y ] = i\hbar \hat{S}_z \quad [\hat{S}_y, \hat{S}_z]
+  = i\hbar \hat{S}_x \quad [\hat{S}_z, \hat{S}_x ] = i\hbar \hat{S}_y 
+\] \vspace{3px}
+
+which leads to the familiar relations we have derived 
+
+\[
+\hat{S}^2 |sm_s\rangle = \hbar^2 s(s+1)|sm_s\rangle \quad \hat{S}_z |s m_s
+\rangle = \hbar m_s | sm_s \rangle \quad  \hat{S}_\pm | sm_s \rangle = \hbar
+\sqrt{s(s+1) - m_s (m_s \pm 1 )} |sm_s \pm 1 \rangle
+\] \vspace{3px}
+
+Elementary particles in the standard model come with an intrinsic spin. All
+particles that make up physical matter have spin $s = \frac{1}{2}$ and are
+called \textit{fermions}. They include charged \textit{leptons} (which only
+have electromagnetic weak interactions)
+
+\[
+  e^- \quad e^+ \quad \mu^- \quad \mu^+ \quad \tau^- \quad \tau^+ 
+\] \vspace{3px}
+
+and their neutral partners, the neutrinos
+
+\[
+  \nu_e \quad \bar{\nu}_e \quad \nu_\mu \quad \bar{\nu}_\mu \quad \nu_\tau
+  \quad \bar{\nu}_\tau 
+\] \vspace{3px}
+
+and the quarks, which have strong interactions and their antiparticles 
+
+\[
+  u \quad d \quad s \quad c \quad t \quad b \qquad \qquad \bar{u} \quad
+  \bar{d} \quad \bar{s} \quad \bar{c} \quad \bar{t} \quad \bar{b} 
+\] \vspace{3px}
+
+We also have the particles that mediate the forces, which carry spin $s = 1$, 
+
+\[
+\text{weak interactions: } W^\pm, \; Z \qquad \text{ electromagnetic
+interactions: } \gamma \qquad \text{ strong interactions: } g 
+\] \vspace{3px}
+
+and finally we have the Higgs boson which generates the masses of the charged
+fermions, which is the standard model's only spin-less $s = 0$ particle. 
+
+The nucleon is a ``composite fermion" -- like an elementary fermion, only one
+composite fermion at a time can occupy a given quantum state. Its spin is made
+up of the spin of its elementary quark components, the angular momentum of the
+quarks, and the ``glue" (gluons) that hold the nucleon together. 
+
+
+
+
+
+
+
+
+
+
+    
+    
+
 
 
